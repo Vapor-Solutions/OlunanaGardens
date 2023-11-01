@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -140,132 +140,9 @@
     <!-- Promo Video -->
     {{-- <x-promo-video></x-promo-video> --}}
     <!-- Facilties -->
-    <section class="facilties section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-subtitle">Our Services</div>
-                    <div class="section-title">Garden Facilities</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                        <span class="flaticon-world"></span>
-                        <h5>Pick Up & Drop</h5>
-                        <p>We’ll pick up from airport while you comfy on your ride, mus nellentesque habitant.</p>
-                        <div class="facility-shape"> <span class="flaticon-world"></span> </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                        <span class="flaticon-car"></span>
-                        <h5>Parking Space</h5>
-                        <p>Fusce tincidunt nis ace park norttito sit amet space, mus nellentesque habitant.</p>
-                        <div class="facility-shape"> <span class="flaticon-car"></span> </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                        <span class="flaticon-bed"></span>
-                        <h5>Room Service</h5>
-                        <p>Room tincidunt nis ace park norttito sit amet space, mus nellentesque habitant.</p>
-                        <div class="facility-shape"> <span class="flaticon-bed"></span> </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                        <span class="flaticon-swimming"></span>
-                        <h5>Swimming Pool</h5>
-                        <p>Swimming pool tincidunt nise ace park norttito sit space, mus nellentesque habitant.</p>
-                        <div class="facility-shape"> <span class="flaticon-swimming"></span> </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                        <span class="flaticon-wifi"></span>
-                        <h5>Fibre Internet</h5>
-                        <p>Wifi tincidunt nis ace park norttito sit amet space, mus nellentesque habitant.</p>
-                        <div class="facility-shape"> <span class="flaticon-wifi"></span> </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                        <span class="flaticon-breakfast"></span>
-                        <h5>Breakfast</h5>
-                        <p>Eat tincidunt nisa ace park norttito sit amet space, mus nellentesque habitant</p>
-                        <div class="facility-shape"> <span class="flaticon-breakfast"></span> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-facilities></x-facilities>
     <!-- Testiominals -->
-    <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
-            data-overlay-dark="3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <div class="testimonials-box">
-                            <div class="head-box">
-                                <h6>Testimonials</h6>
-                                <h4>What Client's Say?</h4>
-                                <div class="line"></div>
-                            </div>
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <span class="quote"><img src="img/quot.png" alt=""></span>
-                                    <p>Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the
-                                        lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at
-                                        finibus viverra neca the sene on satien the miss drana inc fermen norttito sit
-                                        space, mus nellentesque habitan.</p>
-                                    <div class="info">
-                                        <div class="author-img"> <img src="img/team/4.jpg" alt=""> </div>
-                                        <div class="cont"> <span><i class="star-rating"></i><i
-                                                    class="star-rating"></i><i class="star-rating"></i><i
-                                                    class="star-rating"></i><i class="star-rating"></i></span>
-                                            <h6>Emily Brown</h6> <span>Guest review</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <span class="quote"><img src="img/quot.png" alt=""></span>
-                                    <p>Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the
-                                        lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at
-                                        finibus viverra neca the sene on satien the miss drana inc fermen norttito sit
-                                        space, mus nellentesque habitan.</p>
-                                    <div class="info">
-                                        <div class="author-img"> <img src="img/team/1.jpg" alt=""> </div>
-                                        <div class="cont"> <span><i class="star-rating"></i><i
-                                                    class="star-rating"></i><i class="star-rating"></i><i
-                                                    class="star-rating"></i><i class="star-rating"></i></span>
-                                            <h6>Nolan White</h6> <span>Guest review</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <span class="quote"><img src="img/quot.png" alt=""></span>
-                                    <p>Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the
-                                        lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at
-                                        finibus viverra neca the sene on satien the miss drana inc fermen norttito sit
-                                        space, mus nellentesque habitan.</p>
-                                    <div class="info">
-                                        <div class="author-img"> <img src="img/team/5.jpg" alt=""> </div>
-                                        <div class="cont"> <span><i class="star-rating"></i><i
-                                                    class="star-rating"></i><i class="star-rating"></i><i
-                                                    class="star-rating"></i><i class="star-rating"></i></span>
-                                            <h6>Olivia Martin</h6> <span>Guest review</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-testimonials></x-testimonials>
     <!-- Services -->
     <x-services></x-services>
     <!-- News -->
