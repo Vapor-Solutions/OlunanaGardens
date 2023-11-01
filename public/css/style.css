@@ -178,7 +178,7 @@ table,
 th,
 tr,
 td {
-    border: 1px solid #f8f5f0;
+    border: 1px solid #dfdfdf;
 }
 th,
 tr,
@@ -230,7 +230,7 @@ blockquote {
     padding: 45px;
     display: block;
     position: relative;
-    background-color: #f8f5f0;
+    background-color: #dfdfdf;
     overflow: hidden;
     margin: 35px 0;
     font-size: 15px;
@@ -395,7 +395,7 @@ blockquote cite:before {
     background: #182a3b;
 }
 .bg-cream {
-    background: #f8f5f0 ;
+    background: #dfdfdf ;
 }
 .color-1 {
 color: #fff;
@@ -1228,7 +1228,7 @@ color: #560007;
     display: -moz-inline-stack;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    display: inline;
     width: 20px;
     height: 1px;
     font: bold 14px/.4 Helvetica;
@@ -2550,7 +2550,7 @@ color: #560007;
 .rooms2 .caption h3,
 .rooms2 .caption h3 a {
     font-size: 24px;
-    color: #ab8a62;
+    color: #95343f;
     margin-bottom: 0px;
 }
 .rooms2 .caption h3 span {
@@ -2602,7 +2602,7 @@ color: #560007;
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 15px;
     background: transparent;
-    border: 1px solid #ab8a62;
+    border: 1px solid #95343f;
     text-transform: uppercase;
     letter-spacing: 3px;
     padding: 3px 12px;
@@ -2808,7 +2808,7 @@ hr.border-2 {
     transform-style: preserve-3d;
 }
 .rooms3 .square2 {
-    background: #f8f5f0;
+    background: #dfdfdf;
     background-size: cover;
     background-position: center center;
     -webkit-transition: -webkit-transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.25);
@@ -3741,8 +3741,8 @@ button.mfp-arrow {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-    border: 1px solid #f8f5f0;
-    background: #f8f5f0;
+    border: 1px solid #dfdfdf;
+    background: #dfdfdf;
     color: #182a3b;
 }
 .ui-state-hover,
@@ -3984,7 +3984,7 @@ button.mfp-arrow {
 /* booking form */
 .booking-box {
     position: relative;
-    background: #f8f5f0;
+    background: #dfdfdf;
     padding: 45px;
     margin-bottom: -75px;
 }
@@ -4025,7 +4025,7 @@ button.mfp-arrow {
 
 /* ======= Pricing style ======= */
 .pricing-card {
-    background-color: #f8f5f0;
+    background-color: #dfdfdf;
     margin-bottom: 30px;
 }
 .pricing-card .desc {
@@ -4365,8 +4365,8 @@ button.mfp-arrow {
 .news .item .con {
     margin: -155px 20px 90px;
     padding: 20px;
-    background-color: #f8f5f0 !important;
-    border: 1px solid #f8f5f0;
+    background-color: #dfdfdf !important;
+    border: 1px solid #dfdfdf;
     border-radius: 0;
     overflow: hidden;
     -webkit-transition: .2s cubic-bezier(.3, .58, .55, 1);
@@ -4513,7 +4513,7 @@ button.mfp-arrow {
 }
 /* news sidebar */
 .news2-sidebar .widget {
-    background: #f8f5f0;
+    background: #dfdfdf;
     padding: 30px;
     margin-bottom: 30px;
     overflow: hidden;
@@ -4721,7 +4721,7 @@ button.mfp-arrow {
     font-weight: 400;
     font-family: 'Barlow Condensed', sans-serif;
     text-transform: uppercase;
-    background: #ab8a62;
+    background: #95343f;
     color: #fff;
     padding: 13px 22px;
     margin: 0;
@@ -4807,7 +4807,7 @@ button.mfp-arrow {
     font-weight: 400;
     font-family: 'Barlow Condensed', sans-serif;
     text-transform: uppercase;
-    background: #ab8a62;
+    background: #95343f;
     color: #fff;
     padding: 13px 22px;
     margin: 0;
