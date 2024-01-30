@@ -16,7 +16,8 @@ class General extends Component
     #[Validate('required|email')]
     public $companyEmail;
 
-    #[Validate('image|max:512')]
+    #[Validate('mimes:png', message: "The File has to be in PNG format")]
+    #[Validate('max:512', message: "The size is larger than 512kb")]
     public $companyLogo;
 
     use WithFileUploads;
@@ -50,11 +51,12 @@ class General extends Component
 
         File::put($envFile, $oldEnvContent);
 
-        $this->companyLogo->storeAs(path:'/', name:'company_logo.png')->disk('public');
+        if ($this->companyLogo) $this->companyLogo->storeAs(path: '/', name: 'company_logo.png');
 
-        $this->emit('done', [
-            'success' => 'Successfully Saved the Company Details Settings'
-        ]);
+        $this->dispatch(
+            'done',
+            success: 'Successfully Saved the Company Details Settings'
+        );
     }
 
     public function render()
