@@ -11,7 +11,7 @@
             $earnings += $booking->total_cost_kes;
         }
     @endphp
-    <button>test</button>
+    {{-- <button>test</button> --}}
 
     <div class="container-fluid">
         <div class="row">

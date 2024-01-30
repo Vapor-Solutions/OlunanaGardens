@@ -18,6 +18,7 @@ class General extends Component
 
     #[Validate('mimes:png', message: "The File has to be in PNG format")]
     #[Validate('max:512', message: "The size is larger than 512kb")]
+    #[Validate('nullable')]
     public $companyLogo;
 
     use WithFileUploads;
