@@ -16,7 +16,7 @@ class General extends Component
     #[Validate('required|email')]
     public $companyEmail;
 
-    #[Validate('required|image|max:512')]
+    #[Validate('image|max:512')]
     public $companyLogo;
 
     use WithFileUploads;
