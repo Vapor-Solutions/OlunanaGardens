@@ -30,7 +30,7 @@
     <!-- Menu -->
     <div class="cappa-wrap">
         <div class="cappa-wrap-inner">
-            <x-sidebar-links></x-sidebar-links>
+            <x-front.sidebar-links></x-front.sidebar-links>
             <div class="cappa-menu-footer">
                 <div class="reservation">
                     <a href="tel:8551004444">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <!-- Booking From -->
-                        <x-booking-form></x-booking-form>
+                        <x-front.booking-form></x-front.booking-form>
                     </div>
                 </div>
             </div>
@@ -134,19 +134,19 @@
         </div>
     </section>
     <!-- Rooms -->
-    {{-- <x-rooms></x-rooms> --}}
+    {{-- <x-front.rooms></x-front.rooms> --}}
     <!-- Pricing -->
-    {{-- <x-pricing></x-pricing> --}}
+    {{-- <x-front.pricing></x-front.pricing> --}}
     <!-- Promo Video -->
-    {{-- <x-promo-video></x-promo-video> --}}
+    {{-- <x-front.promo-video></x-front.promo-video> --}}
     <!-- Facilties -->
-    <x-facilities></x-facilities>
+    <x-front.facilities></x-front.facilities>
     <!-- Testiominals -->
-    <x-testimonials></x-testimonials>
+    <x-front.testimonials></x-front.testimonials>
     <!-- Services -->
-    <x-services></x-services>
+    <x-front.services></x-front.services>
     <!-- News -->
-    <x-news></x-news>
+    <x-front.news></x-front.news>
     <!-- Reservation & Booking Form -->
     <section class="testimonials">
         <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
@@ -169,15 +169,15 @@
                         <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>
                     </div>
                     <!-- Booking From -->
-                    <x-booking-form></x-booking-form>
+                    <x-front.booking-form></x-front.booking-form>
                 </div>
             </div>
         </div>
     </section>
     <!-- Clients -->
-    <x-clients></x-clients>
+    <x-front.clients></x-front.clients>
     <!-- Footer -->
-    <x-footer></x-footer>
+    <x-front.footer></x-front.footer>
     <!-- jQuery -->
     <script src="js/jquery-3.6.3.min.js"></script>
     <script src="js/jquery-migrate-3.0.0.min.js"></script>

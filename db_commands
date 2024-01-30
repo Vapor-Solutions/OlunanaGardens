@@ -1,0 +1,16 @@
+pa make:model User -m
+pa make:model Role -m
+pa make:migration CreateRoleUserTable
+pa make:model Permission -m
+pa make:migration CreatePermissionRoleTable
+pa make:model EventType -m
+pa make:model Booking -m
+pa make:model PaymentMethod -m
+pa make:model Payment -m
+pa make:model Testimonial -m
+pa make:model Gallery -m
+pa make:model PostCategory -m
+pa make:model Tag -m
+pa make:model Post -m
+pa make:migration CreatePostTagTable
+pa make:model Comment -m

@@ -1,0 +1,11 @@
+pa make:component Front/BookingForm
+pa make:component Front/Clients
+pa make:component Front/Facilities
+pa make:component Front/Footer
+pa make:component Front/News
+pa make:component Front/Pricing
+pa make:component Front/PromoVideo
+pa make:component Front/Sections
+pa make:component Front/Services
+pa make:component Front/SidebarLinks
+pa make:component Front/Testimonials
