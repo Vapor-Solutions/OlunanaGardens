@@ -50,7 +50,7 @@ class General extends Component
 
         File::put($envFile, $oldEnvContent);
 
-        $this->companyLogo->storeAs('/', 'company_logo.png', 'public');
+        $this->companyLogo->storeAs(path:'/', name:'company_logo.png')->disk('public');
 
         $this->emit('done', [
             'success' => 'Successfully Saved the Company Details Settings'
