@@ -34,12 +34,6 @@ class General extends Component
 
     public function saveCompanyDetails()
     {
-        $this->validate([
-            'companyName' => 'required',
-            'companyEmail' => 'required',
-            'companyLogo' => 'required|mimes:png',
-        ]);
-
 
 
         $envData = [
