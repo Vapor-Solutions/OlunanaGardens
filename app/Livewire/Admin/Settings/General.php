@@ -36,6 +36,7 @@ class General extends Component
     public function saveCompanyDetails()
     {
 
+        $this->validate();
 
         $envData = [
             'COMPANY_NAME' => $this->companyName,
@@ -51,7 +52,7 @@ class General extends Component
 
         File::put($envFile, $oldEnvContent);
 
-        if ($this->companyLogo) $this->companyLogo->storeAs(path: '/', name: 'company_logo.png');
+        if ($this->companyLogo) $this->companyLogo->storeAs('/', 'company_logo.png', 'public');
 
         $this->dispatch(
             'done',
