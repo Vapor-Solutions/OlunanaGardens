@@ -1,5 +1,5 @@
 @extends('errors::minimal')
 
-@section('title', __('Forbidden'))
-@section('code', '403')
-@section('message', __($exception->getMessage() ?: 'Forbidden'))
+@section('title', __('Maintenance Mode'))
+@section('code', '503')
+@section('message', __($exception->getMessage() ?: 'The Site is currently on Maintenance'))
