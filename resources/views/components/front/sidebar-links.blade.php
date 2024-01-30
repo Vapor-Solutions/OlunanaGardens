@@ -4,23 +4,22 @@
             <a class="{{ Request::is('/') ? 'active' : '' }}" href='{{ route('home') }}'>Home </a>
         </li>
         <li class='cappa-menu-sub'>
-            <a class="{{ Request::is('/about') ? 'active' : '' }}" href="about.html">About</a>
+            <a class="{{ Request::is('/about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
         </li>
         <li class='cappa-menu-sub'>
-            <a href='#'>Garden Sections </a>
-        </li>
-        <li>
-            <a href="restaurant.html">Restaurant</a>
-        </li>
-        <li>
-            <a href="spa-wellness.html">Spa Wellness</a>
-        </li>
-        <li class="cappa-menu-sub">
-            <a href='#'>Pages </a>
+            <a class="{{ Request::is('/garden-sections') ? 'active' : '' }}" href='{{ route('garden-sections') }}'>
+                Garden Sections
+            </a>
         </li>
         <li class='cappa-menu-sub'>
-            <a href='#'>News </a>
+            <a class="{{ Request::is('/restaurant') ? 'active' : '' }}" href="{{ route('restaurant') }}">Restaurant</a>
         </li>
-        <li><a href="contact.html">Contact</a></li>
+        <li class='cappa-menu-sub'>
+            <a class="{{ Request::is('/blog') ? 'active' : '' }}" href="{{ route('blog') }}">Our Blog</a>
+        </li>
+        <li class='cappa-menu-sub'>
+            <a class="{{ Request::is('/contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}">Our Blog</a>
+        </li>
+
     </ul>
 </nav>

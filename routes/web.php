@@ -22,6 +22,11 @@ if (env('MAINTENANCE_MODE')) {
     Route::redirect('/{path?}', '/');
 } else {
     Route::get('/', Livewire\Home::class)->name('home');
+    Route::get('/about', Livewire\Home::class)->name('about');
+    Route::get('/garden-sections', Livewire\Home::class)->name('garden-sections');
+    Route::get('/restaurant', Livewire\Home::class)->name('restaurant');
+    Route::get('/blog', Livewire\Home::class)->name('blog');
+    Route::get('/contact-us', Livewire\Home::class)->name('contact-us');
 }
 
 Route::redirect('admin', 'admin/dashboard');
