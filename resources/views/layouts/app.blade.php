@@ -56,7 +56,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center bg-alps-danger">
-            <img class="" src="/logo_light.png" alt="Logo" height="150" width="150">
+            <img class="" src="/company_logo.png" alt="Logo" height="150" width="150">
         </div>
 
         <!-- Navbar -->
