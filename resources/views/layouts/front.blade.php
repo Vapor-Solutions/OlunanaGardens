@@ -65,6 +65,7 @@
 
     {{ $slot }}
 
+    <x-front.footer></x-front.footer>
 
     <script src="js/jquery-3.6.3.min.js"></script>
     <script src="js/jquery-migrate-3.0.0.min.js"></script>

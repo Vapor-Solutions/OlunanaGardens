@@ -127,4 +127,8 @@ Route::middleware([
     Route::prefix('comments')->group(function () {
         Route::get('/', Admin\Comments\Index::class)->name('admin.comments.index')->middleware('permission:Read Comments');
     });
+    // Tags
+    Route::prefix('tags')->group(function () {
+        Route::get('/', Admin\Tags\Index::class)->name('admin.tags.index')->middleware('permission:Create Blog Posts');
+    });
 });

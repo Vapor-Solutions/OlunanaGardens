@@ -19,6 +19,11 @@ return new class extends Migration
         });
 
         $permissions = [
+            'Read Admins',
+            'Create Admins',
+            'Edit Admins',
+            'Delete Admins',
+
             'Read Users',
             'Create Users',
             'Edit Users',
