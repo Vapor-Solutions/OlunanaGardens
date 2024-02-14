@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\Users;
 
+use App\Models\ActivityLog;
+use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
 
@@ -11,15 +13,17 @@ class Index extends Component
     {
         $user = User::find($id);
         if ($user->id == auth()->user()->id) {
-            $this->emit('done', [
-                'error' => "Unafanya Nini?? You can't Delete yourself from the system"
-            ]);
+            $this->emit(
+                'done',
+                ['error' => "Unafanya Nini?? You can't Delete yourself from the system"]
+            );
             return;
         }
         if ($user->id == 1) {
-            $this->emit('done', [
-                'error' => "This User can't be Deleted from the System"
-            ]);
+            $this->emit(
+                'done',
+                ['error' => "This User can't be Deleted from the System"]
+            );
             return;
         }
 
@@ -32,20 +36,22 @@ class Index extends Component
                 'payload' => "Updated User No. " . $user->id
             ]);
 
-            $this->emit('done', [
-                'success' => "Successfully Deleted this User"
-            ]);
+            $this->emit(
+                'done',
+                ['success ' => "Successfully Deleted this User"]
+            );
         } else {
-            $this->emit('done', [
-                'error' => "You Do not have the permission to delete this User"
-            ]);
+            $this->emit(
+                'done',
+                ['error' => "You Do not have the permission to delete this User"]
+            );
         }
     }
 
     public function render()
     {
-        return view('livewire.admin.users.index',[
-            'users'=>User::all()
+        return view('livewire.admin.users.index', [
+            'users' => User::all()
         ]);
     }
 }

@@ -18,7 +18,7 @@
             <a class="{{ Request::is('/blog') ? 'active' : '' }}" href="{{ route('blog') }}">Our Blog</a>
         </li>
         <li class=''>
-            <a class="{{ Request::is('/contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}">Our Blog</a>
+            <a class="{{ Request::is('/contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}">Contact Us</a>
         </li>
 
     </ul>

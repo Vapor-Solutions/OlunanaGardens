@@ -1,8 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold">
-            {{ __('Dashboard') }}
-        </h2>
+        {{ __('Dashboard') }}
     </x-slot>
     @php
         $earnings = 0;
@@ -39,8 +37,8 @@
                                     $available = count(App\Models\Section::all());
                                     $active = 0;
 
-                                    foreach (App\Models\Section::all() as $room) {
-                                        foreach ($room->bookings as $booking) {
+                                    foreach (App\Models\Section::all() as $section) {
+                                        foreach ($section->bookings as $booking) {
                                             if ($booking->is_active) {
                                                 $active += 1;
                                             }
@@ -114,12 +112,12 @@
 
                         </div>
                     </div>
-                    <div class="card-body p-0" >
+                    <div class="card-body p-0">
                         <div id="chart-timeline-dashbord" wire:ignore></div>
                     </div>
                 </div>
             </div>
-{{--
+            {{--
             <ol>
                 @foreach (App\Models\Permission::all() as $permission)
                     <li>{{ $permission->title }}</li>
@@ -143,8 +141,8 @@
                             {{ $day->timestamp . '000' }},
                             @php
                                 $count = 0;
-                                foreach (App\Models\Section::all() as $room) {
-                                    if ($room->IsBooked(Carbon\Carbon::parse($day)->toDateString())) {
+                                foreach (App\Models\Section::all() as $section) {
+                                    if ($section->IsBooked(Carbon\Carbon::parse($day)->toDateString())) {
                                         $count++;
                                     }
                                 }

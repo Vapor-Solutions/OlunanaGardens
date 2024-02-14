@@ -9,7 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
-    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/company_logo.png" type="image/x-icon">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -126,7 +126,7 @@
         <aside class="main-sidebar shadow-lg">
             <!-- Brand Logo -->
             <a href="/" class="brand-link bg-white">
-                <img src="/logo.png" alt="Force Company Logo" class="brand-image" style="opacity: 1">
+                <img src="/company_logo.png" alt="Company Logo" class="brand-image" style="opacity: 1">
                 <small class="brand-text text-dark">{{ env('APP_NAME') }}</small>
             </a>
 

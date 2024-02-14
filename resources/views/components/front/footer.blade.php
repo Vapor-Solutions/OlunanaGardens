@@ -5,10 +5,7 @@
                 <div class="col-md-4">
                     <div class="footer-column footer-about">
                         <h3 class="footer-title">About Olunana Gardens</h3>
-                        <p class="footer-about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                            aliquam assumenda, reprehenderit cupiditate incidunt harum, ipsa nihil distinctio
-                            excepturi necessitatibus quasi vitae atque recusandae voluptatibus dolorem. Aliquam
-                            nesciunt molestiae cum..</p>
+                        {!! File::get(public_path('/text/footer_content.txt')) !!}
 
 
                     </div>

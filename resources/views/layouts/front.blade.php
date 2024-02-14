@@ -32,14 +32,7 @@
         <div class="cappa-wrap-inner">
             <x-front.sidebar-links></x-front.sidebar-links>
             <div class="cappa-menu-footer">
-                <div class="reservation">
-                    <a href="tel:8551004444">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="flaticon-call"></i>
-                        </div>
-                        <div class="call">Reservations: <br><span>+254 712 345 678</span></div>
-                    </a>
-                </div>
+                <x-front.reservations></x-front.reservations>
             </div>
         </div>
     </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained();
-            $table->float('rating');
+            $table->unsignedDecimal('rating')->default(3.5);
             $table->text('comment');
             $table->timestamps();
         });

@@ -1,0 +1,4 @@
+<p class="footer-about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                            aliquam assumenda, reprehenderit cupiditate incidunt harum, ipsa nihil distinctio
+                            excepturi necessitatibus quasi vitae atque recusandae voluptatibus dolorem. Aliquam
+                            nesciunt molestiae cum..</p>
