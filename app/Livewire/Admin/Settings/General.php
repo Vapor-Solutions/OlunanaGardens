@@ -54,9 +54,11 @@ class General extends Component
 
         if ($this->companyLogo) $this->companyLogo->storeAs('/', 'company_logo.png', 'public');
 
-        $this->dispatch(
+        $this->emit(
             'done',
-            success: 'Successfully Saved the Company Details Settings'
+            [
+                'success' => 'Successfully Saved the Company Details Settings'
+            ]
         );
     }
 
