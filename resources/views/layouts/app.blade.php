@@ -126,7 +126,7 @@
         <aside class="main-sidebar shadow-lg">
             <!-- Brand Logo -->
             <a href="/" class="brand-link bg-white">
-                <img src="/company_logo.png" alt="Company Logo" class="brand-image" style="opacity: 1">
+                <img src="/company_logo.png?{{ rand(1, 670) }}" alt="Company Logo" class="brand-image" style="opacity: 1">
                 <small class="brand-text text-dark">{{ env('APP_NAME') }}</small>
             </a>
 

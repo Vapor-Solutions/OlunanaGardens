@@ -10,18 +10,17 @@ use Livewire\WithFileUploads;
 class General extends Component
 {
 
-    #[Validate('required|min:3|max:60')]
     public $companyName;
-
-    #[Validate('required|email')]
     public $companyEmail;
-
-    #[Validate('mimes:png', message: "The File has to be in PNG format")]
-    #[Validate('max:512', message: "The size is larger than 512kb")]
-    #[Validate('nullable')]
     public $companyLogo;
 
     use WithFileUploads;
+
+    protected $rules = [
+        'companyName' => 'required',
+        'companyEmail' => 'required',
+        'companyLogo' => 'nullable|mimes:png|max:512',
+    ];
 
 
     protected $listeners = [
