@@ -37,7 +37,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Styles -->
-    {{-- @livewireStyles --}}
+    @livewireStyles
     @stack('styles')
 
     <style>
