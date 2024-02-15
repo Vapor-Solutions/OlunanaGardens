@@ -1,7 +1,8 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <!-- Header Banner -->
-    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/slider/1.jpg">
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
+        data-background="img/slider/1.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 caption mt-90">
@@ -34,13 +35,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/18.jpg" alt="" class="mt-90 mb-30"> </div>
-                <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/17.jpg" alt=""> </div>
+                <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/18.jpg"
+                        alt="" class="mt-90 mb-30"> </div>
+                <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/17.jpg"
+                        alt=""> </div>
             </div>
         </div>
     </section>
 
     <x-front.services2></x-front.services2>
     <x-front.facilities></x-front.facilities>
-    <x-front.testimonials></x-front.testimonials>
+    @if ($testimonials)
+        <x-front.testimonials></x-front.testimonials>
+    @endif
 </div>
