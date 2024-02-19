@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class BookingForm extends Component
+class RestaurantContent extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class BookingForm extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.front.booking-form');
+        return view('components.front.restaurant-content');
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone_number')->unique();
             $table->text('address')->nullable();
             $table->string('country');
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }

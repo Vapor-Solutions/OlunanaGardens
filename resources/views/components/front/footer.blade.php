@@ -15,6 +15,9 @@
                         <h3 class="footer-title">Explore</h3>
                         <ul class="footer-explore-list list-unstyled">
                             <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/blog">Our Blog</a></li>
+                            <li><a href="/contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,14 +29,21 @@
                         <div class="footer-contact-info">
                             <p class="footer-contact-phone"><span class="flaticon-call"></span> +254 712 345 678
                             </p>
-                            <p class="footer-contact-mail">info@olunanagardens.com</p>
+                            <p class="footer-contact-mail">{{ env('COMPANY_EMAIL') }}</p>
                         </div>
                         <div class="footer-about-social-list">
-                            <a href="#"><i class="ti-instagram"></i></a>
-                            <a href="#"><i class="ti-twitter"></i></a>
-                            <a href="#"><i class="ti-youtube"></i></a>
-                            <a href="#"><i class="ti-facebook"></i></a>
-                            <a href="#"><i class="ti-pinterest"></i></a>
+                            @if (env('INSTAGRAM_URL'))
+                                <a href="{{ env('INSTAGRAM_URL') }}"><i class="ti-instagram"></i></a>
+                            @endif
+                            @if (env('TWITTER_URL'))
+                                <a href="{{ env('TWITTER_URL') }}"><i class="ti-twitter"></i></a>
+                            @endif
+                            @if (env('YOUTUBE_URL'))
+                                <a href="{{ env('YOUTUBE_URL') }}"><i class="ti-youtube"></i></a>
+                            @endif
+                            @if (env('FACEBOOK_URL'))
+                                <a href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>

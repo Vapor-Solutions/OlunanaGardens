@@ -23,10 +23,10 @@ if (env('MAINTENANCE_MODE')) {
 } else {
     Route::get('/', Livewire\Home::class)->name('home');
     Route::get('/about', Livewire\About::class)->name('about');
-    Route::get('/garden-sections', Livewire\GardenSections::class)->name('garden-sections');
+    // Route::get('/garden-sections', Livewire\GardenSections::class)->name('garden-sections');
     Route::get('/restaurant', Livewire\Restaurant::class)->name('restaurant');
     Route::get('/blog', Livewire\Blog::class)->name('blog');
-    Route::get('/{slug}/blog-post', Livewire\BlogPost::class)->name('blog-post');
+    Route::get('/{id}/blog-post', Livewire\BlogPost::class)->name('blog-post');
     Route::get('/contact-us', Livewire\ContactUs::class)->name('contact-us');
 }
 

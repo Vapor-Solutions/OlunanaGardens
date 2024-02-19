@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             SectionsSeeder::class,
             BookingSeeder::class,
             TestimonialSeeder::class,
+            MenuSeeder::class,
+            PostCategorySeeder::class,
+            PostSeeder::class,
         ]);
     }
 }

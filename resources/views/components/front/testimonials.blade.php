@@ -1,5 +1,5 @@
 <section class="testimonials">
-    <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg" data-overlay-dark="3">
+    <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/7.jpg" data-overlay-dark="3">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -15,9 +15,8 @@
                                     <span class="quote"><img src="img/quot.png" alt=""></span>
                                     <p>{{ $testimonial->comment }}</p>
                                     <div class="info">
-                                        <div class="author-img"> <img src="" alt=""> </div>
+                                        <div class="author-img"> <img src="{{ $testimonial->client->profile_photo_url }}" alt=""> </div>
                                         <div class="cont">
-                                            {{-- <x-front.rating count="{{ $testimonial->rating }}"></x-front.rating> --}}
                                             <h6>{{ $testimonial->client->name }}</h6> <span>Guest review</span>
                                         </div>
                                     </div>

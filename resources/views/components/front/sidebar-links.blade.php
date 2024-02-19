@@ -6,11 +6,11 @@
         <li class=''>
             <a class="{{ Request::is('/about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
         </li>
-        <li class=''>
+        {{-- <li class=''>
             <a class="{{ Request::is('/garden-sections') ? 'active' : '' }}" href='{{ route('garden-sections') }}'>
                 Garden Sections
             </a>
-        </li>
+        </li> --}}
         <li class=''>
             <a class="{{ Request::is('/restaurant') ? 'active' : '' }}" href="{{ route('restaurant') }}">Restaurant</a>
         </li>
