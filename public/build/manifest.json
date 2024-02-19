@@ -8,5 +8,10 @@
     "file": "assets/app-9dcdfe64.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
+  },
+  "resources/sass/front.scss": {
+    "file": "assets/front-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/sass/front.scss"
   }
 }
