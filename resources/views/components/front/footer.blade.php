@@ -24,10 +24,11 @@
                 <div class="col-md-4">
                     <div class="footer-column footer-contact">
                         <h3 class="footer-title">Contact</h3>
-                        <p class="footer-contact-text">121314 - 00400<br>Nairobi Kenya
+                        <p class="footer-contact-text">
+                            {{ env('COMPANY_ADDRESS') }}<br>{{ env('COMPANY_COUNTRY') }}
                         </p>
                         <div class="footer-contact-info">
-                            <p class="footer-contact-phone"><span class="flaticon-call"></span> +254 712 345 678
+                            <p class="footer-contact-phone"><span class="flaticon-call"></span> {{ env('PHONE_NUMBER') }}
                             </p>
                             <p class="footer-contact-mail">{{ env('COMPANY_EMAIL') }}</p>
                         </div>
