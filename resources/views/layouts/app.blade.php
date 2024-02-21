@@ -184,14 +184,14 @@
         </div>
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    {{-- <footer class="main-footer">
         <strong>Copyright &copy; {{ Carbon\Carbon::now()->year }} <a href="https://vapor.co.ke">Vapor
                 Technologies Ltd.</a></strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 2.01.0733
         </div>
-    </footer>
+    </footer> --}}
 
     <!-- Control Sidebar -->
     {{-- <aside class="control-sidebar control-sidebar-light">

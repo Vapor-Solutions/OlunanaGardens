@@ -57,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="footer-bottom-inner">
                         <p class="footer-bottom-copy-right">© Copyright {{ Carbon\Carbon::now()->format('Y') }} by
-                            <a href="#">Vapor Technologies (www.vapor.co.ke)</a>
+                            <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
                         </p>
                     </div>
                 </div>
