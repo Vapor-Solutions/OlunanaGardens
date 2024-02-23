@@ -147,7 +147,7 @@
                                     }
                                 }
                             @endphp
-                            {{ $count }}
+                            // {{ $count }}
                         ],
                     @endforeach
                 ]
