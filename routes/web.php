@@ -46,6 +46,10 @@ Route::middleware([
     });
 
 
+    // CMS
+    Route::prefix('cms')->group(function () {
+        Route::get('content', Admin\Cms\Content::class)->name('admin.cms.content');
+    });
     // Users
     Route::prefix('users')->group(function () {
         Route::get('/', Admin\Users\Index::class)->name('admin.users.index')->middleware('permission:Read Users');

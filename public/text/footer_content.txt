@@ -1,4 +1,1 @@
-<p class="footer-about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                            aliquam assumenda, reprehenderit cupiditate incidunt harum, ipsa nihil distinctio
-                            excepturi necessitatibus quasi vitae atque recusandae voluptatibus dolorem. Aliquam
-                            nesciunt molestiae cum..</p>
+<p>Olunana Gardens: A sanctuary nestled amidst serene landscapes, offering an unparalleled blend of natural beauty and human ingenuity. Our eco-friendly gardens are meticulously designed to provide a tranquil escape, with native plants, luxury accommodations, and breathtaking views. Whether you're seeking a peaceful retreat, a romantic getaway, or a venue for your special event, Olunana Gardens is where nature meets luxury, creating a sanctuary for serenity and relaxation.</p>
