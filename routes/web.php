@@ -49,6 +49,8 @@ Route::middleware([
     // CMS
     Route::prefix('cms')->group(function () {
         Route::get('content', Admin\Cms\Content::class)->name('admin.cms.content');
+        Route::get('photos', Admin\Cms\Photos::class)->name('admin.cms.photos');
+        Route::get('faq', Admin\Cms\Photos::class)->name('admin.cms.faq');
     });
     // Users
     Route::prefix('users')->group(function () {
