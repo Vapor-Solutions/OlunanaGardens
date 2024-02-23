@@ -96,5 +96,5 @@
         </div>
     </section>
     <!-- Clients -->
-    <x-front.clients></x-front.clients>
+    {{-- <x-front.clients></x-front.clients> --}}
 </div>
