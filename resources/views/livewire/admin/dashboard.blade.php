@@ -147,14 +147,14 @@
                                     }
                                 }
                             @endphp
-                            // {{ $count }}
+                            {{ $count??0 }}
                         ],
                     @endforeach
                 ]
             }],
             chart: {
                 id: 'area-datetime',
-                type: 'area',
+                type: 'line',
                 height: 425,
                 zoom: {
                     autoScaleYaxis: true
