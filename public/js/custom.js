@@ -3,35 +3,32 @@
 [ Custom settings ]
 
 01. ScrollIt
-02. Logo & Menu scroll sticky
-03. Menu Navigation
-04. Sub Menu
-05. Sections background image from data background
-06. Animations
-07. YouTubePopUp
-08. Testimonials owlCarousel
-09. Rooms 1 owlCarousel
-10. Rooms Page owlCarousel
-11. Pricing owlCarousel
-12. News owlCarousel
-13. Team owlCarousel
-14. Clients owlCarousel
-15. Restaurant Menu owlCarousel
-16. Restaurant Menu Tabs
-17. Accordion Box (for Faqs)
-18. MagnificPopup Gallery
-19. Smooth Scrolling
-20. Scroll back to top
-21. Select2
-22. Datapicker
-23. Slider
-24. Preloader
-25. Contact Form
-26. Slider Grid Background
+02. Navbar scrolling background
+03. Close navbar-collapse when a  clicked
+04. Sections background image from data background
+05. Animations
+06. YouTubePopUp
+07. Testimonials owlCarousel
+08. Rooms 1 owlCarousel
+09. Rooms Page owlCarousel
+10. Pricing owlCarousel
+11. News owlCarousel
+12. Team owlCarousel
+13. Clients owlCarousel
+14. Restaurant Menu owlCarousel
+15. Restaurant Menu Tabs
+16. Accordion Box (for Faqs)
+17. MagnificPopup Gallery
+18. Smooth Scrolling
+19. Scroll back to top
+20. Select2
+21. Datapicker
+22. Slider
+23. Preloader
+24. Contact Form
+25. Grid Background
 
 ------------------------------------------------------- */
-
-
 $(function () {
     "use strict";
     var wind = $(window);
@@ -49,91 +46,25 @@ $(function () {
     });
 
 
-    // Logo & Menu scroll sticky
-    $(window).scroll(function () {
-        var $this = $(this)
-            , st = $this.scrollTop()
-            , navbar = $('.cappa-header')
-            , logo = $(".cappa-header .cappa-logo> img");
-        if (st > 150) {
-            if (!navbar.hasClass('scrolled')) {
-                navbar.addClass('scrolled');
-                logo.attr('src', 'img/logo-dark.png');
-            }
-        }
-        if (st < 150) {
-            if (navbar.hasClass('scrolled')) {
-                navbar.removeClass('scrolled sleep')
-                logo.attr('src', 'img/logo.png');
-            }
-        }
-        if (st > 350) {
-            if (!navbar.hasClass('awake')) {
-                navbar.addClass('awake');
-            }
-        }
-        if (st < 350) {
-            if (navbar.hasClass('awake')) {
-                navbar.removeClass('awake');
-                navbar.addClass('sleep');
-            }
+    // Navbar scrolling background
+    wind.on("scroll", function () {
+        var bodyScroll = wind.scrollTop(),
+            navbar = $(".navbar"),
+            logo = $(".navbar .logo> img");
+        if (bodyScroll > 100) {
+            navbar.addClass("nav-scroll");
+            logo.attr('src', 'img/logo-dark.png');
+        } else {
+            navbar.removeClass("nav-scroll");
+            logo.attr('src', 'img/logo.png');
         }
     });
 
 
-    // Menu Navigation
-    $('.cappa-js-cappa-nav-toggle').on('click', function (e) {
-        var $this = $(this);
-        e.preventDefault();
-        if ($('body').hasClass('menu-open')) {
-            $this.removeClass('active');
-            $('.cappa-wrap .cappa-wrap-inner > ul > li').each(function (i) {
-                var that = $(this);
-                setTimeout(function () {
-                    that.removeClass('open');
-                }, i * 100);
-            });
-            setTimeout(function () {
-                $('.cappa-wrap').removeClass('cappa-wrap-show');
-            }, 300);
-            $('body').removeClass('menu-open');
-        }
-        else {
-            $('.cappa-wrap').addClass('cappa-wrap-show');
-            $this.addClass('active');
-            $('body').addClass('menu-open');
-            setTimeout(function () {
-                $('.cappa-wrap .cappa-wrap-inner > ul > li').each(function (i) {
-                    var that = $(this);
-                    setTimeout(function () {
-                        that.addClass('open');
-                    }, i * 100);
-                });
-            }, 200);
-        }
+    // Close navbar-collapse when a  clicked
+    $(".navbar-nav .dropdown-item a").on('click', function () {
+        $(".navbar-collapse").removeClass("show");
     });
-
-    // Sub Menu
-    $('.cappa-menu li.cappa-menu-sub>a').on('click', function () {
-        $(this).removeAttr('href');
-        var element = $(this).parent('li');
-        if (element.hasClass('open')) {
-            element.removeClass('open');
-            element.find('li').removeClass('open');
-            element.find('ul').slideUp();
-        }
-        else {
-            element.addClass('open');
-            element.children('ul').slideDown();
-            element.siblings('li').children('ul').slideUp();
-            element.siblings('li').removeClass('open');
-            element.siblings('li').find('li').removeClass('open');
-            element.siblings('li').find('ul').slideUp();
-        }
-    });
-    $('.cappa-menu>ul>li.cappa-menu-sub>a').append('<span class="holder"></span>');
-
-
 
 
     // Sections background image from data background
@@ -216,7 +147,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -240,7 +171,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -264,7 +195,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -287,7 +218,7 @@ $(function () {
         autoplay: true,
         dots: false,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -311,7 +242,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -334,7 +265,7 @@ $(function () {
         autoplay: false,
         dots: false,
         nav: true,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -361,7 +292,7 @@ $(function () {
         mouseDrag: true,
         autoplay: false,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -385,7 +316,7 @@ $(function () {
         autoplay: true,
         dots: false,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -408,7 +339,7 @@ $(function () {
         autoplay: false,
         dots: false,
         nav: true,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -490,34 +421,34 @@ $(function () {
 
     // Smooth Scrolling
     $('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]').not('[href="#0"]').click(function (event) {
-        // On-page links
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-            // Figure out element to scroll to
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000, function () {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    };
-                });
+        // Remove links that don't actually link to anything
+        .not('[href="#"]').not('[href="#0"]').click(function (event) {
+            // On-page links
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000, function () {
+                        // Callback after animation
+                        // Must change focus!
+                        var $target = $(target);
+                        $target.focus();
+                        if ($target.is(":focus")) { // Checking if the target was focused
+                            return false;
+                        } else {
+                            $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                            $target.focus(); // Set focus again
+                        };
+                    });
+                }
             }
-        }
-    });
+        });
 
     //  Scroll back to top
     var progressPath = document.querySelector('.progress-wrap path');
@@ -639,85 +570,85 @@ $(document).ready(function () {
 
 // Preloader
 $("#preloader").fadeOut(700);
-	$(".preloader-bg").delay(700).fadeOut(700);
-	var wind = $(window);
+$(".preloader-bg").delay(700).fadeOut(700);
+var wind = $(window);
 
 
 // Contact Form
 var form = $('.contact__form'),
     message = $('.contact__msg'),
     form_data;
-    // success function
-    function done_func(response) {
-        message.fadeIn().removeClass('alert-danger').addClass('alert-success');
-        message.text(response);
-        setTimeout(function () {
-            message.fadeOut();
-        }, 2000);
-        form.find('input:not([type="submit"]), textarea').val('');
-    }
-    // fail function
-    function fail_func(data) {
-        message.fadeIn().removeClass('alert-success').addClass('alert-success');
-        message.text(data.responseText);
-        setTimeout(function () {
-            message.fadeOut();
-        }, 2000);
-    }
-    form.submit(function (e) {
-        e.preventDefault();
-        form_data = $(this).serialize();
-        $.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            data: form_data
-        }).done(done_func).fail(fail_func);
-    });
+// success function
+function done_func(response) {
+    message.fadeIn().removeClass('alert-danger').addClass('alert-success');
+    message.text(response);
+    setTimeout(function () {
+        message.fadeOut();
+    }, 2000);
+    form.find('input:not([type="submit"]), textarea').val('');
+}
+// fail function
+function fail_func(data) {
+    message.fadeIn().removeClass('alert-success').addClass('alert-success');
+    message.text(data.responseText);
+    setTimeout(function () {
+        message.fadeOut();
+    }, 2000);
+}
+form.submit(function (e) {
+    e.preventDefault();
+    form_data = $(this).serialize();
+    $.ajax({
+        type: 'POST',
+        url: form.attr('action'),
+        data: form_data
+    }).done(done_func).fail(fail_func);
+});
 
 
-    // Slider Grid Background
-  (function () {
+// Slider Grid Background
+(function () {
     var imageElements = document.querySelectorAll('.grid-img');
     var itemElements = document.querySelectorAll('.grid-con');
     if (itemElements.length) {
-      itemElements.forEach(function (item, index) {
-        item.addEventListener('mouseenter', function () {
-          imageElements.forEach(function (image) {
-            image.classList.remove('grid-img-active');
-          });
-          itemElements.forEach(function (card) {
-            card.classList.remove('grid-con-active');
-          });
-          item.classList.add('grid-con-active');
-          imageElements[index].classList.add('grid-img-active');
+        itemElements.forEach(function (item, index) {
+            item.addEventListener('mouseenter', function () {
+                imageElements.forEach(function (image) {
+                    image.classList.remove('grid-img-active');
+                });
+                itemElements.forEach(function (card) {
+                    card.classList.remove('grid-con-active');
+                });
+                item.classList.add('grid-con-active');
+                imageElements[index].classList.add('grid-img-active');
+            });
         });
-      });
     }
-  })();
+})();
 
 // Slider Grid Background owlCarousel *
-    $('.slider-grid-bg .owl-carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        mouseDrag: true,
-        autoplay: false,
-        dots: true,
-        nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                dots: true,
-                nav: false
-            },
-            600: {
-                items: 2,
-                dots: true,
-                nav: false
-            },
-            1000: {
-                items: 3
-            }
+$('.slider-grid-bg .owl-carousel').owlCarousel({
+    loop: true,
+    margin: 30,
+    mouseDrag: true,
+    autoplay: false,
+    dots: true,
+    nav: false,
+    navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 1,
+            dots: true,
+            nav: false
+        },
+        600: {
+            items: 2,
+            dots: true,
+            nav: false
+        },
+        1000: {
+            items: 3
         }
-    });
+    }
+});
