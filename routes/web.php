@@ -108,6 +108,12 @@ Route::middleware([
         Route::get('{id}/edit', Admin\Testimonials\Edit::class)->name('admin.testimonials.edit')->middleware('permission:Edit Testimonials');
     });
 
+    // Packages
+    Route::prefix('packages')->group(function () {
+        Route::get('/', Admin\Packages\Index::class)->name('admin.packages.index')->middleware('permission:Read Packages');
+        Route::get('create', Admin\Packages\Create::class)->name('admin.packages.create')->middleware('permission:Create Packages');
+        Route::get('{id}/edit', Admin\Packages\Edit::class)->name('admin.packages.edit')->middleware('permission:Edit Packages');
+    });
     // Gallery
     Route::prefix('gallery')->group(function () {
         Route::get('/', Admin\Gallery\Index::class)->name('admin.gallery.index')->middleware('permission:Read Gallery');

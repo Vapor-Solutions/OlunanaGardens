@@ -48,4 +48,14 @@ class Booking extends Model
             }
         }
     }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    function getTotalCostAttribute()
+    {
+        return $this->capacity * $this->price;
+    }
 }

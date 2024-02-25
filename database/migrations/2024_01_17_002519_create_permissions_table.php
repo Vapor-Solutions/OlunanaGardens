@@ -69,6 +69,11 @@ return new class extends Migration
             'Edit Gallery',
             'Delete Gallery',
 
+            'Read Packages',
+            'Create Packages',
+            'Edit Packages',
+            'Delete Packages',
+
             'Read Post Categories',
             'Create Post Categories',
             'Edit Post Categories',

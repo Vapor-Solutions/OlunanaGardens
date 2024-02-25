@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             ClientsSeeder::class,
             EventTypeSeeder::class,
             SectionsSeeder::class,
+            PackageSeeder::class,
             BookingSeeder::class,
             TestimonialSeeder::class,
             MenuSeeder::class,

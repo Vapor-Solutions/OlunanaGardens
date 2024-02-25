@@ -32,15 +32,16 @@
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.payment-methods.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.payment-methods.create"></x-back.new-nav-link>
     </x-back.new-nav-link-dropdown>
-    <x-back.new-nav-link-dropdown title="Blog Categories" route="admin.post-categories*" fa_icon="fa-layer-group">
-        <x-back.new-nav-link fa_icon="" title="Overview" route="admin.post-categories.index"></x-back.new-nav-link>
-        <x-back.new-nav-link fa_icon="" title="Create" route="admin.post-categories.create"></x-back.new-nav-link>
-    </x-back.new-nav-link-dropdown>
+
     <br>
     <br>
 
 
     <li class="nav-header text-underline">Booking Engine</li>
+    <x-back.new-nav-link-dropdown title="Packages" route="admin.packages*" fa_icon="fa-box-open">
+        <x-back.new-nav-link fa_icon="" title="Overview" route="admin.packages.index"></x-back.new-nav-link>
+        <x-back.new-nav-link fa_icon="" title="Create" route="admin.packages.create"></x-back.new-nav-link>
+    </x-back.new-nav-link-dropdown>
     <x-back.new-nav-link-dropdown title="Bookings" route="admin.bookings*" fa_icon="fa-calendar-check">
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.bookings.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.bookings.create"></x-back.new-nav-link>
@@ -64,6 +65,10 @@
 
 
     <li class="nav-header text-underline">Blog Engine</li>
+    <x-back.new-nav-link-dropdown title="Blog Categories" route="admin.post-categories*" fa_icon="fa-layer-group">
+        <x-back.new-nav-link fa_icon="" title="Overview" route="admin.post-categories.index"></x-back.new-nav-link>
+        <x-back.new-nav-link fa_icon="" title="Create" route="admin.post-categories.create"></x-back.new-nav-link>
+    </x-back.new-nav-link-dropdown>
     <x-back.new-nav-link-dropdown title="Blog Posts" route="admin.blog-posts*" fa_icon="fa-rss-square">
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.blog-posts.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.blog-posts.create"></x-back.new-nav-link>

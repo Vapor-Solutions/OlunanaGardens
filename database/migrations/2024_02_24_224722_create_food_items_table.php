@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('food_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_type_id')->constrained();
-            $table->foreignId('client_id')->constrained();
-            $table->dateTime('start_time');
-            $table->dateTime('end_time')->nullable();
-            $table->bigInteger('capacity');
-            $table->unsignedDecimal('price', 8, 2);
+            $table->foreignId('food_class_id')->constrained();
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('food_items');
     }
 };

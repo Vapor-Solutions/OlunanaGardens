@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Booking;
 use App\Models\Client;
 use App\Models\EventType;
+use App\Models\Package;
 use App\Models\Section;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,14 +20,15 @@ class BookingSeeder extends Seeder
     {
         for ($i = 0; $i < 1500; $i++) {
             $booking = new Booking();
-            $booking->event_type_id = random_int(1, count(EventType::all()));
+            $booking->event_type_id = rand(1, count(EventType::all()));
 
-            $booking->client_id = random_int(1, count(Client::all()));
-            $random = random_int(1, 300);
-            $booking->start_time = Carbon::parse("Today at 7:30 a.m.")->subDays($random)->toDateTimeString();
-            $booking->end_time = Carbon::parse($booking->end_time)->addHours(rand(2, 12))->toDateTimeString();
-            $booking->price = $random * random_int(100, 1000);
-            $booking->capacity = random_int(10, 1000);
+            $booking->package_id = rand(1, count(Package::all()));
+            $booking->client_id = rand(1, count(Client::all()));
+            $random = rand(1, 300);
+            $booking->start_time = Carbon::parse("2024-02-20")->subDays($random)->toDateTimeString();
+            $booking->end_time = Carbon::parse($booking->start_time)->addHours(rand(2, 72))->toDateTimeString();
+            $booking->price = $booking->package->price;
+            $booking->capacity = rand(10, 1000);
             $randomSection = rand(1, count(Section::all()));
             if (Section::find($randomSection)->isBookedBetween($booking->start_time, $booking->end_time)) {
                 continue;

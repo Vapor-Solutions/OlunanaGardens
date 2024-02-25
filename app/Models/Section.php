@@ -20,7 +20,7 @@ class Section extends Model
     public function IsBooked($date)
     {
         foreach ($this->bookings as $booking) {
-            if (Carbon::parse($date)->isBetween(Carbon::parse($booking->check_in)->subDay()->toDateString(), Carbon::parse($booking->check_out)->addDay()->toDateString())) {
+            if (Carbon::parse($date)->isBetween(Carbon::parse($booking->start_time)->subDay()->toDateString(), Carbon::parse($booking->end_time)->addDay()->toDateString())) {
                 return true;
             }
         }

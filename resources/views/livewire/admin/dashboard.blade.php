@@ -166,26 +166,26 @@
             annotations: {
                 yaxis: [{
                     y: 50,
-                    borderColor: '#18264b',
+                    borderColor: '#531502',
                     label: {
                         show: false,
                         text: 'Average',
                         style: {
                             color: "#fff",
-                            background: '#18264b'
+                            background: '#531502'
                         }
                     }
                 }],
                 xaxis: [{
                     x: {{ Carbon\Carbon::now()->subMonths(2)->timestamp . '000' }},
-                    borderColor: '#18264b',
+                    borderColor: '#531502',
                     yAxisIndex: 50,
                     label: {
                         show: false,
                         text: 'Best',
                         style: {
                             color: "#fff",
-                            background: '#18264b'
+                            background: '#531502'
                         }
                     },
                 }]
@@ -272,7 +272,7 @@
                 }
             ],
 
-            colors: ['#18264b'],
+            colors: ['#531502'],
         };
         var charttimeline = new ApexCharts(document.querySelector("#chart-timeline-dashbord"), options);
         charttimeline.render();
