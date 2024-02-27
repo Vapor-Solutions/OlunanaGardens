@@ -1,16 +1,16 @@
 <div>
     <x-slot name="header">
-        Bookings
+        <h5>Bookings</h5>
     </x-slot>
 
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h5>Edit This Booking</h5>
+                <h5>Add a new Booking</h5>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="client" class="form-label">Client</label>
                             <select class="form-control" wire:model="booking.client_id" name="client" id="">
@@ -26,56 +26,106 @@
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
-                            <label for="check_in" class="form-label">Check In Date</label>
-                            <input type="date" wire:model="booking.check_in"
-                                min="{{ Carbon\Carbon::now()->toDateString() }}" class="form-control" name="check_in"
-                                @if ($booking->check_out) max="{{ Carbon\Carbon::parse($booking->check_out)->subDay()->toDateString() }}" @endif
-                                id="check_in" aria-describedby="check_in">
-                             @error('booking.check_in')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <div class="mb-3">
-                            <label for="check_out" class="form-label">Check Out Date</label>
-                            <input type="date" wire:model="booking.check_out"
-                                min="{{ Carbon\Carbon::now()->addDay()->toDateString() }}" class="form-control"
-                                name="check_out" id="check_out" aria-describedby="check_out">
-                             @error('booking.check_out')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-12">
-                        <div class="mb-3">
-                            <label for="" class="form-label">City</label>
-                            <select wire:model="type_id" class="form-control" name="" id="">
-                                <option selected>CHOOSE THE ROOM TYPE</option>
-                                @foreach ($room_types as $type)
+                            <label for="" class="form-label">Event Type</label>
+                            <select wire:model="booking.event_type_id" class="form-control" name=""
+                                id="">
+                                <option selected>CHOOSE THE EVENT TYPE</option>
+                                @foreach ($eventTypes as $type)
                                     <option value="{{ $type->id }}">{{ $type->title }}</option>
                                 @endforeach
                             </select>
-                             @error('type_id')
+                            @error('booking.event_type_id')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="start_time" class="form-label">Starting Date & Time</label>
+                            <input type="datetime-local" wire:model="booking.start_time"
+                                min="{{ Carbon\Carbon::now()->toDateTimeString() }}" class="form-control" name="start_time"
+                                @if ($booking->end_time) max="{{ Carbon\Carbon::parse($booking->end_time)->subDay()->toDateString() }}" @endif
+                                id="start_time" aria-describedby="start_time">
+                            @error('booking.start_time')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="end_time" class="form-label">Ending Date & Time</label>
+                            <input type="datetime-local" wire:model="booking.end_time"
+                                min="{{ Carbon\Carbon::now()->addDay()->toDateTimeString() }}" class="form-control"
+                                name="end_time" id="end_time" aria-describedby="end_time">
+                            @error('booking.end_time')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
 
+
+
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
-                            <label for="room_id" class="form-label">Room</label>
-                            <select wire:model="booking.room_id" class="form-control" name="room_id" id="room_id">
-                                <option selected>CHOOSE THE ROOM TO BOOK</option>
-                                @foreach ($rooms as $room)
-                                        @if (isset($type_id) && $room->room_type_id == $type_id)
-                                            <option @if($room->isBookedBetween($booking->check_in, $booking->check_out)) disabled @endif value="{{ $room->id }}">
-                                                {{ $room->room_number }}</option>
-                                        @endif
+                            <label for="" class="form-label">Number of Adults</label>
+                            <input type="number" step="1" wire:model='booking.capacity_adults' min="1" class="form-control" name="" id=""
+                                aria-describedby="helpId" placeholder="Enter Your Adult Capacity" />
+                            @error('booking.capacity_adults')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Number of Children</label>
+                            <input type="number" step="1" wire:model='booking.capacity_children' min="1" class="form-control" name="" id=""
+                                aria-describedby="helpId" placeholder="Enter Your Child Capacity" />
+                            @error('booking.capacity_children')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 col-12">
+                        <div class="mb-3">
+                            <label for="room_id" class="form-label">Sections</label>
+                            <select multiple wire:model="selectedSections" class="form-control" name="room_id"
+                                id="room_id">
+                                <option selected>Choose the Sections to Book</option>
+                                @foreach ($sections as $section)
+                                    <option @if ($section->isBookedBetween($booking->start_time, $booking->end_time)) disabled @endif
+                                        value="{{ $section->id }}">
+                                        {{ $section->name }}</option>
                                 @endforeach
                             </select>
-                             @error('booking.room_id')
+                            @error('selectedSections')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="package_id" class="form-label">Package</label>
+                            <select wire:model="booking.package_id" class="form-control" name="package_id"
+                                id="package_id">
+                                <option selected>Choose the Sections to Book</option>
+                                @foreach ($packages as $package)
+                                    <option value="{{ $package->id }}">
+                                        {{ $package->title }} @ KES {{ $package->price }} per person</option>
+                                @endforeach
+                            </select>
+                            @error('selectedSections')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Price</label>
+                            <input type="number" min="1" step="0.05"  wire:model="booking.price"  class="form-control" name="" id=""
+                                aria-describedby="helpId" placeholder="Enter Agreed Price Per Person" />
+                            @error('booking.price')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>

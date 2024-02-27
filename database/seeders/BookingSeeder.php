@@ -28,7 +28,8 @@ class BookingSeeder extends Seeder
             $booking->start_time = Carbon::parse("2024-02-20")->subDays($random)->toDateTimeString();
             $booking->end_time = Carbon::parse($booking->start_time)->addHours(rand(2, 72))->toDateTimeString();
             $booking->price = $booking->package->price;
-            $booking->capacity = rand(10, 1000);
+            $booking->capacity_adults = rand(10, 1000);
+            $booking->capacity_children = rand(10, 1000);
             $randomSection = rand(1, count(Section::all()));
             if (Section::find($randomSection)->isBookedBetween($booking->start_time, $booking->end_time)) {
                 continue;

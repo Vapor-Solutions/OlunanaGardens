@@ -15,10 +15,12 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Event Type</th>
                             <th>Client</th>
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Capacity</th>
+                            <th>No. of Adults</th>
+                            <th>No. of Children</th>
                             <th>Total Cost</th>
                             <th>Created On</th>
                             <th>Last Update</th>
@@ -29,10 +31,13 @@
                         @foreach ($bookings as $booking)
                             <tr>
                                 <td scope="row">{{ $booking->id }}</td>
+                                <td scope="row">{{ $booking->eventType->title }}</td>
                                 <td>{{ $booking->client->name }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->start_time)->format('jS M, Y \a\t h:i A') }}</td>
-                                <td>{{ Carbon\Carbon::parse($booking->end_date)->format('jS M, Y \a\t h:i A') ?? '-' }}</td>
-                                <td>{{ number_format($booking->capacity) }}</td>
+                                <td>{{ Carbon\Carbon::parse($booking->end_date)->format('jS M, Y \a\t h:i A') ?? '-' }}
+                                </td>
+                                <td>{{ number_format($booking->capacity_adults) }}</td>
+                                <td>{{ number_format($booking->capacity_children) }}</td>
                                 <td>{{ 'KES ' . number_format($booking->total_cost, 2) }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->created_at)->format('jS M, Y - h:i:sA') ?? '-' }}
                                 </td>
@@ -41,9 +46,10 @@
                                 <td>
                                     <div class="d-flex flex-row justify-content-center">
                                         <div class="flex-col mx-1">
-                                            <button class="btn btn-secondary">
+                                            <a href="{{ route('admin.bookings.edit', $booking->id) }}"
+                                                class="btn btn-secondary">
                                                 <i class="fas fa-edit"></i>
-                                            </button>
+                                            </a>
                                         </div>
                                         <div class="flex-col mx-1">
                                             <button class="btn btn-danger">

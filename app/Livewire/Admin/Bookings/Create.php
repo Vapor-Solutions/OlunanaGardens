@@ -26,7 +26,8 @@ class Create extends Component
         'booking.client_id' => 'required',
         'booking.start_time' => 'required',
         'booking.end_time' => 'required',
-        'booking.capacity' => 'required',
+        'booking.capacity_adults' => 'required',
+        'booking.capacity_children' => 'required',
         'booking.price' => 'required',
         'selectedSections' => 'required',
     ];
@@ -64,6 +65,7 @@ class Create extends Component
     }
     public function render()
     {
+        $this->booking->price = $this->booking->package?->price;
         return view('livewire.admin.bookings.create');
     }
 }

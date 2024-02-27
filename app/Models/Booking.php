@@ -19,6 +19,9 @@ class Booking extends Model
         return $this->belongsToMany(Section::class, 'booking_section');
     }
 
+    public function eventType(){
+        return $this->belongsTo(EventType::class);
+    }
     public function isActiveDuring($date)
     {
         if ($this->check_out) {
@@ -56,6 +59,6 @@ class Booking extends Model
 
     function getTotalCostAttribute()
     {
-        return $this->capacity * $this->price;
+        return ($this->capacity_adults * $this->price) + ($this->capacity_children * $this->price * 0.5);
     }
 }

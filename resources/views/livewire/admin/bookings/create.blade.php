@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="client" class="form-label">Client</label>
                             <select class="form-control" wire:model="booking.client_id" name="client" id="">
@@ -20,6 +20,21 @@
                                 @endforeach
                             </select>
                             @error('booking.client_id')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Event Type</label>
+                            <select wire:model="booking.event_type_id" class="form-control" name=""
+                                id="">
+                                <option selected>CHOOSE THE EVENT TYPE</option>
+                                @foreach ($eventTypes as $type)
+                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('booking.event_type_id')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -48,28 +63,24 @@
                         </div>
                     </div>
 
+
+
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
-                            <label for="" class="form-label">Event Type</label>
-                            <select wire:model="booking.event_type_id" class="form-control" name=""
-                                id="">
-                                <option selected>CHOOSE THE EVENT TYPE</option>
-                                @foreach ($eventTypes as $type)
-                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
-                                @endforeach
-                            </select>
-                            @error('booking.event_type_id')
+                            <label for="" class="form-label">Number of Adults</label>
+                            <input type="number" step="1" wire:model='booking.capacity_adults' min="1" class="form-control" name="" id=""
+                                aria-describedby="helpId" placeholder="Enter Your Adult Capacity" />
+                            @error('booking.capacity_adults')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
-
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
-                            <label for="" class="form-label">Capacity</label>
-                            <input type="number" step="1" wire:model='booking.capacity' min="1" class="form-control" name="" id=""
-                                aria-describedby="helpId" placeholder="Enter Your Capacity" />
-                            @error('booking.capacity')
+                            <label for="" class="form-label">Number of Children</label>
+                            <input type="number" step="1" wire:model='booking.capacity_children' min="1" class="form-control" name="" id=""
+                                aria-describedby="helpId" placeholder="Enter Your Child Capacity" />
+                            @error('booking.capacity_children')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -112,7 +123,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="" class="form-label">Price</label>
-                            <input type="number" min="1" step="0.05" class="form-control" name="" id=""
+                            <input type="number" min="1" step="0.05"  wire:model="booking.price"  class="form-control" name="" id=""
                                 aria-describedby="helpId" placeholder="Enter Agreed Price Per Person" />
                             @error('booking.price')
                                 <small class="text-danger">{{ $message }}</small>

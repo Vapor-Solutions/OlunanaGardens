@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('client_id')->constrained();
             $table->dateTime('start_time');
             $table->dateTime('end_time')->nullable();
-            $table->bigInteger('capacity');
+            $table->bigInteger('capacity_adults');
+            $table->bigInteger('capacity_children');
             $table->unsignedDecimal('price', 8, 2);
             $table->timestamps();
         });

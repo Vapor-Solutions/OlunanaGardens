@@ -1,6 +1,6 @@
 <div>
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
-        data-background="img/slider/5.jpg">
+        data-background="img/slider/5.jpg" wire:ignore>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
@@ -45,7 +45,7 @@
         </div>
     </section>
 
-    <section class="testimonials">
+    <section class="testimonials" wire:ignore>
         <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
             data-overlay-dark="2">
             <div class="container">
