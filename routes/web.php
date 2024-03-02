@@ -24,6 +24,7 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/', Livewire\Home::class)->name('home');
     Route::get('/about', Livewire\About::class)->name('about');
     // Route::get('/garden-sections', Livewire\GardenSections::class)->name('garden-sections');
+    Route::get('/gallery-section', Livewire\Gallery::class)->name('gallery');
     Route::get('/restaurant', Livewire\Restaurant::class)->name('restaurant');
     Route::get('/blog', Livewire\Blog::class)->name('blog');
     Route::get('/{id}/blog-post', Livewire\BlogPost::class)->name('blog-post');
