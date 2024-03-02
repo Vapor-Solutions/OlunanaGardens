@@ -45,7 +45,7 @@
                     <div class="section-title">Your Green Oasis for Memorable Occasions</div>
 
                     <h5>Why Choose Our Gardens Venue?</h5>
-                    {!! File::get('text/home_content.txt') !!}
+                    {{-- {!! File::get('text/home_content.txt') !!} --}}
 
                     <!-- call -->
                     <div class="reservations">

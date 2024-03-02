@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_type_id')->constrained();
+            $table->foreignId('event_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('package_id')->constrained();
             $table->foreignId('client_id')->constrained();
             $table->dateTime('start_time');

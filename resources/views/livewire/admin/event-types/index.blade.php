@@ -17,6 +17,7 @@
                             <th>Price</th>
                             <th>Number of Bookings</th>
                             <th>Total Earned</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +37,13 @@
 
                                 @endphp
                                 <td>KES {{ number_format($costs) }}</td>
+
+                                <td class="d-flex flex-row">
+                                    <div class="flex-col mx-1"><button class="btn btn-secondary"><i
+                                                class="fas fa-edit"></i></button></div>
+                                    <div class="flex-col mx-1"><button wire:click='delete({{ $type->id }})'class="btn btn-danger"><i
+                                                class="fas fa-trash"></i></button></div>
+                                </td>
                             </tr>
                         @endforeach
 
@@ -57,8 +65,9 @@
                             <td><strong>KES {{ number_format($booking_earnings) }}</strong></td>
                         </tr>
                     </tbody>
+                    {{-- {{ $event_types->links() }} --}}
                 </table>
-
+                {{ $event_types->links() }}
             </div>
         </div>
     </div>

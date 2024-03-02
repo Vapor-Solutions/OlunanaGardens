@@ -142,5 +142,8 @@ Route::middleware([
     // Tags
     Route::prefix('tags')->group(function () {
         Route::get('/', Admin\Tags\Index::class)->name('admin.tags.index')->middleware('permission:Create Blog Posts');
+        //Route::get('/create', Admin\Tags\Create::class)->name('admin.tags.create');
     });
+
+    //hello world
 });
