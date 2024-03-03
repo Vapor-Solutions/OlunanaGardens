@@ -5,7 +5,7 @@
                 <div class="col-md-4">
                     <div class="footer-column footer-about">
                         <h3 class="footer-title">About Olunana Gardens</h3>
-                        {!! File::get(public_path('/text/footer_content.txt')) !!}
+                        {{-- {!! File::get(public_path('/text/footer_content.txt')) !!} --}}
 
 
                     </div>

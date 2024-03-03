@@ -36,6 +36,11 @@ class Client extends Model
         return $this->hasOne(Testimonial::class);
     }
 
+    public function getPaymentsAttribute()
+    {
+        return $this->bookings()->with('payments')->get()->pluck('payments')->flatten();
+    }
+
 
 
 }

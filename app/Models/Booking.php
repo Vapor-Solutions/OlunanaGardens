@@ -14,6 +14,7 @@ class Booking extends Model
     {
         return $this->belongsTo(Client::class);
     }
+    
     public function sections()
     {
         return $this->belongsToMany(Section::class, 'booking_section');
@@ -60,5 +61,9 @@ class Booking extends Model
     function getTotalCostAttribute()
     {
         return ($this->capacity_adults * $this->price) + ($this->capacity_children * $this->price * 0.5);
+    }
+
+    public function payments(){
+        return $this->hasMany(Payment::class);
     }
 }
