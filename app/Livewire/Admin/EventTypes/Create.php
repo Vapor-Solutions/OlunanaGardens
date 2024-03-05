@@ -21,7 +21,12 @@ class Create extends Component
         $this->validate();
 
         $this->event_type->save();
-        return redirect()->route('admin.event-types.index');
+        $this->emit('done', ['success' => "Successffuly Added a New Event Type"]);
+        $this->resetInput();
+    }
+
+    public function resetInput(){
+        $this->event_type = new EventType();
     }
 
     public function render()

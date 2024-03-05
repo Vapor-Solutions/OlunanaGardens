@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\PostCategories;
 
 use App\Models\PostCategory;
 use Livewire\Component;
+use Psy\CodeCleaner\FunctionContextPass;
 
 class Create extends Component
 {
@@ -21,10 +22,15 @@ class Create extends Component
         $this->validate();
 
         $this->blog_category->save();
-        // $this->emit('done', ['success' => "Successfully deleted this Blog Category"]);
+        $this->emit('done', ['success' => "Successfully Created a New Blog Category"]);
+        $this->resetInput();
         
-        return redirect()->route('admin.post-categories.index');
+        // return redirect()->route('admin.post-categories.index');
 
+    }
+
+    public function resetInput(){
+        $this->blog_category = new PostCategory();
     }
 
     public function render()

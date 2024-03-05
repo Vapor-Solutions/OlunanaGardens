@@ -51,7 +51,7 @@ Route::middleware([
     Route::prefix('cms')->group(function () {
         Route::get('content', Admin\Cms\Content::class)->name('admin.cms.content');
         Route::get('photos', Admin\Cms\Photos::class)->name('admin.cms.photos');
-        Route::get('faq', Admin\Cms\Photos::class)->name('admin.cms.faq');
+        Route::get('faq', Admin\Cms\Faq::class)->name('admin.cms.faq');
     });
     // Users
     Route::prefix('users')->group(function () {
@@ -146,5 +146,4 @@ Route::middleware([
         //Route::get('/create', Admin\Tags\Create::class)->name('admin.tags.create');
     });
 
-    //hello world
 });

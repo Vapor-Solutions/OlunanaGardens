@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\HasProfilePhoto;
+use Psy\CodeCleaner\FunctionContextPass;
 
 class Client extends Model
 {
@@ -41,6 +42,8 @@ class Client extends Model
         return $this->bookings()->with('payments')->get()->pluck('payments')->flatten();
     }
 
-
+    public function comment(){
+        return $this->hasMany(Comment::class);
+    }
 
 }

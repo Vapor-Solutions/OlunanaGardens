@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_type_id')->constrained()->onUpdate('cascade');
-            $table->foreignId('package_id')->constrained();
+            $table->foreignId('package_id')->constrained()->onUpdate('cascade');
             $table->foreignId('client_id')->constrained();
             $table->dateTime('start_time');
             $table->dateTime('end_time')->nullable();

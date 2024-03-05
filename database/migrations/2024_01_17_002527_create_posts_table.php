@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('post_category_id')->constrained()->onUpdate('cascade');
-            // $table->foreignId('post_category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('blog_photo_path', 2048)->nullable();
             $table->string('header_photo_path', 2048)->nullable();
             $table->string('title');

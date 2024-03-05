@@ -62,12 +62,9 @@
                         @endforeach
                     </tbody>
                     <tfoot>
-                        {{ $bookings->links() }}
                     </tfoot>
                 </table>
-
             </div>
-
             <div class="card-footer">
                 {{ $bookings->links() }}
             </div>
