@@ -24,6 +24,9 @@ class RestaurantMenu extends Component
 
     public function render()
     {
-        return view('livewire.front.restaurant-menu');
+        return view('livewire.front.restaurant-menu',[
+            'menuCategories'=>$this->menuCategories,
+            'menuItems'=>$this->menuItems,
+        ]);
     }
 }
