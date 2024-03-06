@@ -33,7 +33,6 @@
                             </tr>
                         @endforeach
                     </tbody>
-                    {{ $clients->links() }}
                 </table>
                 {{ $clients->links() }}
             </div>

@@ -51,7 +51,7 @@ Route::middleware([
     Route::prefix('cms')->group(function () {
         Route::get('content', Admin\Cms\Content::class)->name('admin.cms.content');
         Route::get('photos', Admin\Cms\Photos::class)->name('admin.cms.photos');
-        Route::get('faq', Admin\Cms\Photos::class)->name('admin.cms.faq');
+        Route::get('faq', Admin\Cms\Faq::class)->name('admin.cms.faq');
     });
     // Users
     Route::prefix('users')->group(function () {
@@ -143,5 +143,7 @@ Route::middleware([
     // Tags
     Route::prefix('tags')->group(function () {
         Route::get('/', Admin\Tags\Index::class)->name('admin.tags.index')->middleware('permission:Create Blog Posts');
+        //Route::get('/create', Admin\Tags\Create::class)->name('admin.tags.create');
     });
+
 });

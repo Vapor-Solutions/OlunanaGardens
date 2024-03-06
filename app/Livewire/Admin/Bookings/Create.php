@@ -53,6 +53,13 @@ class Create extends Component
         $this->emit('done', [
             'success' => "Successfully Made a Booking"
         ]);
+
+        $this->resetInput();
+    }
+
+    function resetInput()
+    {
+        $this->booking = new Booking();
     }
 
     public function mount()

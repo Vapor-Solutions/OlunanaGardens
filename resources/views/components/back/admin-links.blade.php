@@ -27,6 +27,7 @@
     <x-back.new-nav-link-dropdown title="Event Types" route="admin.event-types*" fa_icon="fa-calendar-alt">
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.event-types.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.event-types.create"></x-back.new-nav-link>
+        {{-- <x-back.new-nav-link fa_icon="" title="Edit" route="admin.event-types.create"></x-back.new-nav-link> --}}
     </x-back.new-nav-link-dropdown>
     <x-back.new-nav-link-dropdown title="Payment Methods" route="admin.payment-methods*" fa_icon="fa-handshake">
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.payment-methods.index"></x-back.new-nav-link>

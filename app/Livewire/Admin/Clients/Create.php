@@ -27,7 +27,14 @@ class Create extends Component
         $this->validate();
         $this->client->save();
 
-        return redirect()->route('admin.clients.index');
+        // return redirect()->route('admin.clients.index');
+        $this->emit('done', ['success' => " Successfully Registered a New Client To The System"]);
+        $this->resetInput();
+
+    }
+
+    function resetInput(){
+        $this->client = new Client();
     }
     public function render()
     {

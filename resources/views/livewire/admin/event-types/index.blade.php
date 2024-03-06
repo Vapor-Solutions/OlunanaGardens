@@ -7,6 +7,11 @@
         <div class="card">
             <div class="card-header">
                 <h5>List of Event Types</h5>
+                {{-- <div class="flex-col mx-1">
+                    <a href="{{ route('admin.event-types.create') }}" class="btn btn-secondary">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div> --}}
             </div>
             <div class="card-body table-responsive">
                 <table class="table">
@@ -17,6 +22,7 @@
                             <th>Price</th>
                             <th>Number of Bookings</th>
                             <th>Total Earned</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +42,18 @@
 
                                 @endphp
                                 <td>KES {{ number_format($costs) }}</td>
+
+                                <td class="d-flex flex-row">
+                                    <div class="flex-col mx-1">
+                                        <a href="{{ route('admin.event-types.edit', $type->id) }}"
+                                            class="btn btn-secondary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                    <div class="flex-col mx-1"><button
+                                            wire:click='delete({{ $type->id }})'class="btn btn-danger"><i
+                                                class="fas fa-trash"></i></button></div>
+                                </td>
                             </tr>
                         @endforeach
 
@@ -49,7 +67,6 @@
                             </td>
                             @php
                                 $booking_earnings = 0;
-
                                 foreach (App\Models\Booking::all() as $booking) {
                                     $booking_earnings += $booking->price;
                                 }
@@ -58,7 +75,7 @@
                         </tr>
                     </tbody>
                 </table>
-
+                {{ $event_types->links() }}
             </div>
         </div>
     </div>
