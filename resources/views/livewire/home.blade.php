@@ -13,8 +13,8 @@
                                 </span>
                                 <h4>Welcome to OluNana</h4>
                                 <h3>BLOOMING EVENTS IN NATURE'S EMBRACE</h3>
-                                <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="2"><span>Our
-                                            Offerings</span></a> </div>
+                                <div class="butn-light mt-30 mb-30"> <a href="{{ route('restaurant') }}"><span>Our
+                                            Restaurant</span></a> </div>
                             </div>
                         </div>
                         <!-- Booking From -->
@@ -59,7 +59,10 @@
                     <img src="olunana/img/19.jpg" alt="" class="mt-90 mb-30">
                 </div> --}}
                 <div class="col col-md-6 animate-box" data-animate-effect="fadeInUp">
-                    <img src="olunana/img/13.jpg" alt="">
+                    <img src="olunana/img/6.jpg" class="my-3 rounded shadow-sm" alt="">
+
+                    <img src="olunana/img/11.jpg" class="my-3 rounded shadow-sm" alt="">
+                    {{-- <img src="olunana/img/9.jpg" class="my-3" alt=""> --}}
                 </div>
             </div>
         </div>
@@ -79,7 +82,8 @@
                         <div class="reservations mb-30">
                             <div class="icon color-1"><span class="flaticon-call"></span></div>
                             <div class="text">
-                                <p class="color-1">Reservation</p> <a class="color-1" href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
+                                <p class="color-1">Reservation</p> <a class="color-1"
+                                    href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                             </div>
                         </div>
                         <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>

@@ -34,16 +34,16 @@
                         </div>
                         <div class="footer-about-social-list">
                             @if (env('INSTAGRAM_URL'))
-                                <a href="{{ env('INSTAGRAM_URL') }}"><i class="ti-instagram"></i></a>
+                                <a target="_blank" href="{{ env('INSTAGRAM_URL') }}"><i class="ti-instagram"></i></a>
                             @endif
                             @if (env('TWITTER_URL'))
-                                <a href="{{ env('TWITTER_URL') }}"><i class="ti-twitter"></i></a>
+                                <a target="_blank" href="{{ env('TWITTER_URL') }}"><i class="ti-twitter"></i></a>
                             @endif
                             @if (env('YOUTUBE_URL'))
-                                <a href="{{ env('YOUTUBE_URL') }}"><i class="ti-youtube"></i></a>
+                                <a target="_blank" href="{{ env('YOUTUBE_URL') }}"><i class="ti-youtube"></i></a>
                             @endif
                             @if (env('FACEBOOK_URL'))
-                                <a href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
+                                <a target="_blank" href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
                             @endif
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <div>
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3"
-        data-background="img/slider/5.jpg">
+        data-background="olunana/img/7.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
@@ -74,7 +74,7 @@
             </div>
             <!-- Map Section -->
             <div class="row">
-                <div class="col-md-12 map animate-box" data-animate-effect="fadeInUp">
+                <div class="col-md-12 " data-animate-effect="fadeInUp">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7901.069050431023!2d37.21473682843527!3d-1.325571234797032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f6313f3e9f7cd%3A0x10676085ed14df4a!2sOluNana%20Gardens%20Koma!5e0!3m2!1sen!2ske!4v1708379511959!5m2!1sen!2ske"
                         width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>

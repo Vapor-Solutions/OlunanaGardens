@@ -12,12 +12,14 @@
                     <div class="row">
                         <div class="tabs-icon col-md-10 offset-md-1 text-center mb-5">
                             <div class="d-flex flex-row justify-content-center owl-theme" wire:ignore.self>
-                                @foreach ($menuCategories as $category)
-                                    <div id="{{ $category->id }}"
-                                        class="{{ $active == $category->id ? 'active' : '' }} item">
-                                        <h6 wire:click="activate({{ $category->id }})">{{ $category->title }}</h6>
-                                    </div>
-                                @endforeach
+                                @if ($menuCategories)
+                                    @foreach ($menuCategories as $category)
+                                        <div id="{{ $category->id }}"
+                                            class="{{ $active == $category->id ? 'active' : '' }} item">
+                                            <h6 wire:click="activate({{ $category->id }})">{{ $category->title }}</h6>
+                                        </div>
+                                    @endforeach
+                                @endif
 
                             </div>
                         </div>

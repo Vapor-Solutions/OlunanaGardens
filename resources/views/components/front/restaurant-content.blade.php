@@ -21,19 +21,7 @@
                         <li>
                             <div class="page-list-icon"> <span class="ti-time"></span> </div>
                             <div class="page-list-text">
-                                <p>Breakfast: 7.00 am – 11.00 am (daily)</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="page-list-icon"> <span class="ti-time"></span> </div>
-                            <div class="page-list-text">
-                                <p>Lunch: 12.00 noon – 2.00 pm (daily)</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="page-list-icon"> <span class="ti-time"></span> </div>
-                            <div class="page-list-text">
-                                <p>Dinner: open from 6.30 pm, last order at 10.00 pm (daily)</p>
+                                <p>Open: 8.00 am till late (daily)</p>
                             </div>
                         </li>
                     </ul>
