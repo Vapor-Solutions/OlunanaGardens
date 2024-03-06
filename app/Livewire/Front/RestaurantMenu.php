@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class RestaurantMenu extends Component
 {
-    public $menuCategories, $menuItems, $active;
+    public $menuCategories, $menuItems, $active = 1;
 
     function activate($id)
     {
@@ -19,14 +19,14 @@ class RestaurantMenu extends Component
     {
         $this->menuCategories = MenuCategory::all();
         $this->menuItems = MenuItem::all();
-        $this->active = MenuCategory::first()->id;
+        $this->active = MenuCategory::first()->id ?? 1;
     }
 
     public function render()
     {
-        return view('livewire.front.restaurant-menu',[
-            'menuCategories'=>$this->menuCategories,
-            'menuItems'=>$this->menuItems,
+        return view('livewire.front.restaurant-menu', [
+            'menuCategories' => $this->menuCategories,
+            'menuItems' => $this->menuItems,
         ]);
     }
 }
