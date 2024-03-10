@@ -7,8 +7,11 @@ use App\Models\PostCategory;
 use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+
 class Create extends Component
 {
+    use WithFileUploads;
     public Post $post;
     public $categories;
     public $headerPhoto, $blogPhoto;
@@ -17,8 +20,10 @@ class Create extends Component
         'post.category' => 'required',
         'post.title' => 'required',
         'post.content' => 'required',
-        'headerPhoto' => 'required|image|max:2048',
-        'blogPhoto' => 'required|image|max:2048|dimensions:ratio=3/4',
+        // 'headerPhoto' => 'required|image|max:2048',
+        'headerPhoto' => 'required|image',
+        // 'blogPhoto' => 'required|image|max:2048|dimensions:ratio=3/4',
+        'blogPhoto' => 'required|image',
     ];
 
     function mount()
@@ -27,7 +32,7 @@ class Create extends Component
         $this->categories = PostCategory::all();
     }
 
-    function save()
+    public function save()
     {
         $this->validate();
 
@@ -41,6 +46,15 @@ class Create extends Component
         $this->post->blog_photo_path = 'blog/thumbnails/' . $thumbname;
         $this->post->header_photo_path = 'blog/header_photos/' . $headername;
         $this->post->slug = Str::slug($this->post->title, '-');
+
+        dd('hello');
+        $this->post->save();
+        $this->emit('done', ['success' => 'Successfully added a new Blog']);
+        $this->resetInput();
+    }
+
+    public function resetInput(){
+        $this->post = new Post();
     }
     public function render()
     {
