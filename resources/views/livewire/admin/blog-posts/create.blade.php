@@ -68,7 +68,7 @@
 @push('scripts')
     <script>
         ClassicEditor
-            .create(document.querySelector('#post-content'))
+            .create(document.querySelector('textarea#post-content'))
             .then(editor => {
                 editor.model.document.on('change:data', () => {
                     @this.set('post.content', editor.getData())

@@ -26,7 +26,7 @@ class Photos extends Component
         $imageName = $timestamp . '.' . $this->image->extension();
 
         // Storage::disk('local')->putFileAs('admin/gallery', $this->image, $imageName);
-        $this->image->storeAs('cms/photos', $imageName, 'public');
+        $this->image->storeAs('gallery', $imageName, 'public');
 
         $this->emit('done', ['success' => 'successfully added a new image']);
 
