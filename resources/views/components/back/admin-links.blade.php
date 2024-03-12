@@ -56,7 +56,13 @@
 
     <li class="nav-header text-underline">Content Management</li>
     <x-back.new-nav-link fa_icon="fa-file-word" title="Word Content" route="admin.cms.content"></x-back.new-nav-link>
-    <x-back.new-nav-link fa_icon="fa-photo-video" title="Photos" route="admin.cms.photos"></x-back.new-nav-link>
+    {{-- <x-back.new-nav-link fa_icon="fa-photo-video" title="Photos" route="admin.cms.photos"></x-back.new-nav-link> --}}
+
+    <x-back.new-nav-link-dropdown title="Gallery" route="admin.gallery*" fa_icon="fa-money-bill-wave">
+        <x-back.new-nav-link fa_icon="" title="Photos List" route="admin.gallery.index"></x-back.new-nav-link>
+        <x-back.new-nav-link fa_icon="" title="Add a Photo" route="admin.gallery.create"></x-back.new-nav-link>
+    </x-back.new-nav-link-dropdown>
+
     <x-back.new-nav-link fa_icon="fa-question-circle" title="FAQs" route="admin.cms.faq"></x-back.new-nav-link>
     <x-back.new-nav-link-dropdown title="Testimonials" route="admin.testimonials*" fa_icon="fa-money-bill-wave">
         <x-back.new-nav-link fa_icon="" title="Testimonials List" route="admin.testimonials.index"></x-back.new-nav-link>

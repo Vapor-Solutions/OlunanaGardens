@@ -33,11 +33,6 @@ class Photos extends Component
         $this->reset();
     }
 
-    // public function mount()
-    // {
-    //     $this->photos = Storage::disk('public')->files('admin/gallery');
-    // }
-
     public function render()
     {
         return view('livewire.admin.cms.photos');
