@@ -81,6 +81,11 @@ Route::middleware([
         Route::get('{id}/edit', Admin\EventTypes\Edit::class)->name('admin.event-types.edit')->middleware('permission:Edit Event Types');
     });
 
+    // Booking Requests
+    Route::prefix('booking-requests')->group(function () {
+        Route::get('/', Admin\BookingRequests\Index::class)->name('admin.booking-requests.index')->middleware('permission:Read Bookings');
+    });
+
     // Bookings
     Route::prefix('bookings')->group(function () {
         Route::get('/', Admin\Bookings\Index::class)->name('admin.bookings.index')->middleware('permission:Read Bookings');
