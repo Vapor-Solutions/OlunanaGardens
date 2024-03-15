@@ -39,6 +39,7 @@
 
 
     <li class="nav-header text-underline">Booking Engine</li>
+    <x-back.new-nav-link fa_icon="fa-calendar" title="Booking Requests" route="admin.booking-requests.index"></x-back.new-nav-link>
     <x-back.new-nav-link-dropdown title="Packages" route="admin.packages*" fa_icon="fa-box-open">
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.packages.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.packages.create"></x-back.new-nav-link>
