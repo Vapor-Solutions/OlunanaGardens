@@ -34,7 +34,7 @@ class BookingForm extends Component
     {
         $this->validate();
 
-        dd($this->event);
+        // dd($this->event);
     }
 
     public function render()

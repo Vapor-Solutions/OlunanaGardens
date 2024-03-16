@@ -18,9 +18,10 @@ class BookingSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 1500; $i++) {
+        for ($i = 0; $i < 150; $i++) {
             $booking = new Booking();
             $booking->event_type_id = rand(1, count(EventType::all()));
+            $booking->booking_ref = fake()->unique()->regexify('[A-Z]{5}');
 
             $booking->package_id = rand(1, count(Package::all()));
             $booking->client_id = rand(1, count(Client::all()));

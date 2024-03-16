@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PaymentMethod;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,14 @@ class PaymentMethodSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $methods = [
+            'mpesa'
+        ];
+        foreach ($methods as $m) {
+            # code...
+            $method  = new PaymentMethod();
+            $method->title = $m;
+            $method->save();
+        }
     }
 }

@@ -17,6 +17,7 @@ class Index extends Component
 
     public function render()
     {
+        
         return view('livewire.admin.payments.index', [
             'payments' => Payment::with('booking.client')->paginate(10)
         ]);
