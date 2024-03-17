@@ -14,13 +14,14 @@ class Booking extends Model
     {
         return $this->belongsTo(Client::class);
     }
-    
+
     public function sections()
     {
         return $this->belongsToMany(Section::class, 'booking_section');
     }
 
-    public function eventType(){
+    public function eventType()
+    {
         return $this->belongsTo(EventType::class);
     }
     public function isActiveDuring($date)
@@ -63,7 +64,11 @@ class Booking extends Model
         return ($this->capacity_adults * $this->price) + ($this->capacity_children * $this->price * 0.5);
     }
 
-    public function payments(){
+    public function payments()
+    {
         return $this->hasMany(Payment::class);
+    }
+    public  function checkBookingAvailability()
+    {
     }
 }

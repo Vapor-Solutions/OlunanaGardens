@@ -14,7 +14,8 @@ class PaymentMethodSeeder extends Seeder
     public function run(): void
     {
         $methods = [
-            'mpesa'
+            'mpesa',
+            'bank'
         ];
         foreach ($methods as $m) {
             # code...
