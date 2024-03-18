@@ -44,15 +44,15 @@
                         </div>
                     </div> --}}
                     <div class="mb-3">
-                        <select wire:model="eventType" wire:change="setEventType($event.target.value)" class="form-control" name="event_type_id" id="event_type_id" required>
+                        <select wire:model="event.event_type_id" class="form-control" name="event_type_id" id="event_type_id" required>
                             <option value="">Choose the event type</option>
                             @foreach ($eventTypes as $type)
                                 <option value="{{ $type->id }}">{{ $type->title }}</option>
                             @endforeach
                         </select>
                     </div>
-                 
-                    
+
+
 
                     <div class="col-md-6">
                         <div class="">
