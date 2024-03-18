@@ -7,6 +7,7 @@ use App\Models\BookingRequest;
 use App\Models\Client;
 use App\Models\EventType;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class BookingForm extends Component
@@ -48,6 +49,8 @@ class BookingForm extends Component
         $this->validate();
 
         // Send to Booking Requests
+        $this->bookingRequest->save();
+        Mail::
 
     }
 
