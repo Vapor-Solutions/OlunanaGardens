@@ -5,7 +5,7 @@
             <div class="v-middle">
                 <div class="container">
                     <div class="row h-100">
-                        <div class="col-md-7">
+                        <div class="col-12">
                             <div class="v-middle caption"> <span>
                                     <i class="star-rating"></i>
                                     <i class="star-rating"></i>
@@ -17,9 +17,7 @@
                                             Restaurant</span></a> </div>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            @livewire('front.booking-form')
-                        </div>
+
                     </div>
                 </div>
             </div>
