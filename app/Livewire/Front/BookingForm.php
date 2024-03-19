@@ -42,15 +42,20 @@ class BookingForm extends Component
         ],
     ];
 
+    function mount() {
+        $this->bookingRequest = new BookingRequest();
+    }
+
 
     function checkAvailability()
     {
         //validate my inputs
         $this->validate();
 
+        // dd($this->bookingRequest);
         // Send to Booking Requests
         $this->bookingRequest->save();
-        Mail::
+        // Mail::to()
 
     }
 
@@ -61,6 +66,11 @@ class BookingForm extends Component
     public function checkClient()
     {
         $client = Client::where('email', $this->email)->first();
+        if($client){
+
+        }else{
+            // Client::create()
+        }
     }
 
 

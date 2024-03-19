@@ -22,14 +22,14 @@
                             <tr class="">
                                 <td scope="row">{{ $index + 1 }}</td>
                                 <td>
-                                    <img src="{{ asset('gallery/' . $photo->getFilename()) }}" alt="{{ $photo->getFilename() }}" width="100" height="100">
+                                    <img src="{{ asset('gallery/' . $photo) }}?{{ rand() }}" alt="{{ $photo }}" width="100" height="100">
                                 </td>
                                 <td class="d-flex flex-row">
                                     <div class="flex-col mx-1">
                                         <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
                                     </div>
                                     <div class="flex-col mx-1">
-                                        <button wire:click='delete()' class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        <button wire:click='deletePhoto({{ $index }})' class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </div>
                                 </td>
                             </tr>

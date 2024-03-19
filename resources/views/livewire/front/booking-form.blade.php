@@ -20,9 +20,9 @@
                         <div class="">
                             <div class="mb-3 input1_inner">
                                 <label>Booking Date</label>
-                                <input type="date" wire:model='event.date' class="form-control"
+                                <input type="date" wire:model='bookingRequest.date' class="form-control"
                                     placeholder="Event Date" required>
-                                @error('event.date')
+                                @error('bookingRequest.date')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -32,19 +32,19 @@
                     {{-- <div class="mb-3">
                         <div class="mb-3">
                             <label for="" class="form-label">Event Type</label>
-                            <select wire:model="event.event_type_id" class="form-control" name="" id="">
+                            <select wire:model="bookingRequest.event_type_id" class="form-control" name="" id="">
                                 <option selected>Choose the event type</option>
                                 @foreach ($eventTypes as $type)
                                     <option value="{{ $type->id }}">{{ $type->title }}</option>
                                 @endforeach
                             </select>
-                            @error('event.event_type_id')
+                            @error('bookingRequest.event_type_id')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div> --}}
                     <div class="mb-3">
-                        <select wire:model="event.event_type_id" class="form-control" name="event_type_id" id="event_type_id" required>
+                        <select wire:model="bookingRequest.event_type_id" class="form-control" name="event_type_id" id="event_type_id" required>
                             <option value="">Choose the event type</option>
                             @foreach ($eventTypes as $type)
                                 <option value="{{ $type->id }}">{{ $type->title }}</option>
@@ -58,9 +58,9 @@
                         <div class="">
                             <div class=" mb-3 input1_inner">
                                 <label>Adults</label>
-                                <input type="number" wire:model='event.adults' class="form-control "
+                                <input type="number" wire:model='bookingRequest.adults' class="form-control "
                                     placeholder="Adults">
-                                @error('event.adults')
+                                @error('bookingRequest.adults')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -70,8 +70,8 @@
                         <div class="mb-3 input1_inner">
                             <label>Children</label>
                             <input type="number" class="form-control" name="" id=""
-                                aria-describedby="helpId" placeholder="Children" wire:model='event.children'>
-                            @error('event.children')
+                                aria-describedby="helpId" placeholder="Children" wire:model='bookingRequest.children'>
+                            @error('bookingRequest.children')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -80,8 +80,8 @@
                         <div class="mb-3 input1_inner">
                             <label for="" class="form-label">Name</label>
                             <input type="text" class="form-control" name="" id=""
-                                aria-describedby="helpId" placeholder="Enter Your Alias" wire:model='event.client_name'>
-                            @error('event.client_name')
+                                aria-describedby="helpId" placeholder="Enter Your Alias" wire:model='bookingRequest.client_name'>
+                            @error('bookingRequest.client_name')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -91,8 +91,8 @@
                             <label for="" class="form-label">Email Address</label>
                             <input type="text" class="form-control" name="" id=""
                                 aria-describedby="helpId" placeholder="Enter Your Email Address"
-                                wire:model='event.client_email'>
-                            @error('event.client_email')
+                                wire:model='bookingRequest.client_email'>
+                            @error('bookingRequest.client_email')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>

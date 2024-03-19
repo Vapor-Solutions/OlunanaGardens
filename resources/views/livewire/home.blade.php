@@ -17,8 +17,6 @@
                                             Restaurant</span></a> </div>
                             </div>
                         </div>
-                        <!-- Booking From -->
-                        {{-- <x-front.booking-form></x-front.booking-form> --}}
                         <div class="col-md-5">
                             @livewire('front.booking-form')
                         </div>

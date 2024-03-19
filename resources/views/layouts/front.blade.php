@@ -151,7 +151,6 @@
 
     @stack('modals')
 
-    @livewireScripts
 
     <script src="/js/jquery-3.6.3.min.js"></script>
     <script src="/js/jquery-migrate-3.0.0.min.js"></script>
@@ -172,6 +171,7 @@
     <script src="/js/smooth-scroll.min.js"></script>
     <script src="/js/vegas.slider.min.js"></script>
     <script src="/js/custom.js?{{ rand(1, 670) }}"></script>
+    @livewireScripts
     @stack('scripts')
     <!-- Vegas Background Slideshow (vegas.slider kenburns) -->
     <script>
