@@ -1,82 +1,83 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Welcome to The Alps Hotel Nakuru - KCB Leadership Centre</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Booking Notification</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-        body {
-            font-family: "Lexend", sans-serif;
-            font-size: 13px;
+        /* Reset styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
-
-        .container {
+        /* Email wrapper */
+        .email-wrapper {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ddd;
+            background-color: #f9f9f9;
         }
-
-        h1 {
-            color: #242464;
+        /* Email content */
+        .email-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .login-table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
         }
-
-        .login-table th,
-        .login-table td {
-            padding: 10px;
-            border-bottom: 1px solid #b4b4b4;
-            text-align: left;
+        /* Logo */
+        .logo {
+            max-width: 150px;
+            height: auto;
         }
-
-        .message {
+        /* Notification message */
+        .notification-message {
+            margin-bottom: 30px;
+        }
+        /* Button */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        /* Footer */
+        .footer {
+            text-align: center;
             margin-top: 30px;
-            font-style: italic;
-            color: #424242;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Welcome to {{ env('COMPANY_NAME') }}!</h1>
-        <p>Greetings {{ $user->name }},</p>
-        <p>Thank you for joining our team. We are excited to have you on board and look forward to
-            working together.</p>
-        <p>Please find below your login credentials to access the system:</p>
-
-        <table class="login-table">
-            <tr>
-                <th>Email Address:</th>
-                <td>{{ $user->email }}</td>
-            </tr>
-            <tr>
-                <th>Password:</th>
-                <td>{{ $password }}</td>
-            </tr>
-        </table>
-
-        <p>To log in, please follow these steps:</p>
-        <ol>
-            <li>Go to <a href="{{ env('APP_URL') }}" target="_blank">This Portal</a></li>
-            <li>Enter your credentials as provided above.</li>
-        </ol>
-        <p>If you have any questions or need any assistance, feel free to reach out to the support team.</p>
-
-        <p>Welcome aboard once again, and we wish you a successful and fulfilling journey with {{ env('COMPANY_NAME') }}!</p>
-
-        <p>Best regards,<br>
-            Support Team,<br>
-            {{ env('COMPANY_NAME') }}
-            <a href="mailto:{{ env('COMPANY_EMAIL') }}">{{ env('COMPANY_EMAIL') }}</a>
-        </p>
+    <div class="email-wrapper">
+        <div class="email-content">
+            <div class="header">
+                <img src="{{ asset('company_logo.png') }}" alt="Logo" class="logo">
+                <h2>New Booking Notification</h2>
+            </div>
+            <div class="notification-message">
+                <p>Hello Admin,</p>
+                <p>A new booking request has been received. Details of the booking are as follows:</p>
+                <ul>
+                    <li><strong>Client Name:</strong> {{ $bookingRequest->client->name }}</li>
+                    <li><strong>Booking Reference:</strong> #{{ $bookingRequest->id }}</li>
+                    <li><strong>Booking Date & Time:</strong> {{ Carbon\Carbon::parse($bookingRequest->start_time)->format('jS F, Y h:i:s A') }}</li>
+                    <!-- Add more booking details as necessary -->
+                </ul>
+                <p>Please take appropriate action to process this booking request.</p>
+            </div>
+            <div class="footer">
+                <p>Thank you!</p>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>

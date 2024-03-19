@@ -44,7 +44,8 @@
         <div class="container">
             <!-- Logo -->
             <div class="logo-wrapper">
-                <a class="logo" href="{{ route('home') }}"> <img src="img/logo.png" class="logo-img" alt=""> </a>
+                <a class="logo" href="{{ route('home') }}"> <img src="img/logo.png" class="logo-img" alt="">
+                </a>
                 <!-- <a class="logo" href="index.html"> <h2>THE CAPPA <span>Luxury Hotel</span></h2> </a> -->
             </div>
             <!-- Button -->
@@ -170,6 +171,7 @@
     <script src="/js/datepicker.js"></script>
     <script src="/js/smooth-scroll.min.js"></script>
     <script src="/js/vegas.slider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/custom.js?{{ rand(1, 670) }}"></script>
     @livewireScripts
     @stack('scripts')
@@ -191,6 +193,48 @@
                 delay: 10000,
                 animationDuration: 20000
             });
+        });
+    </script>
+
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-right',
+            timer: 5000,
+            timerProgressBar: true
+        })
+
+
+
+
+        window.Toast = Toast
+        Livewire.on('done', (e) => {
+            if (e.success) {
+                Toast.fire({
+                    icon: 'success',
+                    text: e.success
+                })
+            }
+            if (e.warning) {
+                Toast.fire({
+                    icon: 'warning',
+                    text: e.warning
+                })
+            }
+            if (e.info) {
+                Toast.fire({
+                    icon: 'info',
+                    text: e.info
+                })
+            }
+            if (e.error) {
+                Toast.fire({
+                    icon: 'error',
+                    text: e.error
+                })
+            }
+
+            $('.modal').modal('hide');
         });
     </script>
 </body>

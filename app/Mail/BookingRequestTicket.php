@@ -16,9 +16,10 @@ class BookingRequestTicket extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $bookingRequest;
+    public function __construct($bookingRequest)
     {
-        //
+        $this->bookingRequest = $bookingRequest;
     }
 
     /**
@@ -27,7 +28,7 @@ class BookingRequestTicket extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Booking Request Ticket',
+            subject: 'OluNana Gardens - Booking Request Ticket #'.$this->bookingRequest->id,
         );
     }
 
@@ -37,7 +38,7 @@ class BookingRequestTicket extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'doc.booking-ticket',
         );
     }
 
