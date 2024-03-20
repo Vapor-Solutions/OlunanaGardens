@@ -56,93 +56,10 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ms-auto">
                     <x-front.sidebar-links></x-front.sidebar-links>
-                    {{-- <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="#"
-                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                            aria-expanded="false">Home <i class="ti-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index.html" class="dropdown-item active"><span>Home Layout 1</span></a></li>
-                            <li><a href="index2.html" class="dropdown-item"><span>Home Layout 2</span></a></li>
-                            <li><a href="index3.html" class="dropdown-item"><span>Home Layout 3</span></a></li>
-                            <li><a href="index4.html" class="dropdown-item"><span>Home Layout 4</span></a></li>
-                            <li><a href="index5.html" class="dropdown-item"><span>Video 1</span></a></li>
-                            <li><a href="index6.html" class="dropdown-item"><span>Video 2</span></a></li>
-                            <li><a href="index7.html" class="dropdown-item"><span>Video 3</span></a></li>
-                            <li><a href="index8.html" class="dropdown-item"><span>Slideshow 1</span></a></li>
-                            <li><a href="index9.html" class="dropdown-item"><span>Slideshow 2</span></a></li>
-                            <li><a href="index10.html" class="dropdown-item"><span>Slideshow 3</span></a></li>
-                            <li><a href="index11.html" class="dropdown-item"><span>Parallax Image 1</span></a></li>
-                            <li><a href="index12.html" class="dropdown-item"><span>Parallax Image 2</span></a></li>
-                            <li><a href="index13.html" class="dropdown-item"><span>Parallax Image 3</span></a></li>
-                            <li><a href="index14.html" class="dropdown-item"><span>Grid Background 1</span></a></li>
-                            <li><a href="index15.html" class="dropdown-item"><span>Grid Background 2</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Rooms & Suites
-                            <i class="ti-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="rooms.html" class="dropdown-item"><span>Rooms 1</span></a></li>
-                            <li><a href="rooms2.html" class="dropdown-item"><span>Rooms 2</span></a></li>
-                            <li><a href="rooms3.html" class="dropdown-item"><span>Rooms 3</span></a></li>
-                            <li><a href="room-details.html" class="dropdown-item"><span>Room Details</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="restaurant.html">Restaurant</a></li>
-                    <li class="nav-item"><a class="nav-link" href="spa-wellness.html">Spa</a></li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Pages <i
-                                class="ti-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services.html" class="dropdown-item"><span>Services</span></a></li>
-                            <li><a href="facilities.html" class="dropdown-item"><span>Facilities</span></a></li>
-                            <li><a href="gallery.html" class="dropdown-item"><span>Gallery</span></a></li>
-                            <li><a href="team.html" class="dropdown-item"><span>Team</span></a></li>
-                            <li><a href="pricing.html" class="dropdown-item"><span>Pricing</span></a></li>
-                            <li><a href="careers.html" class="dropdown-item"><span>Careers</span></a></li>
-                            <li><a href="faq.html" class="dropdown-item"><span>F.A.Qs</span></a></li>
-                            <li class="dropdown-submenu dropdown"> <a class="dropdown-item dropdown-toggle"
-                                    data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"
-                                    href="#"><span>Other Pages <i class="ti-angle-right"></i></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="404.html" class="dropdown-item"><span>404 Page</span></a></li>
-                                    <li><a href="coming-soon.html" class="dropdown-item"><span>Coming Soon</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">News <i
-                                class="ti-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="news.html" class="dropdown-item"><span>News 1</span></a></li>
-                            <li><a href="news2.html" class="dropdown-item"><span>News 2</span></a></li>
-                            <li><a href="post.html" class="dropdown-item"><span>Post Page</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> --}}
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Logo & Menu Burger -->
-    {{-- <header class="cappa-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Logo -->
-                <div class="col-6 col-md-6 cappa-logo-wrap">
-                    <a href="/" class="cappa-logo">
-                        <img src="/img/logo.png?{{ rand(1, 670) }}" alt="">
-                    </a>
-                </div>
-                <!-- Menu Burger -->
-                <div class="col-6 col-md-6 text-right cappa-wrap-burger-wrap"> <a href="#"
-                        class="cappa-nav-toggle cappa-js-cappa-nav-toggle"><i></i></a> </div>
-            </div>
-        </div>
-    </header> --}}
-
 
 
 
