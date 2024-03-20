@@ -44,7 +44,8 @@
         <div class="container">
             <!-- Logo -->
             <div class="logo-wrapper">
-                <a class="logo" href="{{ route('home') }}"> <img src="img/logo.png" class="logo-img" alt=""> </a>
+                <a class="logo" href="{{ route('home') }}"> <img src="img/logo.png" class="logo-img" alt="">
+                </a>
                 <!-- <a class="logo" href="index.html"> <h2>THE CAPPA <span>Luxury Hotel</span></h2> </a> -->
             </div>
             <!-- Button -->
@@ -191,6 +192,28 @@
                 delay: 10000,
                 animationDuration: 20000
             });
+        });
+    </script>
+    <script>
+        $(function() {
+            var dtToday = new Date();
+
+            var month = dtToday.getMonth() + 1;
+
+            var day = dtToday.getDate();
+
+            var year = dtToday.getFullYear();
+
+            if (month < 10)
+                month = '0' + month.toString();
+
+            if (day < 10)
+                day = '0' + day.toString();
+
+            var maxDate = year + '-' + month + '-' + day;
+            $('#startDate').attr('min', maxDate);
+            $('#endDate').attr('min', maxDate);
+
         });
     </script>
 </body>

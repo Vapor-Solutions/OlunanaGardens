@@ -43,7 +43,8 @@
                         <div class="mb-3">
                             <label for="start_time" class="form-label">Starting Date & Time</label>
                             <input type="datetime-local" wire:model="booking.start_time"
-                                min="{{ Carbon\Carbon::now()->toDateTimeString() }}" class="form-control" name="start_time"
+                                min="{{ Carbon\Carbon::now()->toDateTimeString() }}" class="form-control"
+                                name="start_time"
                                 @if ($booking->end_time) max="{{ Carbon\Carbon::parse($booking->end_time)->subDay()->toDateString() }}" @endif
                                 id="start_time" aria-describedby="start_time">
                             @error('booking.start_time')
@@ -68,8 +69,9 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="" class="form-label">Number of Adults</label>
-                            <input type="number" step="1" wire:model='booking.capacity_adults' min="1" class="form-control" name="" id=""
-                                aria-describedby="helpId" placeholder="Enter Your Adult Capacity" />
+                            <input type="number" step="1" wire:model='booking.capacity_adults' min="1"
+                                class="form-control" name="" id="" aria-describedby="helpId"
+                                placeholder="Enter Your Adult Capacity" />
                             @error('booking.capacity_adults')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -78,20 +80,20 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="" class="form-label">Number of Children</label>
-                            <input type="number" step="1" wire:model='booking.capacity_children' min="1" class="form-control" name="" id=""
-                                aria-describedby="helpId" placeholder="Enter Your Child Capacity" />
+                            <input type="number" step="1" wire:model='booking.capacity_children' min="1"
+                                class="form-control" name="" id="" aria-describedby="helpId"
+                                placeholder="Enter Your Child Capacity" />
                             @error('booking.capacity_children')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
 
-
                     <div class="col-md-12 col-12">
                         <div class="mb-3">
                             <label for="room_id" class="form-label">Sections</label>
-                            <select multiple wire:model="selectedSections" class="form-control" name="room_id"
-                                id="room_id">
+                            <select multiple="multiple" wire:model="selectedSections" class="form-control"
+                                name="room_id" id="room_id">
                                 <option selected>Choose the Sections to Book</option>
                                 @foreach ($sections as $section)
                                     <option @if ($section->isBookedBetween($booking->start_time, $booking->end_time)) disabled @endif
@@ -109,7 +111,7 @@
                             <label for="package_id" class="form-label">Package</label>
                             <select wire:model="booking.package_id" class="form-control" name="package_id"
                                 id="package_id">
-                                <option selected>Choose the Sections to Book</option>
+                                <option selected>Choose the Package to Book</option>
                                 @foreach ($packages as $package)
                                     <option value="{{ $package->id }}">
                                         {{ $package->title }} @ KES {{ $package->price }} per person</option>
@@ -120,11 +122,13 @@
                             @enderror
                         </div>
                     </div>
+                
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="" class="form-label">Price</label>
-                            <input type="number" min="1" step="0.05"  wire:model="booking.price"  class="form-control" name="" id=""
-                                aria-describedby="helpId" placeholder="Enter Agreed Price Per Person" />
+                            <input type="number" min="1" step="0.05" wire:model="booking.price"
+                                class="form-control" name="" id="" aria-describedby="helpId"
+                                placeholder="Enter Agreed Price Per Person" />
                             @error('booking.price')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

@@ -12,9 +12,11 @@ class BookingForm extends Component
 {
 
     public $event;
+
     public $start_time;
     public $email;
-    public $dateNotAvailable = false;
+    // public $initialBooking = true;
+    public $bookingIsAvailable = false;
     public $eventType;
 
 
@@ -28,7 +30,7 @@ class BookingForm extends Component
         'event.adults' => 'required',
         'event.children' => 'required',
         'event.client_name' => 'required',
-        'event.client_email' => 'required|email',
+        'event.email' => 'required|email',
     ];
 
     protected $messages = [
@@ -37,53 +39,81 @@ class BookingForm extends Component
         'event.event_type_id' => ['required' => 'The event type field is mandatory'],
         'event.children' => ['required' => 'The number of children is required'],
         'event.client_name' => ['required' => 'The client\'s name is required'],
-        'event.client_email' => [
+        'event.email' => [
             'required' => 'The client\'s email address is required',
             'email' => 'Needs a proper email address format'
         ],
     ];
 
 
-    function checkAvailability()
+    public function checkAvailability()
     {
+
         //validate my inputs
-        $this->validate();
+        // $this->validate();
+        // dd($this->bookingAvailable() , $this->checkClient());
+
+        if ($this->bookingAvailable() && $this->checkClient()) {
+            // proceed with logic to do booking
+            // $this->emit('done', ['success' => 'Date available for booking']);
+
+
+            // $this->initialBooking = true;
+            $this->bookingIsAvailable = true;
+        } else {
+            //else allow user to book
+            // $this->initialBooking = true;
+            $this->bookingIsAvailable = false;
+
+            // $this->emit('done', ['error' => 'Date is already booked']);
+        }
+    }
+
+
+    function bookingAvailable(): bool
+    {
+
 
         //convert date chosen by user
         $choosenDate = Carbon::parse($this->event['date'])->toDate();
         // dd($choosenDate);
         // dd($this->event['event_type_id']);
-        dd($this->eventType);
+        // dd($this->eventType);
 
         //check if a similar booking of the same date and event is available in the database
         $bookingExists = Booking::where('start_time', $choosenDate)
-            ->where('event_type_id', $this->eventType)->exists();
+            ->where('event_type_id', $this->eventType)->first();
 
-        dd($bookingExists);
+        // dd($bookingExists);
 
         //if booking exists then user cannot be able to book it
         if ($bookingExists) {
-            $this->dateNotAvailable = true;
-            return;
+            // $this->bookingIs = true;
+            return true;
         } else {
-            //else allow user to book
-            // $this->emit('done', ['success' => 'Date available for booking']);
+            # code...
+            return false;
         }
-
-        // dd($this->event);
     }
 
-    public function setEventType($typeId)
-    {
-        $this->eventType = $typeId;
-        // dd($this->eventType);
-    }
 
 
     //if booking process is going on check whether client exists in the database, if he doesnt prompt him to give his/her details
-    public function checkClient()
+
+    public function checkClient(): bool
     {
-        $client = Client::where('event.client_email', $this->email);
+        $client = Client::where('email', $this->event['email']);
+
+        // if return is true proceed with booking
+        if ($client->first()) {
+            # code...
+            return true;
+        } else {
+            # code...
+            // create the client
+            
+            return true;
+        }
     }
 
 

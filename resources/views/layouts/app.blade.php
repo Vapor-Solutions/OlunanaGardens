@@ -33,6 +33,10 @@
     <!-- summernote -->
     <link rel="stylesheet" href="/admin-lte/plugins/summernote/summernote-bs4.min.css">
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/admin-lte/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
     <!-- CK Editor -->
 
     <script src="/ckeditor/ckeditor.js"></script>
@@ -61,7 +65,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center bg-alps-danger">
-            <img class="" src="/company_logo.png?{{ rand(1,5000000) }}" alt="Logo" height="150" width="150">
+            <img class="" src="/company_logo.png?{{ rand(1, 5000000) }}" alt="Logo" height="150"
+                width="150">
         </div>
 
         <!-- Navbar -->
@@ -241,45 +246,59 @@
     <script src="/admin-lte/dist/js/adminlte.js"></script>
     <script src="/chart/apex-chart/apex-chart.js"></script>
     <script src="/chart/apex-chart/stock-prices.js"></script>
+    <!-- Select2 -->
+    <script src="/admin-lte/plugins/select2/js/select2.full.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="/admin-lte/dist/js/demo.js"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     {{-- <script src="/admin-lte/dist/js/pages/dashboard.js"></script> --}}
 
+    <script>
+        $(function() {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+        })
+    </script>
+
 
 
     @stack('scripts')
     {{-- @script --}}
-        <script>
-            Livewire.on('done', (e) => {
-                if (e.success) {
-                    Toast.fire({
-                        icon: 'success',
-                        text: e.success
-                    })
-                }
-                if (e.warning) {
-                    Toast.fire({
-                        icon: 'warning',
-                        text: e.warning
-                    })
-                }
-                if (e.info) {
-                    Toast.fire({
-                        icon: 'info',
-                        text: e.info
-                    })
-                }
-                if (e.error) {
-                    Toast.fire({
-                        icon: 'error',
-                        text: e.error
-                    })
-                }
+    <script>
+        Livewire.on('done', (e) => {
+            if (e.success) {
+                Toast.fire({
+                    icon: 'success',
+                    text: e.success
+                })
+            }
+            if (e.warning) {
+                Toast.fire({
+                    icon: 'warning',
+                    text: e.warning
+                })
+            }
+            if (e.info) {
+                Toast.fire({
+                    icon: 'info',
+                    text: e.info
+                })
+            }
+            if (e.error) {
+                Toast.fire({
+                    icon: 'error',
+                    text: e.error
+                })
+            }
 
-                $('.modal').modal('hide');
-            });
-        </script>
+            $('.modal').modal('hide');
+        });
+    </script>
     {{-- @endscript --}}
 </body>
 
