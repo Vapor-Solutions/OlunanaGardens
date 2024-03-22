@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->longText('description');
             $table->unsignedDecimal('price', 8, 2);
             $table->timestamps();
         });
