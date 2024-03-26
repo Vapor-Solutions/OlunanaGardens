@@ -152,7 +152,6 @@
 
     @stack('modals')
 
-    @livewireScripts
 
     <script src="/js/jquery-3.6.3.min.js"></script>
     <script src="/js/jquery-migrate-3.0.0.min.js"></script>
@@ -172,7 +171,9 @@
     <script src="/js/datepicker.js"></script>
     <script src="/js/smooth-scroll.min.js"></script>
     <script src="/js/vegas.slider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/custom.js?{{ rand(1, 670) }}"></script>
+    @livewireScripts
     @stack('scripts')
     <!-- Vegas Background Slideshow (vegas.slider kenburns) -->
     <script>
@@ -194,26 +195,46 @@
             });
         });
     </script>
+
     <script>
-        $(function() {
-            var dtToday = new Date();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-right',
+            timer: 5000,
+            timerProgressBar: true
+        })
 
-            var month = dtToday.getMonth() + 1;
 
-            var day = dtToday.getDate();
 
-            var year = dtToday.getFullYear();
 
-            if (month < 10)
-                month = '0' + month.toString();
+        window.Toast = Toast
+        Livewire.on('done', (e) => {
+            if (e.success) {
+                Toast.fire({
+                    icon: 'success',
+                    text: e.success
+                })
+            }
+            if (e.warning) {
+                Toast.fire({
+                    icon: 'warning',
+                    text: e.warning
+                })
+            }
+            if (e.info) {
+                Toast.fire({
+                    icon: 'info',
+                    text: e.info
+                })
+            }
+            if (e.error) {
+                Toast.fire({
+                    icon: 'error',
+                    text: e.error
+                })
+            }
 
-            if (day < 10)
-                day = '0' + day.toString();
-
-            var maxDate = year + '-' + month + '-' + day;
-            $('#startDate').attr('min', maxDate);
-            $('#endDate').attr('min', maxDate);
-
+            $('.modal').modal('hide');
         });
     </script>
 </body>

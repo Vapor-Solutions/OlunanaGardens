@@ -2,6 +2,7 @@
 /node_modules
 # /public/build
 /public/hot
+/public/gallery
 /public/company_logo.png
 /public/storage
 /storage/*.key

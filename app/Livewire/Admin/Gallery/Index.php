@@ -11,11 +11,34 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $photos;
+    public $photos = [];
+
+    protected $listeners = [
+        'done' => 'mount'
+    ];
 
     public function mount()
     {
-        $this->photos = collect(File::allFiles(public_path('gallery')));
+        // Get the path to the public/gallery folder
+        $galleryPath = public_path('gallery');
+
+        // Get all the files in the gallery folder
+        $files = File::files($galleryPath);
+
+        // Loop through the files and add their paths to the $photoPaths array
+        foreach ($files as $file) {
+            array_push($this->photos, $file->getFilename());
+        }
+    }
+
+    function deletePhoto($index)
+    {
+        if (file_exists(public_path('gallery/' . $this->photos[$index]))) {
+            unlink(public_path('gallery/' . $this->photos[$index]));
+            $this->emit('done', [
+                'success' => "Successfully Deleted the Photo"
+            ]);
+        }
     }
 
     public function render()

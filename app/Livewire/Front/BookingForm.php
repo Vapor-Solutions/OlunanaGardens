@@ -2,129 +2,101 @@
 
 namespace App\Livewire\Front;
 
+use App\Jobs\SendBookingRequestEmailJob;
 use App\Models\Booking;
+use App\Models\BookingRequest;
 use App\Models\Client;
 use App\Models\EventType;
 use App\Models\Package;
-use App\Models\Section;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class BookingForm extends Component
 {
-    public $event;
-    public $bookingIsAvailable = false;
-    public $noBooking = "james";
+
+    public BookingRequest $bookingRequest;
+    public Client $client;
+    public $dateNotAvailable = false;
+    public $client_name, $client_email, $client_phone_number;
+
+
+    protected $listeners = [
+        'done' => 'mount'
+    ];
 
     protected $rules = [
-        'event.start_time' => 'required|after_or_equal:today',
-        'event.end_time' => 'required',
-        'event.event_type_id' => 'required',
-        'event.package_id' => 'required',
-        'event.adults' => 'required',
-        'event.children' => 'required',
-        'event.name' => 'required',
-        'event.address' => 'required',
-        'event.phone_number' => 'required',
-        'event.email' => 'required|email',
-        'event.price' => 'required',
-        'event.section' => 'required'
+        'bookingRequest.start_time' => 'required|after_or_equal:today',
+        'bookingRequest.event_type_id' => 'required',
+        'bookingRequest.package_id' => 'required',
+        'bookingRequest.capacity_adults' => 'required',
+        'bookingRequest.capacity_children' => 'required',
+        'client_name' => 'required',
+        'client_email' => 'required|email',
+        'client_phone_number' => 'required',
     ];
 
     protected $messages = [
-        'event.start_time.required' => 'The start date and time is required and should not be in the past',
-        'event.end_time.required' => 'The end date and time is required',
-        'event.event_type_id.required' => 'The event type field is mandatory',
-        'event.package_id.required' => 'The package type is mandatory',
-        'event.section.required' => 'The package type is mandatory',
-        'event.adults.required' => 'The number of adults is required',
-        'event.children.required' => 'The number of children is required',
-        'event.price.required' => 'The price field is required',
-        'event.name.required' => 'The client\'s name is required',
-        'event.address.required' => 'The client\'s address is required',
-        'event.phone_number.required' => 'The client\'s phone number is required',
-        'event.email.required' => 'The client\'s email address is required',
-        'event.email.email' => 'The client\'s email must be a valid email address',
+        'bookingRequest.date' => ['required' => 'The date is required and should not be in the past'],
+        'bookingRequest.capacity_adults' => ['required' => 'The number of adults is required'],
+        'bookingRequest.event_type_id' => ['required' => 'The event type field is mandatory'],
+        'bookingRequest.package_id' => ['required' => 'The menu package field is mandatory'],
+        'bookingRequest.capacity_children' => ['required' => 'The number of children is required'],
+        'client_name' => ['required' => 'The client\'s name is required'],
+        'client_phone_number' => ['required' => 'The client\'s Phone Number is required'],
+        'client_email' => [
+            'required' => 'The client\'s email address is required',
+            'email' => 'Needs a proper email address format'
+        ],
     ];
 
-    public function checkAvailability()
+    function mount()
     {
-        $this->bookingIsAvailable = $this->bookingAvailable();
-        $this->bookingIsAvailable == true ? $this->noBooking = "true":$this->noBooking = "false";
-
-       
-      
+        $this->bookingRequest = new BookingRequest();
     }
 
 
- 
-
-    public function book(){
-        $booking = new Booking();
-        $booking->start_time = $this->event['start_time'];
-        $booking->end_time = $this->event['end_time'];
-        $booking->event_type_id = $this->event['event_type_id'];
-        $booking->package_id = $this->event['package_id'];
-        $booking->capacity_adults = $this->event['adults'];
-        $booking->capacity_children = $this->event['children'];
-        $booking->price = $this->event['price'];
-
-        $client = Client::where('email', $this->event['email']);
-
-        if (!$client) {
-            $newClient = new Client();
-            $newClient->name = $this->event['name'];
-            $newClient->email = $this->event['email'];
-            $newClient->phone_number = $this->event['phone_number'];
-            $newClient->address = $this->event['address'];
-            $newClient->save();
-        }
-
-        $booking->client_id = $client->id;
-        $booking->save();
-
-    }
-
-    public function bookingAvailable(): bool
+    function checkAvailability()
     {
-       
-        $eventType = EventType::find($this->event['event_type_id']);
-        // $section = Section::find($this->event['section']);
-        $section = 
+        //validate my inputs
+        $this->validate();
+        $this->checkClient();
 
-        // dd($section);
+        $this->bookingRequest->client_id = $this->client->id;
 
-        $choosenDateStartTime = date_format(Carbon::parse($this->event['start_time']),"Y-m-d H:i:s");
-        $choosenDateEndTime = date_format(Carbon::parse($this->event['end_time']),"Y-m-d H:i:s");
+        // Send to Booking Requests
+        $this->bookingRequest->save();
+        SendBookingRequestEmailJob::dispatch($this->bookingRequest);
 
-        // dd($choosenDateStartTime , $choosenDateEndTime);
+        // $this->reset();
 
-        $bookingExists = Booking::
-            whereBetween('start_time', [
-                $choosenDateStartTime,
-                $choosenDateEndTime])
-            ->where('event_type_id', $eventType->id)
-            ->where('section', $section)
-            ->first();
-        dd($bookingExists);
-
-        
-        return $bookingExists ? true : false;
+        $this->emit('done', [
+            'success' => 'Successfully Sent Your Booking Request. You shall be contacted Shortly'
+        ]);
     }
+
+
 
     // public function checkClient(): bool
     // {
     //     $client = Client::where('email', $this->event['email'])->first();
 
-    //     if ($client) {
-    //         return true;
-    //     } else {
-    //         $newClient = new Client();
-    //         $newClient->name = $this->event['name'];
-    //         $newClient->email = $this->event['email'];
-    //         $newClient->phone_number = $this->event['phone_number'];
-    //         $newClient->address = $this->event['address'];
-    //         $newClient->save();
+    //if booking process is going on check whether client exists in the database, if he doesnt prompt him to give his/her details
+    public function checkClient()
+    {
+        $clientExists = Client::where('email', $this->client_email)->exists();
+        if ($clientExists) {
+            $this->client = Client::where('email', $this->client_email)->first();
+        } else {
+            $client = new Client();
+            $client->name = $this->client_name;
+            $client->email = $this->client_email;
+            $client->phone_number = $this->client_phone_number;
+            $client->save();
+
+            $this->client = $client;
+        }
+    }
 
     //         return true;
     //     }
@@ -134,8 +106,7 @@ class BookingForm extends Component
     {
         return view('livewire.front.booking-form', [
             'eventTypes' => EventType::all(),
-            'packageTypes' => Package::all(),
-            'sections' => Section::all(),
+            'packages' => Package::all(),
         ]);
     }
 }
