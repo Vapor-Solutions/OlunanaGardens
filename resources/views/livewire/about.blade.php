@@ -24,21 +24,36 @@
                         <i class="star-rating"></i>
                         <i class="star-rating"></i>
                     </span>
-                    <div class="section-subtitle">Olunana Gardens</div>
+                    <div class="section-subtitle">OluNana Gardens</div>
                     <div class="section-title">Get to Know Us</div>
                     {!! File::get(public_path('/text/about_content1.txt')) !!}
                     <!-- reservation -->
                     <div class="reservations">
                         <div class="icon"><span class="flaticon-call"></span></div>
                         <div class="text">
-                            <p>Reservation</p> <a href="tel:855-100-4444">855 100 4444</a>
+                            <p>Reservation</p> <a href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                         </div>
                     </div>
                 </div>
-                <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/18.jpg"
-                        alt="" class="mt-90 mb-30"> </div>
-                <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/17.jpg"
-                        alt=""> </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/18.jpg"
+                                alt="" class="mt-90 mb-30">
+                        </div>
+                        <div class=" col-6 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/17.jpg"
+                                alt="">
+                        </div>
+                        <div class="col-6 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/11.jpg"
+                                alt="" class="mt-90 mb-30">
+                        </div>
+                        <div class=" col-6 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/23.jpg"
+                                alt="">
+                        </div>
+                        <div class=" col-12 animate-box" data-animate-effect="fadeInUp"> <img src="/olunana/img/24.jpg"
+                                alt="" class="mt-90 mb-30">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

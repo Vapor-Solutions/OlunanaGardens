@@ -16,6 +16,9 @@
     <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="{{ route('blog') }}">Our Blog</a>
 </li>
 <li class='nav-item'>
+    <a class="nav-link {{ Request::is('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
+</li>
+<li class='nav-item'>
     <a class="nav-link {{ Request::is('contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}">Contact
         Us</a>
 </li>
