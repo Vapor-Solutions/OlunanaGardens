@@ -18,7 +18,7 @@ class BookingForm extends Component
     public BookingRequest $bookingRequest;
     public Client $client;
     public $dateNotAvailable = false;
-    public $client_name, $client_email, $client_phone_number;
+    public $client_name, $client_email, $client_phone_number, $client_country;
 
 
     protected $listeners = [
@@ -34,6 +34,7 @@ class BookingForm extends Component
         'client_name' => 'required',
         'client_email' => 'required|email',
         'client_phone_number' => 'required',
+        'client_country' => 'required',
     ];
 
     protected $messages = [
@@ -44,6 +45,7 @@ class BookingForm extends Component
         'bookingRequest.capacity_children' => ['required' => 'The number of children is required'],
         'client_name' => ['required' => 'The client\'s name is required'],
         'client_phone_number' => ['required' => 'The client\'s Phone Number is required'],
+        'client_country' => ['required' => 'The client\'s Country is required'],
         'client_email' => [
             'required' => 'The client\'s email address is required',
             'email' => 'Needs a proper email address format'
@@ -92,6 +94,7 @@ class BookingForm extends Component
             $client->name = $this->client_name;
             $client->email = $this->client_email;
             $client->phone_number = $this->client_phone_number;
+            $client->country = $this->client_country;
             $client->save();
 
             $this->client = $client;
