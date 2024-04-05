@@ -18,6 +18,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Thumbnail Image</th>
                             <th>Event type</th>
                             <th>Price</th>
                             <th>Number of Bookings</th>
@@ -29,13 +30,20 @@
                         @foreach ($event_types as $type)
                             <tr>
                                 <td scope="row">{{ $type->id }}</td>
+                                <td scope="row">
+                                    @if ($type->image_path)
+                                        <img class="img-thumbnail" src="{{ asset($type->image_path) }}" alt="">
+                                    @else
+                                        <h5>No Image Set</h5>
+                                    @endif
+                                </td>
                                 <td>{{ $type->title }}</td>
-                                <td>KES {{ number_format($type->price_kes) }}</td>
+                                <td>KES {{ number_format($type->price) }}</td>
 
                                 <td>{{ count($type->bookings) }}</td>
 
                                 @php
-                                    $costs = 0;
+                                    $costs = $type->price;
                                     foreach ($type->bookings as $booking) {
                                         $costs += $booking->price;
                                     }
