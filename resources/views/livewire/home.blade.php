@@ -11,7 +11,7 @@
                                     <i class="star-rating"></i>
                                     <i class="star-rating"></i>
                                 </span>
-                                <h4>Welcome to OluNana</h4>
+                                <h4>Welcome to OluNana Gardens</h4>
                                 <h3>BLOOMING EVENTS IN NATURE'S EMBRACE</h3>
                                 <div class="butn-light mt-30 mb-30"> <a href="{{ route('restaurant') }}"><span>Our
                                             Restaurant</span></a> </div>
@@ -41,7 +41,7 @@
                     <div class="section-title">Your Green Oasis for Memorable Occasions</div>
 
                     <h5>Why Choose Our Gardens Venue?</h5>
-                    {{-- {!! File::get('text/home_content.txt') !!} --}}
+                    {!! File::get('text/home_content.txt') !!}
 
                     <!-- call -->
                     <div class="reservations">
@@ -82,7 +82,7 @@
                                     href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                             </div>
                         </div>
-                        <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>
+                        <p><i class="ti-check"></i><small>Call us.</small></p>
                     </div>
                     <!-- Booking From -->
                     {{-- <x-front.booking-form></x-front.booking-form> --}}

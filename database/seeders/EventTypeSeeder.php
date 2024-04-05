@@ -15,28 +15,36 @@ class EventTypeSeeder extends Seeder
     {
         $eventTypes = [
             [
-                'title' => "Anniversaries"
+                'title' => "Anniversaries",
+                'price' => 5600
             ],
             [
-                'title' => "Baby Shower"
+                'title' => "Baby Shower",
+                'price' => 5600
             ],
             [
-                'title' => "Bridal Shower"
+                'title' => "Bridal Shower",
+                'price' => 5600
             ],
             [
-                'title' => "Birthdays"
+                'title' => "Birthdays",
+                'price' => 5600
             ],
             [
-                'title' => "Corporate Events"
+                'title' => "Corporate Events",
+                'price' => 5600
             ],
             [
-                'title' => "Graduation Celebration"
+                'title' => "Graduation Celebration",
+                'price' => 5600
             ],
             [
-                'title' => "Photo and Video Shoots"
+                'title' => "Photo and Video Shoots",
+                'price' => 5600
             ],
             [
-                'title' => "Weddings"
+                'title' => "Weddings",
+                'price' => 5600
             ],
         ];
         foreach ($eventTypes as $type) {

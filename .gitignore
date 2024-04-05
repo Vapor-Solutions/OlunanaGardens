@@ -2,6 +2,7 @@
 /node_modules
 # /public/build
 /public/hot
+/public/event_types
 /public/gallery
 /public/company_logo.png
 /public/storage

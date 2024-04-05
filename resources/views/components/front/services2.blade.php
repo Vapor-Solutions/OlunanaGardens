@@ -11,14 +11,12 @@
                 <div class="owl-carousel owl-theme">
                     @foreach ($eventTypes as $type)
                         <div class="pricing-card">
-                            <img src="img/pricing/1.jpg" alt="">
+                            <img src="{{ $type->image_path ?? 'img/pricing/1.jpg' }}" alt="">
                             <div class="desc">
                                 <div class="name">{{ $type->title }}</div>
-                                <div class="amount"><span>from  </span>KES 5,500</div>
+                                <div class="amount"><span>from</span>KES{{ number_format($type->price, 0) }}</div>
                                 <ul class="list-unstyled list">
-                                    <li><i class="ti-check"></i> Hotel ut nisan the duru</li>
-                                    <li><i class="ti-check"></i> Orci miss natoque vasa ince</li>
-                                    <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li>
+                                    {{ $type->description }}
                                 </ul>
                             </div>
                         </div>
