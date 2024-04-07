@@ -3926,7 +3926,9 @@ button.mfp-arrow {
     position: relative;
     background: #dfdfdf;
     padding: 45px;
-    margin-bottom: -75px;
+    /* margin-bottom: -75px; */
+    margin-bottom: 50px;
+    margin-top: -50px;
 }
 .booking-box .head-box h6 {
     font-size: 15px;

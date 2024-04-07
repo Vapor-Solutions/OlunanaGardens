@@ -65,6 +65,7 @@
     </section>
 
     @livewire('front.blog')
+    
     <section class="testimonials">
         <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
             data-overlay-dark="2">
@@ -89,8 +90,6 @@
                     <div class="col-md-5">
                         @livewire('front.booking-form')
                     </div>
-
-
                 </div>
             </div>
         </div>
