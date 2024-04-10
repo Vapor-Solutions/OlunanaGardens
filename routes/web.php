@@ -27,6 +27,7 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/gallery-section', Livewire\Gallery::class)->name('gallery');
     Route::get('/restaurant', Livewire\Restaurant::class)->name('restaurant');
     Route::get('/blog', Livewire\Blog::class)->name('blog');
+    Route::get('/faq', Livewire\faq::class)->name('faq');
     Route::get('/{id}/blog-post', Livewire\BlogPost::class)->name('blog-post');
     Route::get('/contact-us', Livewire\ContactUs::class)->name('contact-us');
 }
@@ -52,6 +53,8 @@ Route::middleware([
         Route::get('content', Admin\Cms\Content::class)->name('admin.cms.content');
         Route::get('photos', Admin\Cms\Photos::class)->name('admin.cms.photos');
         Route::get('faq', Admin\Cms\Faq::class)->name('admin.cms.faq');
+        Route::get('faq/create', Admin\Cms\Faq\Create::class)->name('admin.cms.faq.create');
+        Route::get('faq/{id}/edit', Admin\Cms\Faq\Edit::class)->name('admin.cms.faq.edit');
     });
     // Users
     Route::prefix('users')->group(function () {
@@ -124,7 +127,7 @@ Route::middleware([
     Route::prefix('gallery')->group(function () {
         Route::get('/', Admin\Gallery\Index::class)->name('admin.gallery.index')->middleware('permission:Read Gallery');
         Route::get('create', Admin\Gallery\Create::class)->name('admin.gallery.create')->middleware('permission:Create Gallery');
-        Route::get('{id}/edit', Admin\Gallery\Edit::class)->name('admin.gallery.edit')->middleware('permission:Edit Gallery');
+        // Route::get('{id}/edit', Admin\Gallery\Edit::class)->name('admin.gallery.edit')->middleware('permission:Edit Gallery');
     });
 
     // PostCategories

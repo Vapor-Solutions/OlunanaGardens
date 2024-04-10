@@ -17,6 +17,7 @@
                             <th>ID</th>
                             <th>Event Type</th>
                             <th>Client</th>
+                            <th>Booking Reference Code</th>
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>No. of Adults</th>
@@ -33,6 +34,7 @@
                                 <td scope="row">{{ $booking->id }}</td>
                                 <td scope="row">{{ $booking->eventType->title }}</td>
                                 <td>{{ $booking->client->name }}</td>
+                                <td>{{ $booking->booking_ref }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->start_time)->format('jS M, Y \a\t h:i A') }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->end_date)->format('jS M, Y \a\t h:i A') ?? '-' }}
                                 </td>
@@ -48,12 +50,19 @@
                                         <div class="flex-col mx-1">
                                             <a href="{{ route('admin.bookings.edit', $booking->id) }}"
                                                 class="btn btn-secondary">
-                                                <i class="fas fa-edit"></i>
+                                                <i class="fas fa-edit" title="Edit"></i>
                                             </a>
                                         </div>
+
+                                        <div class="flex-col mx-1">
+                                            <a href="{{ route('admin.payments.create') }}" class="btn btn-primary">
+                                                <i class="fas fa-credit-card" title="Payment"></i>
+                                            </a>
+                                        </div>
+
                                         <div class="flex-col mx-1">
                                             <button class="btn btn-danger">
-                                                <i class="fas fa-trash"></i>
+                                                <i class="fas fa-trash" title="Delete"></i>
                                             </button>
                                         </div>
                                     </div>

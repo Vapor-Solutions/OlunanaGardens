@@ -13,6 +13,7 @@
                     <thead class="">
                         <tr>
                             <th>No</th>
+                            <th>Event Type</th>
                             <th>Photo</th>
                             <th>Actions</th>
                         </tr>
@@ -21,8 +22,9 @@
                         @foreach ($photos as $index => $photo)
                             <tr class="">
                                 <td scope="row">{{ $index + 1 }}</td>
+                                <td scope="row">{{ $photo->eventType->title }}</td>
                                 <td>
-                                    <img src="{{ asset('gallery/' . $photo) }}?{{ rand() }}" alt="{{ $photo }}" width="100" height="100">
+                                    <img src="{{ asset($photo->image_path) }}?{{ rand() }}" alt="{{ $photo->title }}" width="100" height="100">
                                 </td>
                                 <td class="d-flex flex-row">
                                     <div class="flex-col mx-1">

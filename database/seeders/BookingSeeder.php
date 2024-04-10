@@ -21,12 +21,12 @@ class BookingSeeder extends Seeder
         for ($i = 0; $i < 150; $i++) {
             $booking = new Booking();
             $booking->event_type_id = rand(1, count(EventType::all()));
-            $booking->booking_ref = fake()->unique()->regexify('[A-Z]{5}');
+
 
             $booking->package_id = rand(1, count(Package::all()));
             $booking->client_id = rand(1, count(Client::all()));
             $random = rand(1, 300);
-            $booking->start_time = Carbon::parse("2024-02-20")->subDays($random)->toDateTimeString();
+            $booking->start_time = Carbon::parse("2024-03-20")->subDays($random)->toDateTimeString();
             $booking->end_time = Carbon::parse($booking->start_time)->addHours(rand(2, 72))->toDateTimeString();
             $booking->price = $booking->package->price;
             $booking->capacity_adults = rand(10, 1000);

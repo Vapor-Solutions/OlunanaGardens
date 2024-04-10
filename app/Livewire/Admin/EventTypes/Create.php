@@ -8,24 +8,38 @@ use Livewire\Component;
 class Create extends Component
 {
     public EventType $event_type;
+    public $thumbnail;
 
     protected $rules = [
-        'event_type.title'=> 'required'
+        'event_type.title' => 'required',
+        'event_type.price' => 'required',
+        'event_type.description' => 'nullable',
+        'thumbnail' => 'nullable|image|dimensions:ratio=7/4',
     ];
 
-    public function mount(){
+
+    public function mount()
+    {
         $this->event_type = new EventType();
     }
 
-    public function save(){
+    public function save()
+    {
         $this->validate();
 
         $this->event_type->save();
-        $this->emit('done', ['success' => "Successffuly Added a New Event Type"]);
+        if ($this->thumbnail) {
+            $image_path = 'event_types/' . $this->event_type->id . $this->thumbnail->extension();
+            $this->thumbnail->store($image_path, 'public');
+            $this->event_type->image_path = $image_path;
+        }
+        $this->event_type->update();
+        $this->emit('done', ['success' => "Successfully Added a New Event Type"]);
         $this->resetInput();
     }
 
-    public function resetInput(){
+    public function resetInput()
+    {
         $this->event_type = new EventType();
     }
 

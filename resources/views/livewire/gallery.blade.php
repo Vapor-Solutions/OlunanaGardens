@@ -18,20 +18,25 @@
                 <div class="section-subtitle">Images</div>
                 <div class="section-title">Image Gallery</div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <!-- 3 columns -->
-                @foreach ($photos as $photo)
-                    <div class="col gallery-item mosaic-tile ml-1">
-                        <a href="/gallery/{{ $photo }}" title="" class="img-zoom">
-                            <div class="gallery-box">
-                                <div class="gallery-img "> <img src="/gallery/{{ $photo }}"
-                                        class="img-fluid mx-auto d-block" alt="work-img"> </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
+            @foreach ($event_types as $type)
+                @if (count($type->photos) > 0)
+                    <h5 class="section-subtitle text-center" style="color: #95343F">{{ $type->title }}</h5>
+                @endif
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-4">
+                    <!-- 3 columns -->
+                    @foreach ($type->photos as $photo)
+                        <div class="col gallery-item mosaic-tile ml-1">
+                            <a href="{{ asset($photo->image_path) }}" title="" target="_blank" class="img-zoom">
+                                <div class="gallery-box">
+                                    <div class="gallery-img "> <img src="{{ asset($photo->image_path) }}"
+                                            class="img-fluid mx-auto d-block" alt="work-img"> </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
 
-            </div>
+                </div>
+            @endforeach
         </div>
     </section>
     <section class="testimonials">

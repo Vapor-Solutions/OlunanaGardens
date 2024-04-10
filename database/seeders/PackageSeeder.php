@@ -140,18 +140,22 @@ class PackageSeeder extends Seeder
         $packages = [
             [
                 'title' => 'Menu 1',
+                "description"=>"3 starch Items, 2 Protein Items, 2 Vegetable Stews, 1 Salad, 2 Dessert options, and 1 beverage",
                 'price' => 1500
             ],
             [
                 'title' => 'Menu 2',
+                "description"=>"3 starch Items, 3 Protein Items, 2 Vegetable Stews, 1 Salad, 2 Dessert options, and 1 beverage",
                 'price' => 2000
             ],
             [
                 'title' => 'Menu 3',
+                "description"=>"4 starch Items, 2 Protein Items, 2 Vegetable Stews, 1 Salad, 2 Dessert options, and 1 beverage",
                 'price' => 2000
             ],
             [
                 'title' => 'Menu 4',
+                "description"=>"4 starch Items, 3 Protein Items, 2 Vegetable Stews, 1 Salad, 2 Dessert options, and 1 beverage",
                 'price' => 2500
             ],
         ];

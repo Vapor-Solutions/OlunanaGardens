@@ -17,4 +17,8 @@ class EventType extends Model
         return $this->hasMany(Booking::class);
     }
 
+    function photos(){
+        return $this->hasMany(Gallery::class);
+    }
+
 }
