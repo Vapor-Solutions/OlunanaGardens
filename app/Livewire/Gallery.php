@@ -9,14 +9,12 @@ use Livewire\Component;
 
 class Gallery extends Component
 {
-    public $event_types;
 
-    function mount()
-    {
-        $this->event_types = EventType::all();
-    }
     public function render()
     {
-        return view('livewire.gallery')->layout('layouts.front');
+        return view('livewire.gallery', [
+            'event_types'=> EventType::all(),
+            'galleries'=>ModelsGallery::all()
+        ])->layout('layouts.front');
     }
 }
