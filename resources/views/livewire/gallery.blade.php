@@ -19,7 +19,7 @@
                 <div class="section-title">Image Gallery</div>
             </div>
             @if (count($galleries) <= 0)
-                <h1 class="section-title text-center" style="color: #95343F">No Images Uploaded Yet</h1>
+                <h3 class="section-title text-center text-uppercase" style="color: #95343F">No Images Uploaded Yet</h3>
             @endif
             @foreach ($event_types as $type)
                 @if (count($type->photos) > 0)
