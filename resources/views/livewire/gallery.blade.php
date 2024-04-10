@@ -21,6 +21,9 @@
             @foreach ($event_types as $type)
                 @if (count($type->photos) > 0)
                     <h5 class="section-subtitle text-center" style="color: #95343F">{{ $type->title }}</h5>
+                    @else
+                    <h1 class="section-title text-center" style="color: #95343F">No Images Uploaded Yet</h5>
+
                 @endif
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-4">
                     <!-- 3 columns -->
