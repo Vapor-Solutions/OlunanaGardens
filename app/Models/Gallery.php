@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     use HasFactory;
+
+    function eventType() {
+        return $this->belongsTo(EventType::class);
+    }
 }

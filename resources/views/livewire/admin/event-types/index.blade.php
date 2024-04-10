@@ -20,6 +20,7 @@
                             <th>ID</th>
                             <th>Thumbnail Image</th>
                             <th>Event type</th>
+                            <th>Number of Photos</th>
                             <th>Price</th>
                             <th>Number of Bookings</th>
                             <th>Total Earned</th>
@@ -38,6 +39,7 @@
                                     @endif
                                 </td>
                                 <td>{{ $type->title }}</td>
+                                <td>{{ count($type->photos) }} photos</td>
                                 <td>KES {{ number_format($type->price) }}</td>
 
                                 <td>{{ count($type->bookings) }}</td>

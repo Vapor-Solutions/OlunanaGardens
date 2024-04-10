@@ -11,17 +11,20 @@ class Create extends Component
     public $thumbnail;
 
     protected $rules = [
-        'event_type.title'=> 'required',
-        'event_type.price'=> 'required',
-        'event_type.description'=> 'nullable',
+        'event_type.title' => 'required',
+        'event_type.price' => 'required',
+        'event_type.description' => 'nullable',
         'thumbnail' => 'nullable|image|dimensions:ratio=7/4',
     ];
 
-    public function mount(){
+
+    public function mount()
+    {
         $this->event_type = new EventType();
     }
 
-    public function save(){
+    public function save()
+    {
         $this->validate();
 
         $this->event_type->save();
@@ -35,7 +38,8 @@ class Create extends Component
         $this->resetInput();
     }
 
-    public function resetInput(){
+    public function resetInput()
+    {
         $this->event_type = new EventType();
     }
 

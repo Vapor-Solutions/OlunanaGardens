@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-12">
                         <div class="mb-3">
-                            <label for="" class="form-label">Select Image Thumbnail</label>
+                            <label for="" class="form-label">Select Image Thumbnail <small>(Ratio = 7:4)</small></label>
                             <input type="file" wire:model='thumbnail' class="form-control" name="" id="" placeholder=""
                                 aria-describedby="fileHelpId" />
                             @error('thumbnail')

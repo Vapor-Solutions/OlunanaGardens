@@ -127,7 +127,7 @@ Route::middleware([
     Route::prefix('gallery')->group(function () {
         Route::get('/', Admin\Gallery\Index::class)->name('admin.gallery.index')->middleware('permission:Read Gallery');
         Route::get('create', Admin\Gallery\Create::class)->name('admin.gallery.create')->middleware('permission:Create Gallery');
-        Route::get('{id}/edit', Admin\Gallery\Edit::class)->name('admin.gallery.edit')->middleware('permission:Edit Gallery');
+        // Route::get('{id}/edit', Admin\Gallery\Edit::class)->name('admin.gallery.edit')->middleware('permission:Edit Gallery');
     });
 
     // PostCategories
