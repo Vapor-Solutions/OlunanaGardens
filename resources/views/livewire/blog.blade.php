@@ -35,7 +35,7 @@
                 @endforeach
             </div>
             @else
-                <h1 class="text-center">No Posts Yet</h1>
+                <h1 class="text-center text-muted">No Posts Yet</h1>
             @endif
             <div class="row">
                 <div class="col-md-12 text-center">
