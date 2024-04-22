@@ -13,6 +13,7 @@ use Illuminate\Validation\ValidationException;
 class Create extends Component
 {
     use WithFileUploads;
+
     public $photos = [];
     public $event_type_id;
     public $title;
