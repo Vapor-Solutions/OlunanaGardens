@@ -4,9 +4,12 @@ namespace App\Livewire\Admin\EventTypes;
 
 use App\Models\EventType;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
+    use WithFileUploads;
+
     public EventType $event_type;
     public $thumbnail;
 
