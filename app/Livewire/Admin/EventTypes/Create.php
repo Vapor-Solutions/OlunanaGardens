@@ -33,7 +33,7 @@ class Create extends Component
         $this->event_type->save();
         if ($this->thumbnail) {
             $image_path = 'event_types/' . $this->event_type->id . $this->thumbnail->extension();
-            $this->thumbnail->store($image_path, 'public');
+            $this->thumbnail->storeAs('event_types/', $this->event_type->id . '.' . $this->thumbnail->extension(), 'public');
             $this->event_type->image_path = $image_path;
         }
         $this->event_type->update();
