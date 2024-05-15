@@ -61,9 +61,11 @@ class Mail extends Component
 
         File::put($envFile, $oldEnvContent);
 
-        $this->dispatch(
+        $this->emit(
             'done',
-            success: 'Successfully Saved the Mail Settings',
+            [
+                'success' => 'Successfully Saved the Mail Settings',
+            ]
         );
     }
 
