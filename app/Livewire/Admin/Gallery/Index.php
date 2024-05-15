@@ -24,7 +24,7 @@ class Index extends Component
     function deletePhoto($photo_id)
     {
         $photo = Gallery::find($photo_id);
-        if (file_exists(public_path($photo->image_path))) {
+        if ($photo && file_exists(public_path($photo->image_path))) {
             unlink(public_path($photo->image_path));
         }
         $photo->delete();
