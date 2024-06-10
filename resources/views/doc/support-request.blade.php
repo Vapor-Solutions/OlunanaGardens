@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Confirmation</title>
+    <title>New Support Request</title>
     <style>
         /* Reset styles */
         body, html {
@@ -36,8 +36,8 @@
             max-width: 150px;
             height: auto;
         }
-        /* Confirmation message */
-        .confirmation-message {
+        /* Notification message */
+        .notification-message {
             margin-bottom: 30px;
         }
         /* Button */
@@ -61,21 +61,23 @@
         <div class="email-content">
             <div class="header">
                 <img src="{{ asset('company_logo.png') }}" alt="Logo" class="logo">
-                <h2>Booking Confirmation</h2>
+                <h2>Support Request</h2>
             </div>
-            <div class="confirmation-message">
-                <p>Dear {{ $bookingRequest->client->name }},</p>
-                <p>We are pleased to confirm your booking request. Details of your booking are as follows:</p>
+            <div class="notification-message">
+                <p>Hello Admin,</p>
+                <p>A new contact has requested your support. Details are as follows:</p>
                 <ul>
-                    {{-- <li><strong>Booking Reference:</strong> [Booking Reference]</li> --}}
-                    <li><strong>Booking Date:</strong> {{ Carbon\Carbon::parse($bookingRequest->start_time)->format('jS F, Y h:i:s A') }}</li>
-                    <li><strong>Capacity:</strong> {{ $bookingRequest->capacity_adults }}adults & {{ $bookingRequest->capacity_children }}children</li>
+                    <li><strong>Client Name:</strong> {{ $name }}</li>
+                    <li><strong>Email Address:</strong> {{ $email }}</li>
+                    <li><strong>Phone Number:</strong> {{ $phone }}</li>
+                    <li><strong>Subject:<strong> {{ $subject }}</li>
+                    <li><strong>Message:<strong> {{ $body }}</li>
                     <!-- Add more booking details as necessary -->
                 </ul>
-                <p>If you have any questions or need further assistance, please don't hesitate to contact us.</p>
+                <p>Please take appropriate action to process this support request.</p>
             </div>
             <div class="footer">
-                <p>Thank you for choosing us!</p>
+                <p>Thank you!</p>
             </div>
         </div>
     </div>
