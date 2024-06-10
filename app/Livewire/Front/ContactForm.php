@@ -34,6 +34,8 @@ class ContactForm extends Component
             'success'=>"Successfully submitted your Support Request"
         ]);
 
+        $this->reset();
+
     }
     public function render()
     {
