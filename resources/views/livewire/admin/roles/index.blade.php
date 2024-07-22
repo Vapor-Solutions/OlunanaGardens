@@ -31,7 +31,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex flex-row justify-content-center">
-                                        <a href="{{ route('admin.roles.edit', $role->id) }}"
+                                        <a href="{{ route('admin.roles.edit', $permission->id) }}"
                                             class="btn btn-dark flex-col mx-2">
                                             <i class="fas fa-edit"></i>
                                         </a>

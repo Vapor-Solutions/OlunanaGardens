@@ -29,6 +29,7 @@ class Edit extends Component
     public function mount($id)
     {
         $this->role = Role::find($id);
+
         $this->permissions = $this->role->permissions()->pluck('id');
     }
 
@@ -43,9 +44,11 @@ class Edit extends Component
             );
             return;
         }
+
         $this->role->save();
 
         $this->role->permissions()->detach();
+        
         $this->role->permissions()->attach($this->permissions);
 
         ActivityLog::create([

@@ -18,7 +18,7 @@ class Permission
         if (!auth()->user()->hasPermissionTo($permission)) {
             abort(403, "You Can't " . $permission);
         }
-
+ 
         return $next($request);
     }
 }

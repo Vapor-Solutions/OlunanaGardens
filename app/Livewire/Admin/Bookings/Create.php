@@ -21,7 +21,7 @@ class Create extends Component
     public $packages;
     public $sections;
     public $selectedSections = [];
-    
+
     public Booking $booking;
 
     protected $rules = [

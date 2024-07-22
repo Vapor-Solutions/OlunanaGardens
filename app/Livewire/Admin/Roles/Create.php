@@ -36,6 +36,7 @@ class Create extends Component
     {
         $this->validate();
         $this->role->save();
+        
         ActivityLog::create([
             'user_id' => auth()->user()->id,
             'payload' => "Created Role No. " . $this->role->id

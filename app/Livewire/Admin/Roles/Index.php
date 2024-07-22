@@ -17,6 +17,7 @@ class Index extends Component
             );
             return;
         }
+
         $role = Role::find($id);
 
         if (count($role->users) > 0) {
@@ -33,6 +34,7 @@ class Index extends Component
                 'done',
                 error: 'You can\'t Delete this Role from the system.'
             );
+
             return;
         }
 
