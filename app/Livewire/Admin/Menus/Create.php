@@ -42,6 +42,7 @@ class Create extends Component
         $this->emit('done', [
             "success" => "Successfully Created this Menu Item"
         ]);
+        $this->menuItem = new MenuItem();
     }
     public function render()
     {
