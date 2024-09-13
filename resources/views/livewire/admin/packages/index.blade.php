@@ -13,6 +13,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Title</th>
+                            <th>Description</th>
                             <th>Price(Ksh)</th>
                             <th>Actions</th>
                         </tr>
@@ -22,6 +23,7 @@
                             <tr>
                                 <td scope="row">{{ $package->id }}</td>
                                 <td>{{ $package->title }}</td>
+                                <td>{{ $package->description }}</td>
                                 <td>{{ $package->price }}</td>
                                 <td class="d-flex flex-row">
                                     <div class="flex-col mx-1">

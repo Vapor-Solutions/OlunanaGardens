@@ -35,6 +35,17 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="col-12">
+                        <div class="mb-5">
+                            <label for="name" class="form-label">Description</label>
+                            <textarea type="text" wire:model="package.description" name="description" id="description" class="form-control"
+                                placeholder="Enter Package Description" aria-describedby="description"></textarea>
+                            <small id="description" class="text-muted">Enter Package Description</small><br>
+                            @error('package.description')
+                                <small id="name" class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
                 <button wire:click='save' class="btn btn-primary">
                     Submit

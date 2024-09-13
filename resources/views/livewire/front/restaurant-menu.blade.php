@@ -46,6 +46,9 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="butn-light mb-30 mt-30 text-center">
+                    <a href="{{ route('menu.download') }}" class="">VIEW FULL MENU</a>
+                </div> --}}
             </div>
         </div>
     </section>

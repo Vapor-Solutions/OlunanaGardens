@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin;
 use App\Livewire;
+use App\Models\MenuCategory;
+use App\Models\MenuItem;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +33,15 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/faq', Livewire\Faq::class)->name('faq');
     Route::get('/{id}/blog-post', Livewire\BlogPost::class)->name('blog-post');
     Route::get('/contact-us', Livewire\ContactUs::class)->name('contact-us');
+
+    Route::get('/olunana-menu', function () {
+        $pdf = Pdf::loadView('doc.menu', [
+            "menu_categories" => MenuCategory::all(),
+            "menu_items" => MenuItem::all()
+        ])->setPaper('a4', 'portrait');
+
+        return $pdf->stream();
+    })->name('menu.download');
 }
 
 Route::redirect('admin', 'admin/dashboard');
@@ -89,6 +101,12 @@ Route::middleware([
         Route::get('/', Admin\BookingRequests\Index::class)->name('admin.booking-requests.index')->middleware('permission:Read Bookings');
     });
 
+    // Menus
+    Route::prefix('menus')->group(function () {
+        Route::get('/', Admin\Menus\Index::class)->name('admin.menus.index');
+        Route::get('create', Admin\Menus\Create::class)->name('admin.menus.create');
+        Route::get('{id}/edit', Admin\Menus\Edit::class)->name('admin.menus.edit');
+    });
     // Bookings
     Route::prefix('bookings')->group(function () {
         Route::get('/', Admin\Bookings\Index::class)->name('admin.bookings.index')->middleware('permission:Read Bookings');
@@ -153,5 +171,4 @@ Route::middleware([
         Route::get('/', Admin\Tags\Index::class)->name('admin.tags.index')->middleware('permission:Create Blog Posts');
         //Route::get('/create', Admin\Tags\Create::class)->name('admin.tags.create');
     });
-
 });

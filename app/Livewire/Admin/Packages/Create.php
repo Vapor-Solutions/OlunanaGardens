@@ -11,6 +11,7 @@ class Create extends Component
 
     protected $rules = [
         'package.title' => 'required',
+        'package.description' => 'required',
         'package.price' => 'required',
     ];
 
@@ -26,11 +27,7 @@ class Create extends Component
 
         $this->emit('done', ['success' => 'Successfully Added a New Package']);
         // return redirect()->route('admin.packages.index');
-        $this->reesetInput();
-    }
-
-    public function reesetInput()
-    {
+        $this->reset();
         $this->package = new Package();
     }
 
