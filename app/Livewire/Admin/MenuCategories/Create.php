@@ -10,7 +10,7 @@ class Create extends Component
     public MenuCategory $menuCategory;
     public $photo;
     protected $rules = [
-        'menuCategory.title' => 'required',
+        'menuCategory.title' => 'required|unique',
     ];
 
     protected $listeners = [

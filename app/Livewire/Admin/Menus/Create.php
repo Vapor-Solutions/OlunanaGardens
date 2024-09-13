@@ -15,7 +15,7 @@ class Create extends Component
     public $photo;
     protected $rules = [
         'menuItem.menu_category_id' => 'required',
-        'menuItem.title' => 'required',
+        'menuItem.title' => 'required|unique',
         'menuItem.description' => 'required',
         'menuItem.price' => 'required',
         'photo' => 'nullable|image|max:5120',
