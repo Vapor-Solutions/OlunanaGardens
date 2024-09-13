@@ -101,6 +101,12 @@ Route::middleware([
         Route::get('/', Admin\BookingRequests\Index::class)->name('admin.booking-requests.index')->middleware('permission:Read Bookings');
     });
 
+    // Menu Categories
+    Route::prefix('menu-categories')->group(function () {
+        Route::get('/', Admin\MenuCategories\Index::class)->name('admin.menu-categories.index');
+        Route::get('create', Admin\MenuCategories\Create::class)->name('admin.menu-categories.create');
+        Route::get('{id}/edit', Admin\MenuCategories\Edit::class)->name('admin.menu-categories.edit');
+    });
     // Menus
     Route::prefix('menus')->group(function () {
         Route::get('/', Admin\Menus\Index::class)->name('admin.menus.index');

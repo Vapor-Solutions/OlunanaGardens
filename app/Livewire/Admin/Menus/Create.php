@@ -34,13 +34,11 @@ class Create extends Component
             $this->photo->storeAs('menu_items', $fileName, 'public');
             $this->menuItem->image_path = 'menu_items/' . $fileName;
         }
-
         $this->menuItem->save();
-
+        $this->reset();
         $this->emit('done', [
-            "success"=>"Successfully Created this Menu Item"
+            "success" => "Successfully Created this Menu Item"
         ]);
-
     }
     public function render()
     {
