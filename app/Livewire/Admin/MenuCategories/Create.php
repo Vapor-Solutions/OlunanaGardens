@@ -13,9 +13,9 @@ class Create extends Component
         'menuCategory.title' => 'required|unique:menu_categories,title',
     ];
 
-    protected $listeners = [
-        'done' => "mount"
-    ];
+    // protected $listeners = [
+    //     'done' => 'mount'
+    // ];
     function mount()
     {
         $this->menuCategory = new MenuCategory();
@@ -25,10 +25,10 @@ class Create extends Component
     {
         $this->validate();
         $this->menuCategory->save();
-        // $this->reset();
         $this->emit('done', [
             "success" => "Successfully Created this Menu Category"
         ]);
+        $this->menuCategory = new MenuCategory();
     }
     public function render()
     {

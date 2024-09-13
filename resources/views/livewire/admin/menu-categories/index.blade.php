@@ -11,6 +11,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Category Title</th>
+                        <th>Number of Menu Items</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -19,6 +20,7 @@
                         <tr>
                             <td scope="row">{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
+                            <td>{{ $category->menuItems->count() }} items</td>
                             <td class="d-flex flex-row justify-content-center">
                                 <div class="flex-col mx-1">
                                     <a href="{{ route('admin.menu-categories.edit', $category->id) }}"
@@ -27,7 +29,7 @@
                                     </a>
                                 </div>
                                 <div class="flex-col mx-1">
-                                    <button class="btn btn-danger">
+                                    <button wire:click="delete({{ $category->id }})" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>

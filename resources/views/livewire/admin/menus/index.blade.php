@@ -30,7 +30,7 @@
                                     <a href="{{ route('admin.menus.edit', $item->id) }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
                                 </div>
                                 <div class="flex-col mx-1">
-                                    <button href="" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    <button wire:click="delete({{ $item->id }})" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
