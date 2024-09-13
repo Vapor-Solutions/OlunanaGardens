@@ -22,6 +22,9 @@ class Edit extends Component
         'menuItem.price' => 'required',
         'photo' => 'nullable|image|max:5120',
     ];
+    protected $listeners = [
+        'done' => "mount"
+    ];
     function mount($id)
     {
         $this->menuItem = MenuItem::find($id);

@@ -12,6 +12,10 @@ class Create extends Component
     protected $rules = [
         'menuCategory.title' => 'required',
     ];
+
+    protected $listeners = [
+        'done' => "mount"
+    ];
     function mount()
     {
         $this->menuCategory = new MenuCategory();
@@ -21,7 +25,7 @@ class Create extends Component
     {
         $this->validate();
         $this->menuCategory->save();
-        $this->reset();
+        // $this->reset();
         $this->emit('done', [
             "success" => "Successfully Created this Menu Category"
         ]);

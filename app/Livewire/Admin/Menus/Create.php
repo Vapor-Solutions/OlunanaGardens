@@ -24,6 +24,9 @@ class Create extends Component
     {
         $this->menuItem = new MenuItem();
     }
+    protected $listeners = [
+        'done' => "mount"
+    ];
 
     function save()
     {
@@ -35,7 +38,7 @@ class Create extends Component
             $this->menuItem->image_path = 'menu_items/' . $fileName;
         }
         $this->menuItem->save();
-        $this->reset();
+        // $this->reset();
         $this->emit('done', [
             "success" => "Successfully Created this Menu Item"
         ]);

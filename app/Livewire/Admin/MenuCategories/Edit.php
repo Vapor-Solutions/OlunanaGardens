@@ -12,6 +12,9 @@ class Edit extends Component
     protected $rules = [
         'menuCategory.title' => 'required',
     ];
+    protected $listeners = [
+        'done' => "mount"
+    ];
     function mount($id)
     {
         $this->menuCategory = MenuCategory::find($id);
