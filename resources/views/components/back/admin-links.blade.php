@@ -24,7 +24,7 @@
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.clients.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.clients.create"></x-back.new-nav-link>
     </x-back.new-nav-link-dropdown>
-    <x-back.new-nav-link-dropdown title="Menu" route="admin.menu-categories*" fa_icon="fa-pizza-slice">
+    <x-back.new-nav-link-dropdown title="Menu Categories" route="admin.menu-categories*" fa_icon="fa-list">
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.menu-categories.index"></x-back.new-nav-link>
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.menu-categories.create"></x-back.new-nav-link>
     </x-back.new-nav-link-dropdown>
