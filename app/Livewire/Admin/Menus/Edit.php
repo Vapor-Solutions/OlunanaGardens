@@ -18,7 +18,7 @@ class Edit extends Component
     protected $rules = [
         'menuItem.menu_category_id' => 'required',
         'menuItem.title' => 'required',
-        'menuItem.description' => 'required',
+        'menuItem.description' => 'nullable',
         'menuItem.price' => 'required',
         'photo' => 'nullable|image|max:5120',
     ];

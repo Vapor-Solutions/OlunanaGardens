@@ -16,7 +16,7 @@ class Create extends Component
     protected $rules = [
         'menuItem.menu_category_id' => 'required',
         'menuItem.title' => 'required|unique:menu_items,title',
-        'menuItem.description' => 'required',
+        'menuItem.description' => 'nullable',
         'menuItem.price' => 'required',
         'photo' => 'nullable|image|max:5120',
     ];
