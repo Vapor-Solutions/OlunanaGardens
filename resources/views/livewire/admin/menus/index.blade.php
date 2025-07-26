@@ -5,6 +5,13 @@
         <div class="card-header">
             <h5>List of Menu Items</h5>
         </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" wire:model="search" class="form-control" placeholder="Search Menu Items...">
+                </div>
+            </div>
+        </div>
         <div class="card-body table-responsive">
             <table class="table">
                 <thead class="">

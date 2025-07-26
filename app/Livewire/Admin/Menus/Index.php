@@ -10,6 +10,7 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $search = '';
 
     protected $listeners = [
         'done' => 'render'
@@ -24,7 +25,10 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.menus.index', [
-            'menuItems' => MenuItem::orderBy('menu_category_id', 'DESC')->paginate(10),
+            'menuItems' => MenuItem::where('title', 'like', '%' . $this->search . '%')
+                ->orWhere('description', 'like', '%' . $this->search . '%')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10)
         ]);
     }
 }

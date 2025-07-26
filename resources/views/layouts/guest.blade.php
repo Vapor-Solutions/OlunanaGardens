@@ -9,10 +9,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/admin-lte/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -39,14 +39,28 @@
     @livewireStyles
 </head>
 
-<body
-    style="background-image: url('/bg.jpg');height: 100%; background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;">
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
-    </div>
+<body class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="container-fluid min-vh-100">
+        <div class="row min-vh-100">
+            <!-- Left Side -->
+            <div class="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center olunana-bg text-white p-5" >
+                <div style="background-image: url('/gallery/IMG_9272.jpg'); position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: -1;">
 
+                </div>
+                <img class="mb-4" src="{{ asset('company_logo.png') }}" style="max-width: 25%; height: auto;" alt="Logo">
+                <h3 class="fw-bold text-center"> Welcome to</h3>
+                <h1 class="display-4 text-center" style="font-weight: 500;"> Olunana Gardens</h1>
+                <p class="lead text-center mt-3">
+                    BLOOMING EVENTS IN NATURE'S EMBRACE</p>
+            </div>
+            <!-- Right Side -->
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center shadow-sm" style="background-color: #A1a1a1;">
+                <div class="w-100">
+                    {{ $slot }}
+                </div>
+            </div>
+        </div>
+    </div>
     @livewireScripts
 </body>
 

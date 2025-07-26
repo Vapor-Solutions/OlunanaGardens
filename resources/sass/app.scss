@@ -19,29 +19,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
 body {
     font-family: "Lexend", sans-serif;
-    font-size: 13px;
 }
 
 h1,
 h2 {
-    //    font-size: 12px;
     font-weight: 400;
-    // color: #0e244d;
 }
 h3,
 h4,
 h5,
 h6 {
-    // font-size: smaller;
     font-weight: 200;
-    // color: black;
 }
 
 li {
-    // font-size: 12px;
     font-weight: 500;
-    // color: #1575bb !important;
-    // font-style: italic;
 }
 
 span,
@@ -70,21 +62,6 @@ p {
         }
     }
 }
-
-// .btn-dark {
-//     background-color: #1a000b !important;
-//     border: 0 !important;
-//     :hover {
-//         background-color: #46001d !important;
-//     }
-// }
-// .btn-danger {
-//     background-color: darkred !important;
-//     border: 0 !important;
-//     :hover {
-//         background-color: red !important;
-//     }
-// }
 
 .bg-alps-primary {
     background-color: #1575bb !important;
@@ -128,4 +105,8 @@ p {
 }
 .content {
     background-color: #dddddd !important;
+}
+.olunana-bg {
+    background-color: #531502cc !important;
+    color: white !important;
 }
