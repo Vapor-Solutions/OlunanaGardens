@@ -16,7 +16,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" wire:model="client.name" name="name" id="name"
+                            <input type="text" wire:model.live="client.name" name="name" id="name"
                                 class="form-control" placeholder="Enter Client's Full Name" aria-describedby="name">
                             <small id="name" class="text-muted">Enter Client's Full Name</small><br>
                             @error('client.name')
@@ -27,7 +27,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="email" class="form-label">Email Address</label>
-                            <input wire:model="client.email" type="email" name="email" id="email"
+                            <input wire:model.live="client.email" type="email" name="email" id="email"
                                 class="form-control" placeholder="Enter Client's Email Address" aria-describedby="name">
                             <small id="email" class="text-muted">Enter Client's Email Address</small><br>
                             @error('client.email')
@@ -38,7 +38,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="phone_number" class="form-label">Phone Number</label>
-                            <input wire:model="client.phone_number" type="text" name="phone_number" id=""
+                            <input wire:model.live="client.phone_number" type="text" name="phone_number" id=""
                                 class="form-control" placeholder="Enter Client's Phone Number" aria-describedby="name">
                             <small id="phone_number" class="text-muted">Enter Client's Phone Number</small><br>
                             @error('client.phone_number')
@@ -50,7 +50,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="country" class="form-label">Country/Nationality</label>
-                            <input wire:model="client.country" type="text" name="country" id=""
+                            <input wire:model.live="client.country" type="text" name="country" id=""
                                 class="form-control" placeholder="Enter Client's Country" aria-describedby="name">
                             <small id="country" class="text-muted">Enter Client's Residing Country</small><br>
                             @error('client.country')
@@ -61,7 +61,7 @@
                     <div class="col-12">
                         <div class="mb-5">
                             <label for="address" class="form-label">Physical Address</label>
-                            <textarea wire:model='client.address' placeholder="Enter Client's Physical Address" class="form-control" name="address2" id="address2" rows="2"></textarea>
+                            <textarea wire:model.live='client.address' placeholder="Enter Client's Physical Address" class="form-control" name="address2" id="address2" rows="2"></textarea>
                             @error('client.address')
                                 <small id="address2" class="text-danger">{{ $message }}</small>
                             @enderror

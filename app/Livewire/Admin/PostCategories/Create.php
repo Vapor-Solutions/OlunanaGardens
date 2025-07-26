@@ -22,9 +22,9 @@ class Create extends Component
         $this->validate();
 
         $this->blog_category->save();
-        $this->emit('done', ['success' => "Successfully Created a New Blog Category"]);
+        $this->dispatch('done', success:"Successfully Created a New Blog Category");
         $this->resetInput();
-        
+
         // return redirect()->route('admin.post-categories.index');
 
     }

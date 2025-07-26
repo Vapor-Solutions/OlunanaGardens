@@ -26,11 +26,12 @@ class Create extends Component
         $this->validate();
         $this->testimonial->save();
 
-        $this->emit('done', ['success' => 'Successfully Added a New Testimonial']);
+        $this->dispatch('done', success: 'Successfully Added a New Testimonial');
         $this->resetInput();
     }
 
-    public function resetInput(){
+    public function resetInput()
+    {
         $this->testimonial = new Testimonial();
     }
 

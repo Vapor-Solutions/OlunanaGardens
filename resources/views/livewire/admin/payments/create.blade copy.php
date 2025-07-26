@@ -13,7 +13,7 @@
                 <div class="card-body">
 
 
-                    <form action="#" wire:submit.prevent="pushMPESA" wire:ignore.self>
+                    <form action="#" wire:submit="pushMPESA" wire:ignore.self>
                         @csrf
 
 
@@ -36,7 +36,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="mb-5">
                                     <label for="client" class="form-label">Client Name</label>
-                                    <select class="form-control" wire:model="selectedClient" name="client" id="">
+                                    <select class="form-control" wire:model.live="selectedClient" name="client" id="">
                                         <option value="">Select the Client</option>
                                         @foreach ($clients as $client)
                                         <option value="{{ $client->id }}">{{ $client->name }}</option>
@@ -51,7 +51,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="package_id" class="form-label">Package</label>
-                                    <select wire:model="selectedPackage" class="form-control" name="package_id" id="package_id">
+                                    <select wire:model.live="selectedPackage" class="form-control" name="package_id" id="package_id">
                                         <option selected>Choose the Sections to Book</option>
                                         {{-- You can populate this dropdown based on logic --}}
                                     </select>
@@ -64,7 +64,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="mb-5">
                                     <label for="client" class="form-label">Payment Method</label>
-                                    <select class="form-control" wire:model="payment_method_id" name="client" id="">
+                                    <select class="form-control" wire:model.live="payment_method_id" name="client" id="">
                                         <option selected>Select a Payment Method</option>
                                         @foreach ($payment_methods as $payment_method)
                                         <option value="{{ $payment_method->id }}">{{ $payment_method->title }}</option>
@@ -79,7 +79,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="mb-5">
                                     <label for="" class="form-label">Price</label>
-                                    <input type="number" min="1" step="0.05" wire:model="selectedPrice" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Enter Amount To Be Paid" />
+                                    <input type="number" min="1" step="0.05" wire:model.live="selectedPrice" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Enter Amount To Be Paid" />
                                     @error('selectedPrice')
                                     <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -89,7 +89,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="mb-5">
                                     <label for="name" class="form-label">Reference Code</label>
-                                    <input type="text" wire:model="reference_code" name="name" id="name" class="form-control" placeholder="Reference Code" aria-describedby="name">
+                                    <input type="text" wire:model.live="reference_code" name="name" id="name" class="form-control" placeholder="Reference Code" aria-describedby="name">
                                     @error('reference_code')
                                     <small id="name" class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -100,7 +100,7 @@
                         <div class="col-md-6 col-12">
                             <div class="mb-5">
                                 <label for="name" class="form-label">Phone Number</label>
-                                <input type="text" wire:model="phone_number" name="name" id="name"
+                                <input type="text" wire:model.live="phone_number" name="name" id="name"
                                     class="form-control" placeholder="Reference Code" aria-describedby="name">
                                 @error('phone_number')
                                     <small id="name" class="text-danger">{{ $message }}</small>

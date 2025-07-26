@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
 
     protected $rules = [
         'done' => 'render'
@@ -17,7 +17,7 @@ class Index extends Component
 
     public function render()
     {
-        
+
         return view('livewire.admin.payments.index', [
             'payments' => Payment::with('booking.client')->paginate(10)
         ]);

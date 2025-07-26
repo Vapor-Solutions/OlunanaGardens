@@ -37,7 +37,7 @@ class Create extends Component
             $this->event_type->image_path = $image_path;
         }
         $this->event_type->update();
-        $this->emit('done', ['success' => "Successfully Added a New Event Type"]);
+        $this->dispatch('done', success: "Successfully Added a New Event Type");
         $this->resetInput();
     }
 

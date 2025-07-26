@@ -25,7 +25,7 @@ class Create extends Component
         $this->validate();
         $this->package->save();
 
-        $this->emit('done', ['success' => 'Successfully Added a New Package']);
+        $this->dispatch('done', success: 'Successfully Added a New Package');
         // return redirect()->route('admin.packages.index');
         $this->reset();
         $this->package = new Package();

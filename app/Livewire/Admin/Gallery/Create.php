@@ -5,10 +5,10 @@ namespace App\Livewire\Admin\Gallery;
 use App\Models\EventType;
 use App\Models\Gallery;
 use Carbon\Carbon;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
@@ -40,11 +40,11 @@ class Create extends Component
                 $gallery->image_path = 'gallery/' . $gallery->eventType->title . '/' . $imageName;
                 $gallery->save();
             }
-            $this->emit('done', ['success' => 'Successfully Added New Image(s)']);
+            $this->dispatch('done', success: 'Successfully Added New Image(s)');
             $this->reset();
-        }else{
+        } else {
             throw ValidationException::withMessages([
-                'photos'=>"You need to upload atleast One Photo"
+                'photos' => "You need to upload atleast One Photo"
             ]);
         }
     }
@@ -57,8 +57,8 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.admin.gallery.create',[
-            'event_types'=>EventType::all()
+        return view('livewire.admin.gallery.create', [
+            'event_types' => EventType::all()
         ]);
     }
 }

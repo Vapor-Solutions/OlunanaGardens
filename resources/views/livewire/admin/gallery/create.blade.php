@@ -15,7 +15,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" wire:model='title' name="title" id="title"
+                            <input type="text" class="form-control" wire:model.live='title' name="title" id="title"
                                 aria-describedby="title" placeholder="Enter the Title of the Photos" />
                             @error('title')
                                 <small id="title" class="form-text text-danger">{{ $message }}</small>
@@ -26,7 +26,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="event_type" class="form-label">Event Type</label>
-                            <select class="form-control" name="event_type" id="event_type" wire:model='event_type_id'>
+                            <select class="form-control" name="event_type" id="event_type" wire:model.live='event_type_id'>
                                 <option selected>Select one</option>
                                 @foreach ($event_types as $type)
                                     <option value="{{ $type->id }}">{{ $type->title }}</option>
@@ -39,7 +39,7 @@
 
                         <div class="mb-3">
                             <label for="photos" class="form-label">Photos</label>
-                            <input type="file" multiple wire:model='photos' class="form-control" name="image"
+                            <input type="file" multiple wire:model.live='photos' class="form-control" name="image"
                                 id="blogPhoto" aria-describedby="helpId" placeholder="" />
                             @if ($photos)
                                 <div class="row">

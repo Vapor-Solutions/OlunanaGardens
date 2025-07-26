@@ -13,13 +13,13 @@
                 <div class="card-body">
 
 
-                    <form action="#" wire:submit.prevent="pushMPESA" wire:ignore.self>
+                    <form action="#" wire:submit="pushMPESA" wire:ignore.self>
                         @csrf
 
                         <div class="col-md-12 col-12">
                             <div class="mb-5">
                                 <label for="name" class="form-label">Reference Code</label>
-                                <input type="text" wire:model="reference_code" name="name" id="name"
+                                <input type="text" wire:model.live="reference_code" name="name" id="name"
                                     class="form-control" placeholder="Reference Code" aria-describedby="name">
                                 @error('reference_code')
                                     <small id="name" class="text-danger">{{ $message }}</small>
@@ -30,7 +30,7 @@
                         <div class="col-md-12 col-12">
                             <div class="mb-5">
                                 <label for="name" class="form-label">Phone Number</label>
-                                <input type="text" wire:model="phone_number" name="name" id="name"
+                                <input type="text" wire:model.live="phone_number" name="name" id="name"
                                     class="form-control" placeholder="Reference Code" aria-describedby="name">
                                 @error('phone_number')
                                     <small id="name" class="text-danger">{{ $message }}</small>

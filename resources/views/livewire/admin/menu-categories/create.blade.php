@@ -10,7 +10,7 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="">Title</label>
-                        <input type="text" class="form-control" wire:model='menuCategory.title' aria-describedby="helpId"
+                        <input type="text" class="form-control" wire:model.live='menuCategory.title' aria-describedby="helpId"
                             placeholder="Enter your Menu Category Title">
                         @error('menuCategory.title')
                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>

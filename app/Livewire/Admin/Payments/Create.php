@@ -168,7 +168,7 @@ class Create extends Component
 
         if (!$booking) {
             // Problematic
-            $this->emit('done', ['error' => "Booking refrence $this->reference_code not found"]);
+            $this->dispatch('done', error: "Booking refrence $this->reference_code not found");
 
             return;
         }
@@ -250,7 +250,7 @@ class Create extends Component
             # Log the MPESA request
             Log::info('mpesa:request', [$response]);
 
-            $this->emit('done', ['success' => "Check your phone for the mpesa prompt"]);
+            $this->dispatch('done', success : "Check your phone for the mpesa prompt");
         } catch (\Throwable $e) {
             # Handle exceptions
             Log::error('mpesa:error', [$e->getMessage(), $e]);

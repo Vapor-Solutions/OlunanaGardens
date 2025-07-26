@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
 
     protected $listeners = [
         'done' => 'render'
@@ -22,12 +22,12 @@ class Index extends Component
         $payment_with_payment_method = Payment::where('payment_method_id', $payment_method->id)->exists();
 
         if ($payment_with_payment_method) {
-            $this->emit('done', ['error' => "Cannot delete " . $payment_method->title . " Payment Method because it has associated payments."]);
+            $this->dispatch('done', error: "Cannot delete " . $payment_method->title . " Payment Method because it has associated payments.");
         } else {
             $payment_method->delete();
-            $this->emit('done', ['success' => "Successfully deleted " . $payment_method->title . " Payment method"]);
+            $this->dispatch('done', success: "Successfully deleted " . $payment_method->title . " Payment method");
         }
-        
+
     }
     public function render()
     {

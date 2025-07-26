@@ -23,7 +23,7 @@ class Edit extends Component
         $this->validate();
         $this->post_category->save();
 
-        // $this->emit('done', ['success' => "Successfully Edited this Blog Category"]);
+        $this->dispatch('done', success: "Successfully Edited this Blog Category");
         return redirect()->route('admin.post-categories.index');
     }
 

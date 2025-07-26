@@ -9,20 +9,22 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
 
-    public function approveComment($id){
+
+    public function approveComment($id)
+    {
         $comment = Comment::where('id', $id)->first();
         $comment->is_approved = 1;
         $comment->update();
-        $this->emit('done', ['success' => 'Successfully Approved a Comment']);
+        $this->dispatch('done', success: 'Successfully Approved a Comment');
     }
 
-    public function rejectComment($id){
+    public function rejectComment($id)
+    {
         $comment = Comment::where('id', $id)->first();
         $comment->is_approved = 0;
         $comment->update();
-        $this->emit('done', ['error' => "Comment Not Approved"]);
+        $this->dispatch('done', error: "Comment Not Approved");
     }
 
     public function render()

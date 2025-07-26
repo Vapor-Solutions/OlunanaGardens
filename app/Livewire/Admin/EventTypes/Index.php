@@ -12,7 +12,7 @@ use function Termwind\render;
 class Index extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
 
     protected $listeners = [
         'done' => 'render'
@@ -25,10 +25,10 @@ class Index extends Component
         $event_with_booking = Booking::where('event_type_id', $event_type->id)->exists();
 
         if ($event_with_booking) {
-            $this->emit('done', ['error' => "Cannot delete " . $event_type->title . " Event Type because it has associated bookings."]);
+            $this->dispatch('done', error: "Cannot delete " . $event_type->title . " Event Type because it has associated bookings.");
         } else {
             $event_type->delete();
-            $this->emit('done', ['success' => "Successfully deleted " . $event_type->title . " Event Type"]);
+            $this->dispatch('done', success: "Successfully deleted " . $event_type->title . " Event Type");
         }
     }
     public function render()
@@ -38,4 +38,3 @@ class Index extends Component
         ]);
     }
 }
-

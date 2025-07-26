@@ -23,7 +23,7 @@ class Create extends Component
         $this->validate();
         $this->payment_method->save();
 
-        $this->emit('done', ['success' => "Successfully Added a New Payment Method"]);
+        $this->dispatch('done', success: "Successfully Added a New Payment Method");
         $this->resetInput();
     }
 

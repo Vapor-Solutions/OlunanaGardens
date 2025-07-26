@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="">Menu Category</label>
-                        <select class="form-control" wire:model='menuItem.menu_category_id' name="" id="">
+                        <select class="form-control" wire:model.live='menuItem.menu_category_id' name="" id="">
                             <option selected>Please select your Menu Category</option>
                             @foreach (App\Models\MenuCategory::all() as $category)
                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -24,7 +24,7 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="">Title</label>
-                        <input type="text" class="form-control" wire:model='menuItem.title' aria-describedby="helpId"
+                        <input type="text" class="form-control" wire:model.live='menuItem.title' aria-describedby="helpId"
                             placeholder="Enter your Menu Item Title">
                         @error('menuItem.title')
                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
@@ -34,7 +34,7 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="">Price (KES)</label>
-                        <input type="number" class="form-control" wire:model='menuItem.price'
+                        <input type="number" class="form-control" wire:model.live='menuItem.price'
                             aria-describedby="helpId">
                         @error('menuItem.price')
                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
@@ -44,7 +44,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="">Description</label>
-                        <textarea class="form-control" name="" id="" rows="3" wire:model='menuItem.description'></textarea>
+                        <textarea class="form-control" name="" id="" rows="3" wire:model.live='menuItem.description'></textarea>
                         @error('menuItem.description')
                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -53,7 +53,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="">Image</label>
-                        <input type="file" wire:model='photo' class="form-control" name="" id=""
+                        <input type="file" wire:model.live='photo' class="form-control" name="" id=""
                             aria-describedby="helpId">
                         @error('photo')
                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>

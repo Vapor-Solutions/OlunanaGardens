@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
 
     protected $listeners = [
         'done' => 'render'
@@ -24,10 +24,10 @@ class Index extends Component
 
 
         if ($posts_with_category) {
-            $this->emit('done', ['error' => "Cannot delete " .$post_category->title. " Blog category because it has associated posts."]);
+            $this->dispatch('done', error: "Cannot delete " .$post_category->title. " Blog category because it has associated posts.");
         } else {
             $post_category->delete();
-            $this->emit('done', ['success' => "Successfully deleted " .$post_category->title.  " Blog Category"]);
+            $this->dispatch('done', success: "Successfully deleted " .$post_category->title.  " Blog Category");
         }
         // Post::where('post_category_id', $post_category->id)->update(['post_category_id' => null]);
 

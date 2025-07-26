@@ -22,7 +22,7 @@ class Index extends Component
 
         $client->delete();
 
-        $this->emit('done', ['success' => "Successfully Deleted a Client"]);
+        $this->dispatch('done', success: "Successfully Deleted a Client");
     }
 
     public function render()

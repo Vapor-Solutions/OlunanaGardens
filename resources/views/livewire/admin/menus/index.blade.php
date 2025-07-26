@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <input type="text" wire:model="search" class="form-control" placeholder="Search Menu Items...">
+                    <input type="text" wire:model.live="search" class="form-control" placeholder="Search Menu Items...">
                 </div>
             </div>
         </div>

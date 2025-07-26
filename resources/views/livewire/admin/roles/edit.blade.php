@@ -11,7 +11,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input wire:model="role.title" type="text" class="form-control" name="title"
+                            <input wire:model.live="role.title" type="text" class="form-control" name="title"
                                 id="title" aria-describedby="title" placeholder="Enter the Title of Your Role">
                             @error('role.title')
                                 <small id="title" class="form-text text-danger">{{ $message }}</small>
@@ -23,7 +23,7 @@
                         <br>
                         @foreach (App\Models\Permission::all() as $permission)
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" wire:model="permissions" id="" value="{{ $permission->id }}">
+                                <input class="form-check-input" type="checkbox" wire:model.live="permissions" id="" value="{{ $permission->id }}">
                                 <label class="form-check-label" for="">{{ $permission->title }}</label>
                             </div>
                         @endforeach

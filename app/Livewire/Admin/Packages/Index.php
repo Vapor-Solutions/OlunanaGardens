@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
 
     public function delete($id)
     {
@@ -18,10 +18,10 @@ class Index extends Component
         $bookings_with_packages = Booking::where('package_id', $package->id)->exists();
 
         if ($bookings_with_packages) {
-            $this->emit('done', ['error' => "Cannot delete " . $package->title . " Package because it has associated bookings."]);
+            $this->dispatch('done', error: "Cannot delete " . $package->title . " Package because it has associated bookings.");
         } else {
             $package->delete();
-            $this->emit('done', ['success' => "Successfully deleted " . $package->title .  " Package"]);
+            $this->dispatch('done', success: "Successfully deleted " . $package->title .  " Package");
         }
     }
     public function render()

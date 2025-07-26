@@ -59,7 +59,7 @@
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label for="sections" class="form-label">Section(S)</label>
-                                                        <select wire:model='selectedSections' multiple
+                                                        <select wire:model.live='selectedSections' multiple
                                                             class="form-control" name="sections" id="sections">
                                                             <option selected>Select one</option>
                                                             @foreach ($sections as $section)

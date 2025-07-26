@@ -15,7 +15,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="name" class="form-label">Title</label>
-                            <input type="text" wire:model="blog_category.title" name="name" id="name"
+                            <input type="text" wire:model.live="blog_category.title" name="name" id="name"
                                 class="form-control" placeholder="Enter Blog Category Title" aria-describedby="name">
                             <small id="name" class="text-muted">Enter Blog Category Title</small><br>
                             @error('blog_category.title')

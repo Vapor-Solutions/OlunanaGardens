@@ -4,8 +4,8 @@ namespace App\Livewire\Admin\Cms;
 
 use Carbon\Carbon;
 // use Faker\Core\File;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -28,7 +28,7 @@ class Photos extends Component
         // Storage::disk('local')->putFileAs('admin/gallery', $this->image, $imageName);
         $this->image->storeAs('gallery', $imageName, 'public');
 
-        $this->emit('done', ['success' => 'successfully added a new image']);
+        $this->dispatch('done', success:'successfully added a new image');
 
         $this->reset();
     }

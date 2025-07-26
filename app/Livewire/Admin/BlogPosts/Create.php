@@ -5,8 +5,8 @@ namespace App\Livewire\Admin\BlogPosts;
 use App\Models\Post;
 use App\Models\PostCategory;
 use Carbon\Carbon;
-use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Create extends Component
@@ -49,7 +49,7 @@ class Create extends Component
 
         dd('hello');
         $this->post->save();
-        $this->emit('done', ['success' => 'Successfully added a new Blog']);
+        $this->dispatch('done', success: 'Successfully added a new Blog');
         $this->resetInput();
     }
 

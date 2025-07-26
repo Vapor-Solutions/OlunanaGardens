@@ -9,12 +9,12 @@ use Livewire\WithPagination;
 class Faq extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
 
     public function delete($id){
          Question::find($id)->delete();
 
-        $this->emit('done', ['success' => "Successfully Deleted The Question and Answer"]);
+        $this->dispatch('done', success: "Successfully Deleted The Question and Answer");
     }
     public function render()
     {

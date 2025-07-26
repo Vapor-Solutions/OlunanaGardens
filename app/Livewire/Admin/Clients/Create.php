@@ -28,7 +28,7 @@ class Create extends Component
         $this->client->save();
 
         // return redirect()->route('admin.clients.index');
-        $this->emit('done', ['success' => " Successfully Registered a New Client To The System"]);
+        $this->dispatch('done', success: " Successfully Registered a New Client To The System");
         $this->resetInput();
 
     }

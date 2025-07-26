@@ -18,7 +18,7 @@
             <div class="mb-3" x-data="{photoName: null, photoPreview: null}">
                 <!-- Profile Photo File Input -->
                 <input type="file" hidden
-                       wire:model="photo"
+                       wire:model.live="photo"
                        x-ref="photo"
                        x-on:change="
                                     photoName = $refs.photo.files[0].name;
@@ -63,14 +63,14 @@
             <!-- Name -->
             <div class="mb-3">
                 <x-back.label for="name" value="{{ __('First Name') }}" />
-                <x-back.input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model.defer="state.name" autocomplete="name" />
+                <x-back.input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model="state.name" autocomplete="name" />
                 <x-back.input-error for="name" />
             </div>
 
             <!-- Email -->
             <div class="mb-3">
                 <x-back.label for="email" value="{{ __('Email') }}" />
-                <x-back.input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}" wire:model.defer="state.email" />
+                <x-back.input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}" wire:model="state.email" />
                 <x-back.input-error for="email" />
             </div>
         </div>
