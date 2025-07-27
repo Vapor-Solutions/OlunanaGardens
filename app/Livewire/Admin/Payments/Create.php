@@ -30,32 +30,13 @@ class Create extends Component
         'done' => 'render'
     ];
 
-    // protected $rules = [
-    //     'selectedEventType' => 'required',
-    //     'selectedClient' => 'required',
-    //     'selectedPackage' => 'required',
-    //     'selectedPrice' => 'required',
-    //     'payment.payment_method_id' => 'required',
-    //     'payment.reference_code' => 'required',
-    // ];
-
+    
     public function mount()
     {
-        // $this->payment = new Payment();
         $this->clients = collect();
         $this->payment_methods = PaymentMethod::all();
         $this->event_types = EventType::all();
     }
-
-    // public function updatedSelectedEventType($value)
-    // {
-    //     $event = EventType::find($value);
-    //     if ($event) {
-    //         $this->clients = $event->bookings()->with('client')->get()->pluck('client');
-    //     } else {
-    //         $this->clients = collect();
-    //     }
-    // }
 
 
 
@@ -87,38 +68,18 @@ class Create extends Component
             $this->payment->amount = $this->selectedPrice;
             $this->payment->save();
 
-            $this->emit('done', [
-                'success' => "Successfully Made a Payment"
-            ]);
+            $this->dispatch(
+                'done',
+                success: "Successfully Made a Payment"
+            );
         } else {
-            $this->emit('done', [
-                'error' => "No booking found"
-            ]);
+            $this->dispatch(
+                'done',
+                error: "No booking found"
+            );
         }
     }
 
-
-
-    // public function save()
-    // {
-    //     $this->validate();
-
-    //     $booking = Booking::where('event_type_id', $this->selectedEventType)->where('client_id', $this->selectedClient)->first();
-
-    //     if ($booking) {
-    //         $this->payment->booking_id = $booking->id;
-    //         $this->payment->amount = $this->selectedPrice;
-    //         $this->payment->save();
-
-    //         $this->emit('done', [
-    //             'success' => "Successfully Made a Payment"
-    //         ]);
-    //     } else {
-    //         $this->emit('done', [
-    //             'error' => "No booking found"
-    //         ]);
-    //     }
-    // }
 
     public function render()
     {
@@ -250,7 +211,7 @@ class Create extends Component
             # Log the MPESA request
             Log::info('mpesa:request', [$response]);
 
-            $this->dispatch('done', success : "Check your phone for the mpesa prompt");
+            $this->dispatch('done', success: "Check your phone for the mpesa prompt");
         } catch (\Throwable $e) {
             # Handle exceptions
             Log::error('mpesa:error', [$e->getMessage(), $e]);

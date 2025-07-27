@@ -8,10 +8,11 @@ use App\Models\Gallery;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     // public $photos = [];
 
@@ -29,15 +30,16 @@ class Index extends Component
         }
         $photo->delete();
 
-        $this->emit('done', [
-            'success' => "Successfully Deleted the Photo"
-        ]);
+        $this->dispatch(
+            'done',
+            success: "Successfully Deleted the Photo"
+        );
     }
 
     public function render()
     {
         return view('livewire.admin.gallery.index', [
-            'photos' => Gallery::orderBy('created_at','DESC')->get(),
+            'photos' => Gallery::orderBy('created_at', 'DESC')->get(),
         ]);
     }
 }

@@ -5,10 +5,11 @@ namespace App\Livewire\Admin\Payments;
 use App\Models\Payment;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
     protected $rules = [

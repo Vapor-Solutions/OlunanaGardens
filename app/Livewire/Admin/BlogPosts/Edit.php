@@ -28,7 +28,7 @@ class Edit extends Component
         $this->categories = PostCategory::all();
     }
 
-    function save()
+    public function save()
     {
         $this->validate();
 

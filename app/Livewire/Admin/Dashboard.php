@@ -9,6 +9,9 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
+    // This component handles the admin dashboard functionalities
+    // such as displaying the current date, toggling maintenance mode, etc.
+
     protected $listeners = [
         'done' => 'render'
     ];

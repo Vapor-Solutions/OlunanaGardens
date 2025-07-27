@@ -13,14 +13,14 @@ class Index extends Component
     {
         $user = User::find($id);
         if ($user->id == auth()->user()->id) {
-            $this->emit(
+            $this->dispatch(
                 'done',
                 ['error' => "Unafanya Nini?? You can't Delete yourself from the system"]
             );
             return;
         }
         if ($user->id == 1) {
-            $this->emit(
+            $this->dispatch(
                 'done',
                 ['error' => "This User can't be Deleted from the System"]
             );
@@ -36,12 +36,12 @@ class Index extends Component
                 'payload' => "Updated User No. " . $user->id
             ]);
 
-            $this->emit(
+            $this->dispatch(
                 'done',
                 ['success ' => "Successfully Deleted this User"]
             );
         } else {
-            $this->emit(
+            $this->dispatch(
                 'done',
                 ['error' => "You Do not have the permission to delete this User"]
             );

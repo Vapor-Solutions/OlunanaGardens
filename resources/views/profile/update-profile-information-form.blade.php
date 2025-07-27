@@ -18,7 +18,7 @@
             <div class="mb-3" x-data="{photoName: null, photoPreview: null}">
                 <!-- Profile Photo File Input -->
                 <input type="file" hidden
-                       wire:model.live="photo"
+                       wire:model="photo"
                        x-ref="photo"
                        x-on:change="
                                     photoName = $refs.photo.files[0].name;

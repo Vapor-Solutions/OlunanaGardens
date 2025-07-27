@@ -11,7 +11,7 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" wire:model.live='user.name' class="form-control" name=""
+                            <input type="text" wire:model='user.name' class="form-control" name=""
                                 id="" aria-describedby="name" placeholder="Enter the First Name">
                             @error('user.first_name')
                                 <small id="name" class="form-text text-danger">{{ $message }}</small>
@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" wire:model.live='user.email' class="form-control" name=""
+                            <input type="email" wire:model='user.email' class="form-control" name=""
                                 id="" aria-describedby="email" placeholder="Enter the Email Address">
                             @error('user.email')
                                 <small id="name" class="form-text text-danger">{{ $message }}</small>
@@ -31,7 +31,7 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="admin.role_id" class="form-label">Role</label>
-                            <select multiple class="form-control" wire:model.live="roles" name="admin.role_id"
+                            <select multiple class="form-control" wire:model="roles" name="admin.role_id"
                                 id="admin.role_id">
                                 @foreach (App\Models\Role::all() as $role)
                                     <option @if (

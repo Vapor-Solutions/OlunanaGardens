@@ -46,18 +46,10 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Styles -->
-    @livewireStyles
     @stack('styles')
 
-    <style>
-        /* .content-wrapper {
-            background-color: {{ env('SECONDARY_COLOUR') }};
-        }
+    @livewireStyles
 
-        .sidebar {
-            background-color: {{ env('MENU_SIDEBAR COLOR') }};
-        } */
-    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -110,8 +102,8 @@
                             Profile
                         </a>
                         {{-- <a class="dropdown-item" href="{{ route('admin.settings.general') }}">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Settings
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Settings
                         </a> --}}
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -193,26 +185,9 @@
             <!-- /.content -->
         </div>
     </div>
-    <!-- /.content-wrapper -->
-    {{-- <footer class="main-footer">
-        <strong>Copyright &copy; {{ Carbon\Carbon::now()->year }} <a href="https://vapor.co.ke">Vapor
-                Technologies Ltd.</a></strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 2.01.0733
-        </div>
-    </footer> --}}
-
-    <!-- Control Sidebar -->
-    {{-- <aside class="control-sidebar control-sidebar-light">
-            <!-- Control sidebar content goes here -->
-        </aside> --}}
-    <!-- /.control-sidebar -->
-    </div>
     <!-- ./wrapper -->
     @stack('modals')
 
-    @livewireScripts
 
     <!-- jQuery -->
     <script src="/admin-lte/plugins/jquery/jquery.min.js"></script>
@@ -268,8 +243,25 @@
 
 
     @stack('scripts')
-    {{-- @script --}}
+    @livewireScripts
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
     <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-right',
+            timer: 7500,
+            timerProgressBar: true,
+            customClass: {
+                popup: 'colored-toast',
+            },
+        });
+
+
         Livewire.on('done', (e) => {
             if (e.success) {
                 Toast.fire({
@@ -295,11 +287,14 @@
                     text: e.error
                 })
             }
-
-            $('.modal').modal('hide');
-        });
+            if (e.question) {
+                Toast.fire({
+                    icon: 'question',
+                    text: e.question
+                })
+            }
+        })
     </script>
-    {{-- @endscript --}}
 </body>
 
 </html>

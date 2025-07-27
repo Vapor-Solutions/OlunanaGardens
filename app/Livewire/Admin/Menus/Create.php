@@ -3,9 +3,9 @@
 namespace App\Livewire\Admin\Menus;
 
 use App\Models\MenuItem;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Str;
 
 class Create extends Component
 {
@@ -28,7 +28,7 @@ class Create extends Component
         'done' => "mount"
     ];
 
-    function save()
+    public function save()
     {
         $this->validate();
 
@@ -39,9 +39,7 @@ class Create extends Component
         }
         $this->menuItem->save();
         // $this->reset();
-        $this->emit('done', [
-            "success" => "Successfully Created this Menu Item"
-        ]);
+        $this->dispatch('done', success: "Successfully Created this Menu Item");
         $this->menuItem = new MenuItem();
     }
     public function render()

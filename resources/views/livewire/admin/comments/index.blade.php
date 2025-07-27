@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">
+    <x-slot:header>
         Comments
     </x-slot>
     <div class="container-fluid">

@@ -110,3 +110,35 @@ p {
     background-color: #531502cc !important;
     color: white !important;
 }
+
+
+// SweetAlert2 custom styles
+.swal2-popup {
+    font-family: "Lexend", "Nunito", sans-serif !important;
+    background: linear-gradient(135deg, #1575bb 0%, #531502 100%) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 24px rgba(21, 117, 187, 0.2), 0 1.5px 8px rgba(83, 21, 2, 0.15);
+}
+
+.swal2-title,
+.swal2-html-container {
+    font-family: "Lexend", "Nunito", sans-serif !important;
+    color: #fff !important;
+}
+
+.swal2-confirm,
+.swal2-cancel,
+.swal2-deny {
+    font-family: "Lexend", "Nunito", sans-serif !important;
+    background-color: #1575bb !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    padding: 8px 24px !important;
+    transition: background 0.2s;
+    &:hover {
+        background-color: #531502 !important;
+    }
+}

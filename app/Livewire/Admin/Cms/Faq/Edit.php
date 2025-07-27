@@ -18,7 +18,7 @@ class Edit extends Component
         $this->faq = Question::find($id);
     }
 
-    function save() {
+    public function save() {
         $this->validate();
         $this->faq->save();
 

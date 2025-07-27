@@ -5,10 +5,11 @@ namespace App\Livewire\Admin\Cms;
 use App\Models\Question;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Faq extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
     public function delete($id){

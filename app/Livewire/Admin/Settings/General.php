@@ -27,7 +27,7 @@ class General extends Component
         'done' => 'render'
     ];
 
-    function mount()
+    public function mount()
     {
         $this->companyName = env('COMPANY_NAME');
         $this->companyEmail = env('COMPANY_EMAIL');
@@ -54,11 +54,10 @@ class General extends Component
 
         if ($this->companyLogo) $this->companyLogo->storeAs('/', 'company_logo.png', 'public');
 
-        $this->emit(
+        $this->dispatch(
             'done',
-            [
-                'success' => 'Successfully Saved the Company Details Settings'
-            ]
+            success: 'Successfully Saved the Company Details Settings'
+
         );
     }
 

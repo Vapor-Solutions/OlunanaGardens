@@ -20,13 +20,14 @@ class Edit extends Component
         $this->menuCategory = MenuCategory::find($id);
     }
 
-    function save()
+    public function save()
     {
         $this->validate();
         $this->menuCategory->save();
-        $this->emit('done', [
-            "success" => "Successfully Created this Menu Category"
-        ]);
+        $this->dispatch(
+            'done',
+            success: "Successfully Created this Menu Category"
+        );
     }
     public function render()
     {

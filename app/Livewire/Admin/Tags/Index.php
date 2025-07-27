@@ -5,10 +5,11 @@ namespace App\Livewire\Admin\Tags;
 use App\Models\Tag;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
 

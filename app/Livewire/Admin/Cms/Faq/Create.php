@@ -18,7 +18,7 @@ class Create extends Component
         $this->faq = new Question();
     }
 
-    function save() {
+    public function save() {
         $this->validate();
         $this->faq->save();
 

@@ -21,13 +21,14 @@ class Create extends Component
         $this->menuCategory = new MenuCategory();
     }
 
-    function save()
+    public function save()
     {
         $this->validate();
         $this->menuCategory->save();
-        $this->emit('done', [
-            "success" => "Successfully Created this Menu Category"
-        ]);
+        $this->dispatch(
+            'done',
+            success: "Successfully Created this Menu Category"
+        );
         $this->menuCategory = new MenuCategory();
     }
     public function render()

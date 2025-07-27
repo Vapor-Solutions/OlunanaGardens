@@ -6,10 +6,11 @@ use App\Models\Post;
 use App\Models\PostCategory;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
     protected $listeners = [

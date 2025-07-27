@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">
+    <x-slot:header>
         Edit Payment Methods
     </x-slot>
 
@@ -15,7 +15,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="name" class="form-label">Title</label>
-                            <input type="text" wire:model.live="payment_method.title" name="name" id="name"
+                            <input type="text" wire:model="payment_method.title" name="name" id="name"
                                 class="form-control" placeholder="Enter Payement Method Title" aria-describedby="name">
                             <small id="name" class="text-muted">Enter Payment Method Title</small><br>
                             @error('payment_method.title')

@@ -36,7 +36,7 @@ class Edit extends Component
         'done' => 'render'
     ];
 
-    function save()
+    public function save()
     {
         $this->validate();
         if (Carbon::parse($this->booking->start_time)->greaterThanOrEqualTo($this->booking->end_time)) {

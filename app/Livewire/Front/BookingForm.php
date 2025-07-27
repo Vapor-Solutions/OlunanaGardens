@@ -72,9 +72,8 @@ class BookingForm extends Component
 
         // $this->reset();
 
-        $this->emit('done', [
-            'success' => 'Successfully Sent Your Booking Request. You shall be contacted Shortly'
-        ]);
+        $this->dispatch('done', succes:'Successfully Sent Your Booking Request. You shall be contacted Shortly'
+        );
     }
 
 

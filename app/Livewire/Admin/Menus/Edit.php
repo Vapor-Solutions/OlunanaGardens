@@ -2,10 +2,11 @@
 
 namespace App\Livewire\Admin\Menus;
 
+use App\Models\MenuCategory;
 use App\Models\MenuItem;
 use Illuminate\Support\Facades\URL;
-use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Edit extends Component
@@ -14,6 +15,7 @@ class Edit extends Component
     public MenuItem $menuItem;
     public $photo;
     public $previousUrl;
+    public $menuCategories;
 
     protected $rules = [
         'menuItem.menu_category_id' => 'required',
@@ -25,13 +27,14 @@ class Edit extends Component
     protected $listeners = [
         'done' => "mount"
     ];
-    function mount($id)
+    public function mount($id)
     {
+        $this->menuCategories = MenuCategory::all();
         $this->menuItem = MenuItem::find($id);
         $this->previousUrl = URL::previous();
     }
 
-    function save()
+    public function save()
     {
         $this->validate();
 
@@ -42,7 +45,7 @@ class Edit extends Component
         }
 
         $this->menuItem->update();
-
+        $this->dispatch('done', success: "Successfully Updated this Menu Item");
         return redirect($this->previousUrl);
     }
     public function render()

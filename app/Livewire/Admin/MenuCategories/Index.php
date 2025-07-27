@@ -21,14 +21,17 @@ class Index extends Component
 
         if (count($category->menuItems) < 1) {
             $category->delete();
-            $this->emit('done', [
-                "success" => "Successfully Deleted this Menu Category"
-            ]);
+            $this->dispatch(
+                'done',
+                success: "Successfully Deleted this Menu Category"
+            );
         } else {
             # code...
-            $this->emit('done', [
-                "warning" => "This Category has Menu Items"
-            ]);
+            $this->dispatch(
+                'done',
+                warning: "This Category has Menu Items"
+
+            );
         }
     }
     public function render()

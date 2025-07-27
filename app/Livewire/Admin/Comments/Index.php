@@ -5,10 +5,11 @@ namespace App\Livewire\Admin\Comments;
 use App\Models\Comment;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
     public function approveComment($id)

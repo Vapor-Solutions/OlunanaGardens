@@ -44,9 +44,10 @@ class Create extends Component
         $this->validate();
 
         if (in_array(1, $this->roles) && !auth()->user()->id == 1) {
-            $this->emit('done', [
-                'error' => "You can't Create a Super Administrator. "
-            ]);
+            $this->dispatch(
+                'done',
+                error: "You can't Create a Super Administrator. "
+            );
             return;
         }
 

@@ -1,6 +1,6 @@
 <div>
-    <x-slot name="header">
-        <h5>Content Editing</h5>
+    <x-slot:header>
+        Content Editing
     </x-slot>
 
     <div class="container-fluid">

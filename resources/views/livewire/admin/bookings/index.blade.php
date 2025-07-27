@@ -1,8 +1,6 @@
 <div>
-    <x-slot name="header">
-        <h5>
+    <x-slot:header>
             Bookings
-        </h5>
     </x-slot>
 
     <div class="container-fluid my-2">

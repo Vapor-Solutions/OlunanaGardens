@@ -6,10 +6,11 @@ use App\Models\Payment;
 use App\Models\PaymentMethod;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
     protected $listeners = [

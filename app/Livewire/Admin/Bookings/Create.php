@@ -10,9 +10,9 @@ use App\Models\Package;
 use App\Models\Section;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
-use Illuminate\Support\Str;
 
 class Create extends Component
 {
@@ -21,7 +21,7 @@ class Create extends Component
     public $packages;
     public $sections;
     public $selectedSections = [];
-    
+
     public Booking $booking;
 
     protected $rules = [
@@ -40,7 +40,7 @@ class Create extends Component
         'done' => 'render'
     ];
 
-    function save()
+    public function save()
     {
         $this->validate();
 
@@ -65,9 +65,10 @@ class Create extends Component
 
         $this->booking->sections()->attach($this->selectedSections);
 
-        $this->emit('done', [
-            'success' => "Successfully Made a Booking"
-        ]);
+        $this->dispatch(
+            'done',
+            success: "Successfully Made a Booking"
+        );
 
         $this->resetInput();
     }

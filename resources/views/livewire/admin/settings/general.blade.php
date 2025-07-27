@@ -13,37 +13,38 @@
                             <div class="col-12 mb-3">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Company Name</label>
-                                    <input type="text" class="form-control" name="" wire:model.live='companyName'
+                                    <input type="text" class="form-control" name="" wire:model='companyName'
                                         id="" aria-describedby="helpId" placeholder="">
                                     @error('companyName')
-                                        <span class="form-text text-danger">{{ $message }}</span>
+                                    <span class="form-text text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Company Email</label>
-                                    <input type="text" class="form-control" name="" wire:model.live='companyEmail'
+                                    <input type="text" class="form-control" name="" wire:model='companyEmail'
                                         id="" aria-describedby="helpId" placeholder="">
                                     @error('companyEmail')
-                                        <span class="form-text text-danger">{{ $message }}</span>
+                                    <span class="form-text text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class=" col-12 mb-3">
-                                <div class="mb-3">
+                                <div class="mb-3 d-flex align-items-center">
                                     <label for="" class="form-label">Company Logo</label>
-                                    <img src="/company_logo.png?{{ random_int(1, 56123) }}" alt=""
-                                        class="img-fluid img-thumbnail ">
-                                    <input type="file" class="form-control" name="" wire:model.live='companyLogo'
-                                        id="" aria-describedby="helpId" placeholder="">
-                                    @error('companyLogo')
-                                        <span class="form-text text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <img width="200" src="/company_logo.png?{{ random_int(1, 56123) }}" alt=""
+                                        class="img-fluid img-thumbnail ml-auto ">
+
                                 </div>
                             </div>
-
-
+                            <div class="col-12 mb-3">
+                                <input type="file" class="form-control" name="" wire:model='companyLogo'
+                                    id="" aria-describedby="helpId" placeholder="">
+                                @error('companyLogo')
+                                <span class="form-text text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save Settings</button>
                     </form>

@@ -5,10 +5,11 @@ namespace App\Livewire;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class Blog extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     function paginationView() {
         return 'blog-paginator';

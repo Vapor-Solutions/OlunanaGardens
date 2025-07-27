@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">
+    <x-slot:header>
         Gallery
     </x-slot>
 
@@ -16,7 +16,7 @@
 
                         <div class="mb-3">
                             <label for="image" class="form-label">Image</label>
-                            <input type="file" wire:model.live='image' class="form-control" name="image" id="blogPhoto"
+                            <input type="file" wire:model='image' class="form-control" name="image" id="blogPhoto"
                                 aria-describedby="helpId" placeholder="" />
                             @if ($image)
                                 <div class="row">

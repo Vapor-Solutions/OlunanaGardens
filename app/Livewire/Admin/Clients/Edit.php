@@ -17,14 +17,15 @@ class Edit extends Component
         'client.country' => 'required',
     ];
 
-    public function mount()
+    public function mount($id)
     {
-        $this->client = new Client();
+        $this->client = Client::find($id);
     }
 
     public function save()
     {
         $this->client->save();
+        $this->dispatch('done', success: "Successfully Updated Client Details");
         return redirect()->route('admin.clients.index');
     }
     public function render()

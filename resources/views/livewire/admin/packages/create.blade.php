@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">
+    <x-slot:header>
         Packages
     </x-slot>
 
@@ -15,7 +15,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-5">
                             <label for="name" class="form-label">Title</label>
-                            <input type="text" wire:model.live="package.title" name="name" id="name"
+                            <input type="text" wire:model="package.title" name="name" id="name"
                                 class="form-control" placeholder="Enter Package Title" aria-describedby="name">
                             <small id="name" class="text-muted">Enter Package Title</small><br>
                             @error('package.title')
@@ -26,7 +26,7 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="" class="form-label">Price</label>
-                            <input type="number" step="1" wire:model.live='package.price' min="1"
+                            <input type="number" step="1" wire:model='package.price' min="1"
                                 class="form-control" name="" id="" aria-describedby="helpId"
                                 placeholder="Enter the Price" />
                             <small id="name" class="text-muted">Enter Package Price</small><br>
@@ -38,7 +38,7 @@
                     <div class="col-12">
                         <div class="mb-5">
                             <label for="name" class="form-label">Description</label>
-                            <textarea type="text" wire:model.live="package.description" name="description" id="description" class="form-control"
+                            <textarea type="text" wire:model="package.description" name="description" id="description" class="form-control"
                                 placeholder="Enter Package Description" aria-describedby="description"></textarea>
                             <small id="description" class="text-muted">Enter Package Description</small><br>
                             @error('package.description')

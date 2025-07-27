@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">
+    <x-slot:header>
         {{ __('Dashboard') }}
     </x-slot>
     @php

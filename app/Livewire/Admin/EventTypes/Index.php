@@ -6,12 +6,13 @@ use App\Models\Booking;
 use App\Models\EventType;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 use function Termwind\render;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
 
     protected $listeners = [

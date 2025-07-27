@@ -11,7 +11,7 @@ class Index extends Component
     {
 
         if (!auth()->user()->hasPermissionTo('Delete Roles')) {
-            $this->emit(
+            $this->dispatch(
                 'done',
                 error: 'Wacha Ufala! You don\'t have the Authority to do that here'
             );
@@ -20,7 +20,7 @@ class Index extends Component
         $role = Role::find($id);
 
         if (count($role->users) > 0) {
-            $this->emit(
+            $this->dispatch(
                 'done',
                 error: 'You Can\'t Delete this Role!Users Are attached!'
             );
@@ -29,7 +29,7 @@ class Index extends Component
 
 
         if ($id == 1) {
-            $this->emit(
+            $this->dispatch(
                 'done',
                 error: 'You can\'t Delete this Role from the system.'
             );
@@ -39,7 +39,7 @@ class Index extends Component
         $role->permissions()->detach();
         $role->delete();
 
-        $this->emit(
+        $this->dispatch(
             'done',
             success: 'Successfully Deleted that Role from the system'
         );
