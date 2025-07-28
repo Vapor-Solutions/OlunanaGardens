@@ -11,7 +11,8 @@ class Edit extends Component
 
     protected $rules = [
         'package.title' => 'required',
-        'package.price' => 'required'
+        'package.price' => 'nullable|numeric|min:0',
+        'package.description' => 'nullable',
     ];
 
     public function mount($id){

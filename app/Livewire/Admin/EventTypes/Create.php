@@ -15,7 +15,7 @@ class Create extends Component
 
     protected $rules = [
         'event_type.title' => 'required',
-        'event_type.price' => 'required',
+        'event_type.price' => 'nullable|numeric|min:0',
         'event_type.description' => 'nullable',
         'thumbnail' => 'nullable|image|dimensions:ratio=7/4',
     ];

@@ -11,8 +11,8 @@ class Create extends Component
 
     protected $rules = [
         'package.title' => 'required',
-        'package.description' => 'required',
-        'package.price' => 'nullable',
+        'package.description' => 'nullable',
+        'package.price' => 'nullable|numeric|min:0',
     ];
 
     public function mount()
