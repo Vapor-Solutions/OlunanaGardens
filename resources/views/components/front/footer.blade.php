@@ -22,11 +22,16 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="footer-column footer-contact">
+                    <div class="footer-column footer-explore clearfix">
                         <h3 class="footer-title">Contact</h3>
-                        <p class="footer-contact-text">
-                            {{ env('COMPANY_ADDRESS') }}<br>{{ env('COMPANY_COUNTRY') }}
-                        </p>
+                        <ul class="footer-explore-list list-unstyled">
+                            <li>
+                                <a href="https://maps.app.goo.gl/FafFgA7evTHLZBtm7" target="_blank">
+                                    {{ env('COMPANY_ADDRESS') }}<br>{{ env('COMPANY_COUNTRY') }}
+                                </a>
+                            </li>
+                        </ul>
+
                         <div class="footer-contact-info">
                             <p class="footer-contact-phone"><span class="flaticon-call"></span> {{ env('PHONE_NUMBER') }}
                             </p>
@@ -34,16 +39,16 @@
                         </div>
                         <div class="footer-about-social-list">
                             @if (env('INSTAGRAM_URL'))
-                                <a target="_blank" href="{{ env('INSTAGRAM_URL') }}"><i class="ti-instagram"></i></a>
+                            <a target="_blank" href="{{ env('INSTAGRAM_URL') }}"><i class="ti-instagram"></i></a>
                             @endif
                             @if (env('TWITTER_URL'))
-                                <a target="_blank" href="{{ env('TWITTER_URL') }}"><i class="ti-twitter"></i></a>
+                            <a target="_blank" href="{{ env('TWITTER_URL') }}"><i class="ti-twitter"></i></a>
                             @endif
                             @if (env('YOUTUBE_URL'))
-                                <a target="_blank" href="{{ env('YOUTUBE_URL') }}"><i class="ti-youtube"></i></a>
+                            <a target="_blank" href="{{ env('YOUTUBE_URL') }}"><i class="ti-youtube"></i></a>
                             @endif
                             @if (env('FACEBOOK_URL'))
-                                <a target="_blank" href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
+                            <a target="_blank" href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
                             @endif
                         </div>
                     </div>
