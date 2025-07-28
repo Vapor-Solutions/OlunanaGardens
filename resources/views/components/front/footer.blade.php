@@ -10,7 +10,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-3 offset-md-1">
+                <div class="col-md-3">
                     <div class="footer-column footer-explore clearfix">
                         <h3 class="footer-title">Explore</h3>
                         <ul class="footer-explore-list list-unstyled">
@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="footer-column footer-explore clearfix">
                         <h3 class="footer-title">Contact</h3>
                         <ul class="footer-explore-list list-unstyled">
@@ -51,8 +51,24 @@
                             <a target="_blank" href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
                             @endif
                         </div>
+
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <div class="footer-column footer-explore clearfix">
+                        <h3 class="footer-title text-center">Payment Details</h3>
+                        <div class="d-flex">
+                            <div class="d-flex text-center">
+                                <img src="{{ asset('mpesa-logo.png') }}" alt="MPESA">
+                            </div>
+                        </div>
+                        <div class="mb-2 text-center">
+                            <h5 class="text-white">Paybill: <strong>247247</strong></h5>
+                            <h5 class="text-white">Account Number:<strong> 0759595892</strong></h5>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
