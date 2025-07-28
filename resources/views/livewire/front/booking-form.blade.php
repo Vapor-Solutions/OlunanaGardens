@@ -50,7 +50,7 @@
                         <div class="">
                             <div class=" mb-3 input1_inner">
                                 <label>Adults</label>
-                                <input type="number" wire:model='bookingRequest.capacity_adults' class="form-control "
+                                <input type="number" min="1" wire:model='bookingRequest.capacity_adults' class="form-control "
                                     placeholder="Adults">
                                 @error('bookingRequest.capacity_adults')
                                     <small class="text-danger">{{ $message }}</small>
@@ -61,7 +61,7 @@
                     <div class="col-md-6">
                         <div class="mb-3 input1_inner">
                             <label>Children</label>
-                            <input type="number" class="form-control" name="" id=""
+                            <input type="number" min="0" class="form-control" name="" id=""
                                 aria-describedby="helpId" placeholder="Children"
                                 wire:model='bookingRequest.capacity_children'>
                             @error('bookingRequest.capacity_children')
