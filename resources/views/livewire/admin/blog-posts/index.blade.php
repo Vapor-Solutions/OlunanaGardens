@@ -5,7 +5,7 @@
         @foreach ($blogPosts as $post)
             <div class="col-md-3 col-6">
                 <div class="card" style="">
-                    <img src="{{ $post->blog_photo_path }}" class="card-img-top" alt="...">
+                    <img src="{{ asset($post->blog_photo_path) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <p class="card-text">

@@ -17,7 +17,7 @@ class Create extends Component
     public $headerPhoto, $blogPhoto;
 
     protected $rules = [
-        'post.category' => 'required',
+        'post.post_category_id' => 'required',
         'post.title' => 'required',
         'post.content' => 'required',
         // 'headerPhoto' => 'required|image|max:2048',
@@ -26,7 +26,7 @@ class Create extends Component
         'blogPhoto' => 'required|image',
     ];
 
-    function mount()
+    public function mount()
     {
         $this->post = new Post();
         $this->categories = PostCategory::all();
@@ -41,19 +41,19 @@ class Create extends Component
 
         $headername = $timestamp . '.' . $this->headerPhoto->extension();
         $thumbname = $timestamp . '.' . $this->blogPhoto->extension();
-        $this->headerPhoto->storeAs('blog/header_photos', $headername);
-        $this->blogPhoto->storeAs('blog/thumbnails', $thumbname);
+        $this->headerPhoto->storeAs('blog/header_photos', $headername, 'public');
+        $this->blogPhoto->storeAs('blog/thumbnails', $thumbname, 'public');
         $this->post->blog_photo_path = 'blog/thumbnails/' . $thumbname;
         $this->post->header_photo_path = 'blog/header_photos/' . $headername;
         $this->post->slug = Str::slug($this->post->title, '-');
 
-        dd('hello');
         $this->post->save();
         $this->dispatch('done', success: 'Successfully added a new Blog');
-        $this->resetInput();
+        $this->redirect(route('admin.blog-posts.index'));
     }
 
-    public function resetInput(){
+    public function resetInput()
+    {
         $this->post = new Post();
     }
     public function render()

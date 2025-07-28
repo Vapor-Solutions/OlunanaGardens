@@ -14,7 +14,7 @@
 
                             @foreach ($posts as $post)
                                 <div wire:key='post-{{ $post->id }}' class="item">
-                                    <div class="position-re o-hidden"> <img src="{{ $post->blog_photo_path }}" alt="">
+                                    <div class="position-re o-hidden"> <img src="{{ $post->blog_photo_url }}" alt="">
                                         <div class="date">
                                             <a href="{{ route('blog-post', $post->id) }}">
                                                 <span>{{ Carbon\Carbon::parse($post->created_at)->format('M') }}</span>

@@ -13,35 +13,36 @@
     <!-- News  -->
     <section class="news section-padding bg-blck">
         @if (count($posts) > 0)
-            <div class="container">
-                <div class="row">
-                    @foreach ($posts as $post)
-                        <div wire:key='post-{{ $post->id }}' class="col-md-4 mb-30">
-                            <div class="item">
-                                <div class="position-re o-hidden"> <img src="img/news/1.jpg" alt="">
-                                    <div class="date">
-                                        <a href="{{ route('blog-post', $post->id) }}">
-                                            <span>{{ Carbon\Carbon::parse($post->created_at)->format('M') }}</span>
-                                            <i>{{ Carbon\Carbon::parse($post->created_at)->format('d') }}</i> </a>
-                                    </div>
-                                </div>
-                                <div class="con"> <span class="category">
-                                        <a href="javascript:void(0)">{{ $post->category?->title }}</a>
-                                    </span>
-                                    <h5><a href="{{ route('blog-post', $post->id) }}">{{ $post->title }}</a></h5>
-                                </div>
+        <div class="container">
+            <div class="row">
+                @foreach ($posts as $post)
+
+                <div wire:key='post-{{ $post->id }}' class="col-md-4 mb-30">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img class="img-fluid" width="900" height="1200" src="{{ asset($post->blog_photo_url) }}" alt="">
+                            <div class="date">
+                                <a href="{{ route('blog-post', $post->id) }}">
+                                    <span>{{ Carbon\Carbon::parse($post->created_at)->format('M') }}</span>
+                                    <i>{{ Carbon\Carbon::parse($post->created_at)->format('d') }}</i> </a>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        {{ $posts?->links() }}
+                        <div class="con"> <span class="category">
+                                <a href="javascript:void(0)">{{ $post->category?->title }}</a>
+                            </span>
+                            <h5><a href="{{ route('blog-post', $post->id) }}">{{ $post->title }}</a></h5>
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    {{ $posts?->links('vendor.livewire.cappa',['scrollTo'=>false]) }}
+                </div>
+            </div>
+        </div>
         @else
-            <h1 class="text-center text-muted">No Posts Yet</h1>
+        <h1 class="text-center text-muted">No Posts Yet</h1>
         @endif
     </section>
 

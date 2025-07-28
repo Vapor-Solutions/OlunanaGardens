@@ -17,7 +17,7 @@ class Blog extends Component
     public function render()
     {
         return view('livewire.blog',[
-            'posts'=>Post::orderBy('created_at')->paginate(6)
+            'posts'=>Post::orderBy('created_at','DESC')->paginate(10)
         ])->layout('layouts.front');
     }
 }
