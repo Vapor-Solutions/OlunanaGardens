@@ -14,7 +14,7 @@ class Index extends Component
     protected $listeners = [
         'done' => 'render'
     ];
-    function delete($id)
+    public function delete($id)
     {
         Post::find($id)->delete();
 
