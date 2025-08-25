@@ -27,9 +27,13 @@ class Client extends Model
     ];
 
 
-    function bookings()
+    public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+    public function bookingRequests()
+    {
+        return $this->hasMany(BookingRequest::class);
     }
 
     public function testimonial()
@@ -42,7 +46,7 @@ class Client extends Model
         return $this->bookings()->with('payments')->get()->pluck('payments')->flatten();
     }
 
-    public function comment(){
+    public function comments(){
         return $this->hasMany(Comment::class);
     }
 

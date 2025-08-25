@@ -9,7 +9,7 @@ class Gallery extends Model
 {
     use HasFactory;
 
-    function eventType() {
+    public function eventType() {
         return $this->belongsTo(EventType::class);
     }
 }

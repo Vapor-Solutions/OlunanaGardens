@@ -22,6 +22,9 @@
                             <th>Name</th>
                             <th>Email Address</th>
                             <th>Bookings Made</th>
+                            <th>Booking Requests</th>
+                            <th>Comments</th>
+                            <th>Testimonial</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -31,6 +34,9 @@
                             <td scope="row">{{ $client->name }}</td>
                             <td>{{ $client->email }}</td>
                             <td>{{ count($client->bookings) }}</td>
+                            <td>{{ count($client->bookingRequests) }}</td>
+                            <td>{{ count($client->comments) }}</td>
+                            <td>{{ $client->testimonial ? $client->testimonial->comment : 'No Testimonial' }}</td>
                             <td class="d-flex flex-row">
                                 <div class="flex-col mx-1">
                                     <a href="{{ route('admin.clients.edit', $client->id) }}" class="btn btn-secondary">

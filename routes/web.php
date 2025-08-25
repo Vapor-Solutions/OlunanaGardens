@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Livewire\Admin;
 use App\Livewire;
+use App\Livewire\Admin;
 use App\Models\MenuCategory;
 use App\Models\MenuItem;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +63,7 @@ Route::middleware([
     // CMS
     Route::prefix('cms')->group(function () {
         Route::get('content', Admin\Cms\Content::class)->name('admin.cms.content');
+        Route::get('images', Admin\Images::class)->name('admin.images');
         Route::get('photos', Admin\Cms\Photos::class)->name('admin.cms.photos');
         Route::get('faq', Admin\Cms\Faq::class)->name('admin.cms.faq');
         Route::get('faq/create', Admin\Cms\Faq\Create::class)->name('admin.cms.faq.create');

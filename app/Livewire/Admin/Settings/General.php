@@ -9,17 +9,26 @@ use Livewire\WithFileUploads;
 
 class General extends Component
 {
+    use WithFileUploads;
 
     public $companyName;
     public $companyEmail;
     public $companyLogo;
-
-    use WithFileUploads;
+    public $facebookLink = '';
+    public $twitterLink = '';
+    public $instagramLink = '';
+    public $youtubeLink = '';
+    public $whatsappLink = '';
 
     protected $rules = [
         'companyName' => 'required',
         'companyEmail' => 'required',
         'companyLogo' => 'nullable|mimes:png|max:512',
+        'facebookLink' => 'nullable|url',
+        'twitterLink' => 'nullable|url',
+        'instagramLink' => 'nullable|url',
+        'youtubeLink' => 'nullable|url',
+        'whatsappLink' => 'nullable|url',
     ];
 
 
@@ -31,6 +40,11 @@ class General extends Component
     {
         $this->companyName = env('COMPANY_NAME');
         $this->companyEmail = env('COMPANY_EMAIL');
+        $this->facebookLink = env('FACEBOOK_URL');
+        $this->twitterLink = env('TWITTER_URL');
+        $this->instagramLink = env('INSTAGRAM_URL');
+        $this->youtubeLink = env('YOUTUBE_URL');
+        $this->whatsappLink = env('WHATSAPP_URL');
     }
 
     public function saveCompanyDetails()
@@ -57,6 +71,34 @@ class General extends Component
         $this->dispatch(
             'done',
             success: 'Successfully Saved the Company Details Settings'
+
+        );
+    }
+
+    public function saveSocialLinks()
+    {
+        $this->validate();
+
+        $envData = [
+            'FACEBOOK_URL' => $this->facebookLink,
+            'TWITTER_URL' => $this->twitterLink,
+            'INSTAGRAM_URL' => $this->instagramLink,
+            'YOUTUBE_URL' => $this->youtubeLink,
+            'WHATSAPP_URL' => $this->whatsappLink,
+        ];
+
+        $envFile = base_path('.env');
+        $oldEnvContent = File::get($envFile);
+
+        foreach ($envData as $key => $value) {
+            $oldEnvContent = preg_replace("/$key=.*$/m", "$key=\"$value\"", $oldEnvContent);
+        }
+
+        File::put($envFile, $oldEnvContent);
+
+        $this->dispatch(
+            'done',
+            success: 'Successfully Saved the Social Media Links Settings'
 
         );
     }

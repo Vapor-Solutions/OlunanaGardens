@@ -50,7 +50,7 @@
                 <!-- Logo -->
                 <div class="col-6 col-md-6 cappa-logo-wrap">
                     <a href="/" class="cappa-logo">
-                        <img src="img/logo.png?{{ rand(1, 670) }}" alt="">
+                        <img src="{{ asset('img/logo.png') }}?{{ rand(1, 670) }}" alt="">
                     </a>
                 </div>
                 <!-- Menu Burger -->
