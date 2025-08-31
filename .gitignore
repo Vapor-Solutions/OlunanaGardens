@@ -1,6 +1,7 @@
 /.phpunit.cache
 /node_modules
 /public/blog
+/public/img
 /public/hot
 /public/event_types
 /public/gallery
