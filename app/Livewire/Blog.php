@@ -11,7 +11,7 @@ class Blog extends Component
 {
     use WithPagination, WithoutUrlPagination;
 
-    function paginationView() {
+    public function paginationView() {
         return 'blog-paginator';
     }
     public function render()
