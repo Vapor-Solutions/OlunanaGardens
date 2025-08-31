@@ -9,8 +9,8 @@
     <link rel="shortcut icon" href="/img/favicon.png" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" href="/css/plugins.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/plugins.css?{{ time() }}" />
+    <link rel="stylesheet" href="/css/style.css?{{ time() }}" />
 
     @vite(['resources/sass/front.scss'])
     @livewireStyles
