@@ -3,9 +3,9 @@
     <header class="header slider">
         <div class="owl-carousel owl-theme">
             <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-center item bg-img" data-overlay-dark="3" data-background="olunana/img/21.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="3" data-background="olunana/img/20.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="3" data-background="olunana/img/22.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="olunana/img/21.jpg?{{ time() }}"></div>
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="olunana/img/20.jpg?{{ time() }}"></div>
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="olunana/img/22.jpg?{{ time() }}"></div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">

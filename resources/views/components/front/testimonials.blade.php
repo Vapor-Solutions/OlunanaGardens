@@ -1,5 +1,5 @@
 <section class="testimonials">
-    <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/7.jpg" data-overlay-dark="3">
+    <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/7.jpg?{{ time() }}" data-overlay-dark="3">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">

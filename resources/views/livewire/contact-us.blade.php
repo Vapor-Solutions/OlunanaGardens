@@ -1,6 +1,6 @@
 <div>
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3"
-        data-background="img/banners/contact-us.jpg">
+        data-background="img/banners/contact-us.jpg?{{ time() }}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
