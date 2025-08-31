@@ -39,7 +39,7 @@
                                     <li>
                                         <div class="thum"> <img src="{{ $item->blog_photo_path }}" alt="">
                                         </div>
-                                        <a href="{{ route('blog-post', $item->id) }}">{{ $item->title }}</a>
+                                        <a href="{{ route('blog-post', $item->slug) }}">{{ $item->title }}</a>
                                     </li>
                                     @endforeach
                                 </ul>

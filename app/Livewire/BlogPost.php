@@ -11,9 +11,9 @@ class BlogPost extends Component
 {
     public $post;
 
-    function mount($id)
+    public function mount($slug)
     {
-        $this->post = Post::find($id);
+        $this->post = Post::where('slug', $slug)->first();
     }
     public function render()
     {

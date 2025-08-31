@@ -31,7 +31,7 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/restaurant', Livewire\Restaurant::class)->name('restaurant');
     Route::get('/blog-posts', Livewire\Blog::class)->name('blog');
     Route::get('/faq', Livewire\Faq::class)->name('faq');
-    Route::get('/{id}/blog-post', Livewire\BlogPost::class)->name('blog-post');
+    Route::get('/blog-post/{slug}', Livewire\BlogPost::class)->name('blog-post');
     Route::get('/contact-us', Livewire\ContactUs::class)->name('contact-us');
 
     Route::get('/olunana-menu', function () {

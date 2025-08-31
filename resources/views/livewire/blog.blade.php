@@ -29,7 +29,7 @@
                         <div class="con"> <span class="category">
                                 <a href="javascript:void(0)">{{ $post->category?->title }}</a>
                             </span>
-                            <h5><a href="{{ route('blog-post', $post->id) }}">{{ $post->title }}</a></h5>
+                            <h5><a href="{{ route('blog-post', $post->slug) }}">{{ $post->title }}</a></h5>
                         </div>
                     </div>
                 </div>
