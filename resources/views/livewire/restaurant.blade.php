@@ -2,7 +2,7 @@
 
     {{-- <x-front.restaurant-slider></x-front.restaurant-slider> --}}
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
-        data-background="/olunana/img/20.jpg">
+        data-background="img/banners/restaurant.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
