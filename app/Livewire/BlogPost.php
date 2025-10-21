@@ -17,8 +17,6 @@ class BlogPost extends Component
     }
     public function render()
     {
-        return view('livewire.blog-post', [
-            'post' => $this->post
-        ]);
+        return view('livewire.blog-post');
     }
 }
