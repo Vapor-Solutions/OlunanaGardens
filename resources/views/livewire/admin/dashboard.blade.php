@@ -2,227 +2,204 @@
     <x-slot:header>
         {{ __('Dashboard') }}
     </x-slot>
-    @php
-        $earnings = 0;
-
-        foreach (App\Models\Booking::all() as $booking) {
-            $earnings += $booking->total_cost_kes;
-        }
-    @endphp
-    {{-- <button>test</button> --}}
 
     <div class="container-fluid">
-        <div class="row">
+        <!-- Dashboard Metrics Row -->
+        <div class="row g-4 mb-4">
+            <!-- Total Earnings Card -->
             <div class="col-sm-6 col-xl-3 col-lg-6">
-                <div class="card o-hidden border-0">
-                    <div class="bg-primary b-r-4 card-body">
-                        <div class="media static-top-widget" wire:ignore>
-                            <div class="align-self-center text-center"><i data-feather="dollar-sign"></i></div>
-                            <div class="media-body"><span class="m-0">Total Earnings</span>
-                                <h4 class="mb-0 ">KES <span
-                                        class="font-bold counter">{{ number_format($earnings) }}</span>
-                                </h4><i class="icon-bg" data-feather="dollar-sign"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-back.dashboard-card
+                    title="Total Earnings"
+                    value="KES {{ number_format($totalEarnings) }}"
+                    icon="dollar-sign"
+                    color="primary"
+                />
             </div>
-            <div class="col-sm-6 col-xl-3 col-lg-6">
-                <div class="card o-hidden border-0">
-                    <div class="bg-secondary b-r-4 card-body">
-                        <div class="media static-top-widget" wire:ignore>
-                            <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
-                            <div class="media-body"><span class="m-0">Available Sections</span>
-                                @php
-                                    $available = count(App\Models\Section::all());
-                                    $active = 0;
 
-                                    foreach (App\Models\Section::all() as $section) {
-                                        foreach ($section->bookings as $booking) {
-                                            if ($booking->is_active) {
-                                                $active += 1;
-                                            }
-                                        }
-                                    }
-
-                                    $available -= $active;
-
-                                @endphp
-                                <h4 class="mb-0 counter">{{ number_format($available) }}</h4><i class="icon-bg"
-                                    data-feather="shopping-bag"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Available Sections Card -->
             <div class="col-sm-6 col-xl-3 col-lg-6">
-                <div class="card o-hidden border-0">
-                    <div class="bg-primary b-r-4 card-body">
-                        <div class="media static-top-widget" wire:ignore>
-                            <div class="align-self-center text-center"><i data-feather="database"></i></div>
-                            <div class="media-body"><span class="m-0">Total Bookings</span>
-                                <h4 class="mb-0 counter">{{ number_format(count(App\Models\Booking::all())) }}</h4><i
-                                    class="icon-bg" data-feather="database"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-back.dashboard-card
+                    title="Available Sections"
+                    value="{{ number_format($availableSections) }}"
+                    icon="shopping-bag"
+                    color="secondary"
+                />
             </div>
+
+            <!-- Total Bookings Card -->
             <div class="col-sm-6 col-xl-3 col-lg-6">
-                <div class="card o-hidden border-0">
-                    <div class="bg-secondary b-r-4 card-body">
-                        <div class="media static-top-widget" wire:ignore>
-                            <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
-                            <div class="media-body"><span class="m-0">Unpaid Invoices</span>
-                                <h4 class="mb-0 ">KES <span class="counter">{{ number_format(0) }}</span></h4><i
-                                    class="icon-bg" data-feather="shopping-bag"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-back.dashboard-card
+                    title="Total Bookings"
+                    value="{{ number_format($totalBookings) }}"
+                    icon="database"
+                    color="primary"
+                />
             </div>
-            <div class="col-md-4 col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Maintenance Mode</h5>
-                        <h6 class="text-{{ env('MAINTENANCE_MODE') ? 'success' : 'danger' }}">
-                            {{ env('MAINTENANCE_MODE') ? 'ON' : 'OFF' }}</h6>
+
+            <!-- Unpaid Invoices Card -->
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+                <x-back.dashboard-card
+                    title="Unpaid Invoices"
+                    value="KES {{ number_format($unpaidInvoices) }}"
+                    icon="alert-circle"
+                    color="secondary"
+                />
+            </div>
+        </div>
+
+        <!-- System Controls and Chart Row -->
+        <div class="row g-4">
+            <!-- Maintenance Mode Card -->
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-light border-bottom">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">System Status</h5>
+                            <span class="badge bg-{{ $maintenanceMode ? 'danger' : 'success' }}">
+                                {{ $maintenanceMode ? 'Maintenance ON' : 'Maintenance OFF' }}
+                            </span>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <div class="d-flex flex-column mb-md-5 mb-2">
-                            <button wire:click='maintenance_switch'
-                                onclick="confirm('Are you sure you want switch {{ env('MAINTENANCE_MODE') ? 'from' : 'to' }} maintenance mode?') || event.stopImmediatePropagation()"
-                                class="btn btn-{{ env('MAINTENANCE_MODE') ? 'danger' : 'success' }}">
-                                Switch {{ env('MAINTENANCE_MODE') ? 'Off' : 'On' }}
+                        <p class="text-muted mb-3">
+                            <small>Toggle maintenance mode to restrict user access while performing system updates.</small>
+                        </p>
+                        <button
+                            wire:click="toggleMaintenanceMode"
+                            class="btn btn-{{ $maintenanceMode ? 'danger' : 'success' }} w-100"
+                            onclick="return confirm('Are you sure you want to {{ $maintenanceMode ? 'disable' : 'enable' }} maintenance mode?')"
+                        >
+                            <i data-feather="power"></i>
+                            {{ $maintenanceMode ? 'Disable Maintenance' : 'Enable Maintenance' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings Overview Chart -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-light border-bottom d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0">Bookings Overview</h5>
+                            <small class="text-muted">
+                                {{ \Carbon\Carbon::parse($dateRangeStart)->format('M d, Y') }} - {{ \Carbon\Carbon::parse($dateRangeEnd)->format('M d, Y') }}
+                            </small>
+                        </div>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button
+                                type="button"
+                                class="btn btn-outline-secondary"
+                                wire:click="previousMonth"
+                                title="View previous month"
+                            >
+                                <i data-feather="chevron-left" style="width: 18px; height: 18px;"></i>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-outline-secondary"
+                                wire:click="nextMonth"
+                                title="View next month"
+                            >
+                                <i data-feather="chevron-right" style="width: 18px; height: 18px;"></i>
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-8 col-6 des-xl-100 dashboard-sec">
-                <div class="card income-card">
-                    <div class="card-header">
-                        <div class="header-top d-sm-flex align-items-center">
-                            <h5>Bookings Overview Chart</h5>
-                            <div class="center-content">
-                                {{-- <p class="d-sm-flex align-items-center"><span
-                                        class="font-primary m-r-10 f-w-700">$859.25k</span><i
-                                        class="toprightarrow-primary fa fa-arrow-up m-r-10"></i>86% More than last year</p> --}}
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div id="chart-timeline-dashbord" wire:ignore></div>
+                    <div class="card-body">
+                        <div id="chart-bookings-overview" wire:ignore></div>
                     </div>
                 </div>
             </div>
-            {{--
-            <ol>
-                @foreach (App\Models\Permission::all() as $permission)
-                    <li>{{ $permission->title }}</li>
-                @endforeach
-            </ol> --}}
         </div>
     </div>
-
-
-
 </div>
-
 
 @push('scripts')
     <script>
-        var options = {
-            series: [{
-                data: [
-                    @foreach ($days as $day)
-                        [
-                            {{ $day->timestamp . '000' }},
-                            @php
-                                $count = 0;
-                                foreach (App\Models\Section::all() as $section) {
-                                    if ($section->IsBooked(Carbon\Carbon::parse($day)->toDateString())) {
-                                        $count++;
-                                    }
-                                }
-                            @endphp
-                            {{ $count??0 }}
-                        ],
-                    @endforeach
-                ]
-            }],
+        // Prepare chart data from Livewire component
+        const bookingData = @json($bookingCounts);
+        const daysArray = @json($days);
+
+        // Transform booking counts into chart-compatible format
+        const chartData = daysArray.map((dayString) => {
+            const date = new Date(dayString);
+            return [date.getTime(), bookingData[dayString] || 0];
+        });
+
+        const chartOptions = {
+            series: [
+                {
+                    name: 'Active Bookings',
+                    data: chartData,
+                }
+            ],
             chart: {
-                id: 'area-datetime',
-                type: 'line',
-                height: 425,
-                zoom: {
-                    autoScaleYaxis: true
-                },
+                id: 'bookings-overview',
+                type: 'area',
+                height: 400,
                 toolbar: {
-                    show: false
-                },
-            },
-            annotations: {
-                yaxis: [{
-                    y: 50,
-                    borderColor: '#531502',
-                    label: {
-                        show: false,
-                        text: 'Average',
-                        style: {
-                            color: "#fff",
-                            background: '#531502'
-                        }
+                    show: true,
+                    tools: {
+                        download: true,
+                        selection: true,
+                        zoom: true,
+                        zoomin: true,
+                        zoomout: true,
+                        pan: true,
+                        reset: true,
                     }
-                }],
-                xaxis: [{
-                    x: {{ Carbon\Carbon::now()->subMonths(2)->timestamp . '000' }},
-                    borderColor: '#531502',
-                    yAxisIndex: 50,
-                    label: {
-                        show: false,
-                        text: 'Best',
-                        style: {
-                            color: "#fff",
-                            background: '#531502'
-                        }
-                    },
-                }]
-            },
-            dataLabels: {
-                enabled: false
-            },
-            markers: {
-                size: 0,
-                style: 'hollow',
-            },
-            xaxis: {
-                type: 'datetime',
-                min: {{ Carbon\Carbon::now()->subMonths(2)->timestamp . '000' }},
-                tickAmount: 6,
-                axisTicks: {
-                    show: false,
                 },
-                axisBorder: {
-                    show: false
+                zoom: {
+                    autoScaleYaxis: true,
+                    enabled: true,
                 },
             },
-            tooltip: {
-                x: {
-                    format: 'dd MMM yyyy'
-                },
+            stroke: {
+                curve: 'smooth',
+                width: 2,
             },
             fill: {
                 type: 'gradient',
                 gradient: {
                     shadeIntensity: 1,
-                    opacityFrom: 0.7,
-                    opacityTo: 0.9,
-                    stops: [0, 100]
+                    opacityFrom: 0.45,
+                    opacityTo: 0.05,
+                    stops: [20, 100, 100, 100],
                 }
             },
-            responsive: [{
+            dataLabels: {
+                enabled: false
+            },
+            xaxis: {
+                type: 'datetime',
+                labels: {
+                    format: 'dd MMM',
+                    datetimeUTC: false,
+                }
+            },
+            yaxis: {
+                labels: {
+                    formatter: function(value) {
+                        return Math.round(value);
+                    }
+                },
+                min: 0,
+            },
+            tooltip: {
+                x: {
+                    format: 'dd MMMM yyyy',
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return seriesName;
+                        }
+                    }
+                }
+            },
+            colors: ['#531502'],
+            responsive: [
+                {
                     breakpoint: 1366,
                     options: {
                         chart: {
@@ -231,20 +208,7 @@
                     }
                 },
                 {
-                    breakpoint: 1238,
-                    options: {
-                        chart: {
-                            height: 300
-                        },
-                        grid: {
-                            padding: {
-                                bottom: 5,
-                            },
-                        }
-                    }
-                },
-                {
-                    breakpoint: 992,
+                    breakpoint: 768,
                     options: {
                         chart: {
                             height: 300
@@ -252,29 +216,40 @@
                     }
                 },
                 {
-                    breakpoint: 551,
-                    options: {
-                        grid: {
-                            padding: {
-                                bottom: 10,
-                            },
-                        }
-                    }
-                },
-                {
-                    breakpoint: 535,
+                    breakpoint: 480,
                     options: {
                         chart: {
                             height: 250
                         }
-
                     }
                 }
-            ],
-
-            colors: ['#531502'],
+            ]
         };
-        var charttimeline = new ApexCharts(document.querySelector("#chart-timeline-dashbord"), options);
-        charttimeline.render();
+
+        // Initialize and render chart
+        const bookingsChart = new ApexCharts(
+            document.querySelector("#chart-bookings-overview"),
+            chartOptions
+        );
+        bookingsChart.render();
+
+        // Refresh chart when Livewire component updates
+        Livewire.hook('component.updated', () => {
+            // Refetch and re-render chart data
+            setTimeout(() => {
+                const updatedData = @json($bookingCounts);
+                const updatedDays = @json($days);
+                const newChartData = updatedDays.map((dayString) => {
+                    const date = new Date(dayString);
+                    return [date.getTime(), updatedData[dayString] || 0];
+                });
+                bookingsChart.updateSeries([
+                    {
+                        name: 'Active Bookings',
+                        data: newChartData,
+                    }
+                ]);
+            }, 100);
+        });
     </script>
 @endpush

@@ -43,15 +43,18 @@ class Create extends Component
     {
         $this->validate();
 
-        if (in_array(1, $this->roles) && !auth()->user()->id == 1) {
+        // Fixed operator precedence bug - added parentheses
+        if (in_array(1, $this->roles) && auth()->user()->id != 1) {
             $this->dispatch(
                 'done',
-                error: "You can't Create a Super Administrator. "
+                error: "You can't create a Super Administrator. Only Super Administrators can create other Super Administrators."
             );
             return;
         }
 
-        $this->user->password = Hash::make('1234567890');
+        // Use configured default password from .env
+        $defaultPassword = config('auth.default_password', env('DEFAULT_PASSWORD', '1234567890'));
+        $this->user->password = Hash::make($defaultPassword);
         $this->user->save();
 
 

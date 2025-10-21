@@ -39,16 +39,19 @@
                         </div>
                         <div class="footer-about-social-list">
                             @if (env('INSTAGRAM_URL'))
-                            <a target="_blank" href="{{ env('INSTAGRAM_URL') }}"><i class="ti-instagram"></i></a>
+                            <a target="_blank" style="font-size: 30px;" href="{{ env('INSTAGRAM_URL') }}"><i class="fab fa-instagram"></i></a>
                             @endif
                             @if (env('TWITTER_URL'))
-                            <a target="_blank" href="{{ env('TWITTER_URL') }}"><i class="ti-twitter"></i></a>
+                            <a target="_blank" style="font-size: 30px;" href="{{ env('TWITTER_URL') }}"><i class="fab fa-twitter"></i></a>
                             @endif
                             @if (env('YOUTUBE_URL'))
-                            <a target="_blank" href="{{ env('YOUTUBE_URL') }}"><i class="ti-youtube"></i></a>
+                            <a target="_blank" style="font-size: 30px;" href="{{ env('YOUTUBE_URL') }}"><i class="fab fa-youtube"></i></a>
                             @endif
                             @if (env('FACEBOOK_URL'))
-                            <a target="_blank" href="{{ env('FACEBOOK_URL') }}"><i class="ti-facebook"></i></a>
+                            <a target="_blank" style="font-size: 30px;" href="{{ env('FACEBOOK_URL') }}"><i class="fab fa-facebook"></i></a>
+                            @endif
+                            @if (env('TIKTOK_URL'))
+                            <a target="_blank" style="font-size: 30px;" href="{{ env('TIKTOK_URL') }}"><i class="fab fa-tiktok"></i></a>
                             @endif
                         </div>
 

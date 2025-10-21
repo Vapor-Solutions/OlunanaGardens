@@ -17,5 +17,8 @@
         "sass": "^1.89.2",
         "sweetalert2": "^11.6.13",
         "vite": "^6.0"
+    },
+    "dependencies": {
+        "feather-icons": "^4.29.2"
     }
 }

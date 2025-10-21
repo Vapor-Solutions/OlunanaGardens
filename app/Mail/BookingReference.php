@@ -33,11 +33,7 @@ class BookingReference extends Mailable
      */
     public function build()
     {
-        // $companyLogo = storage_path('/public/img/logo.png');
-        // $this->attachFromStorage($companyLogo, 'logo.png');
-        
-        return $this->subject('Customer Booking Details: ' . Carbon::now()->toString())
-                    ->view('emails.booking-reference', ['booking' => $this->booking]); // Pass booking data to email view
-                    // ->attachFromStorage('public/img/logo.png');
+        return $this->subject('Booking Confirmation - Reference #' . $this->booking->booking_ref)
+                    ->html(view('emails.booking-reference', ['booking' => $this->booking])->render());
     }
 }

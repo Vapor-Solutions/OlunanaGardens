@@ -46,11 +46,11 @@ class Edit extends Component
     {
         $this->validate();
 
-        $this->user->password = Hash::make('1234567890');
+        // Don't reset password on edit - password should be updated separately
+        // Only save the other user fields
         $this->user->save();
 
-        $this->user->roles()->detach();
-        $this->user->roles()->attach($this->roles);
+        $this->user->roles()->sync($this->roles);
 
         ActivityLog::create([
             'user_id' => auth()->user()->id,

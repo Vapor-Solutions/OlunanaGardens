@@ -9,6 +9,17 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'client_id',
+        'post_id',
+        'content',
+        'approved',
+    ];
+
+    protected $casts = [
+        'approved' => 'boolean',
+    ];
+
     public function client()
     {
         return $this->belongsTo(Client::class);

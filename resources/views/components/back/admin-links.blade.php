@@ -37,19 +37,24 @@
         <x-back.new-nav-link fa_icon="" title="Overview" route="admin.payment-methods.index" />
         <x-back.new-nav-link fa_icon="" title="Create" route="admin.payment-methods.create" />
     </x-back.new-nav-link-dropdown>
-    <li class="nav-header text-underline">Booking Engine</li>
-    <x-back.new-nav-link fa_icon="fa-calendar" title="Booking Requests" route="admin.booking-requests.index" />
+
+    <li class="nav-header text-underline">Booking Management</li>
+    <x-back.new-nav-link-dropdown title="Sections" route="admin.sections*" fa_icon="fa-th">
+        <x-back.new-nav-link fa_icon="" title="All Sections" route="admin.sections.index" />
+        <x-back.new-nav-link fa_icon="" title="Add Section" route="admin.sections.create" />
+    </x-back.new-nav-link-dropdown>
     <x-back.new-nav-link-dropdown title="Packages" route="admin.packages*" fa_icon="fa-box-open">
-        <x-back.new-nav-link fa_icon="" title="Overview" route="admin.packages.index" />
-        <x-back.new-nav-link fa_icon="" title="Create" route="admin.packages.create" />
+        <x-back.new-nav-link fa_icon="" title="All Packages" route="admin.packages.index" />
+        <x-back.new-nav-link fa_icon="" title="Create Package" route="admin.packages.create" />
     </x-back.new-nav-link-dropdown>
     <x-back.new-nav-link-dropdown title="Bookings" route="admin.bookings*" fa_icon="fa-calendar-check">
-        <x-back.new-nav-link fa_icon="" title="Overview" route="admin.bookings.index" />
-        <x-back.new-nav-link fa_icon="" title="Create" route="admin.bookings.create" />
+        <x-back.new-nav-link fa_icon="" title="All Bookings" route="admin.bookings.index" />
+        <x-back.new-nav-link fa_icon="" title="New Booking" route="admin.bookings.create" />
     </x-back.new-nav-link-dropdown>
+    <x-back.new-nav-link fa_icon="fa-envelope-open" title="Booking Requests" route="admin.booking-requests.index" />
     <x-back.new-nav-link-dropdown title="Payments" route="admin.payments*" fa_icon="fa-money-bill-wave">
-        <x-back.new-nav-link fa_icon="" title="Booking Payments" route="admin.payments.index" />
-        <x-back.new-nav-link fa_icon="" title="Create Payment" route="admin.payments.create" />
+        <x-back.new-nav-link fa_icon="" title="All Payments" route="admin.payments.index" />
+        <x-back.new-nav-link fa_icon="" title="Record Payment" route="admin.payments.create" />
     </x-back.new-nav-link-dropdown>
 
     <li class="nav-header text-underline">Content Management</li>

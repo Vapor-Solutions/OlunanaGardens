@@ -7,9 +7,12 @@ use App\Models\PostCategory;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Edit extends Component
 {
+    use WithFileUploads;
+
     public Post $post;
     public $categories;
     public $headerPhoto, $blogPhoto;
@@ -18,10 +21,8 @@ class Edit extends Component
         'post.post_category_id' => 'required',
         'post.title' => 'required',
         'post.content' => 'required',
-        // 'headerPhoto' => 'required|image|max:2048',
-        'headerPhoto' => 'required|image',
-        // 'blogPhoto' => 'required|image|max:2048|dimensions:ratio=3/4',
-        'blogPhoto' => 'required|image',
+        'headerPhoto' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+        'blogPhoto' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
     ];
 
     public function mount($id)
@@ -35,18 +36,24 @@ class Edit extends Component
         $this->validate();
 
         $this->post->user_id = auth()->user()->id;
-        $timestamp = Carbon::now()->timestamp;
 
-        $headername = $timestamp . '.' . $this->headerPhoto->extension();
-        $thumbname = $timestamp . '.' . $this->blogPhoto->extension();
-        $this->headerPhoto->storeAs('blog/header_photos', $headername, 'public');
-        $this->blogPhoto->storeAs('blog/thumbnails', $thumbname, 'public');
-        $this->post->blog_photo_path = 'blog/thumbnails/' . $thumbname;
-        $this->post->header_photo_path = 'blog/header_photos/' . $headername;
+        // Only update photos if new ones are uploaded
+        if ($this->headerPhoto) {
+            $headername = Str::random(40) . '.' . $this->headerPhoto->extension();
+            $this->headerPhoto->storeAs('blog/header_photos', $headername, 'public');
+            $this->post->header_photo_path = 'blog/header_photos/' . $headername;
+        }
+
+        if ($this->blogPhoto) {
+            $thumbname = Str::random(40) . '.' . $this->blogPhoto->extension();
+            $this->blogPhoto->storeAs('blog/thumbnails', $thumbname, 'public');
+            $this->post->blog_photo_path = 'blog/thumbnails/' . $thumbname;
+        }
+
         $this->post->slug = Str::slug($this->post->title, '-');
 
         $this->post->save();
-        $this->dispatch('done', success: 'Successfully added a new Blog');
+        $this->dispatch('done', success: 'Successfully updated the Blog Post');
         $this->redirect(route('admin.blog-posts.index'));
     }
 

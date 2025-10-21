@@ -15,10 +15,13 @@ use Livewire\Component;
 class BookingForm extends Component
 {
 
-    public BookingRequest $bookingRequest;
-    public Client $client;
-    public $dateNotAvailable = false;
-    public $client_name, $client_email, $client_phone_number, $client_country;
+    public ?BookingRequest $bookingRequest = null;
+    public ?Client $client = null;
+    public ?bool $dateNotAvailable = false;
+    public ?string $client_name = '';
+    public ?string $client_email = '';
+    public ?string $client_phone_number = '';
+    public ?string $client_country = '';
 
 
     protected $listeners = [
@@ -29,12 +32,24 @@ class BookingForm extends Component
         'bookingRequest.start_time' => 'required|after_or_equal:today',
         'bookingRequest.event_type_id' => 'required',
         'bookingRequest.package_id' => 'required',
-        'bookingRequest.capacity_adults' => 'required',
-        'bookingRequest.capacity_children' => 'required',
-        'client_name' => 'required',
+        'bookingRequest.capacity_adults' => 'required|integer|min:1',
+        'bookingRequest.capacity_children' => 'required|integer|min:0',
+        'client_name' => 'required|string|min:3',
         'client_email' => 'required|email',
-        'client_phone_number' => 'required',
-        'client_country' => 'required',
+        'client_phone_number' => 'required|string|min:7',
+        'client_country' => 'required|string|min:2',
+    ];
+
+    protected $validationAttributes = [
+        'bookingRequest.start_time' => 'event date and time',
+        'bookingRequest.event_type_id' => 'event type',
+        'bookingRequest.package_id' => 'menu package',
+        'bookingRequest.capacity_adults' => 'number of adults',
+        'bookingRequest.capacity_children' => 'number of children',
+        'client_name' => 'full name',
+        'client_email' => 'email address',
+        'client_phone_number' => 'phone number',
+        'client_country' => 'country',
     ];
 
     protected $messages = [
@@ -55,6 +70,15 @@ class BookingForm extends Component
     function mount()
     {
         $this->bookingRequest = new BookingRequest();
+    }
+
+    /**
+     * Real-time validation on property update
+     */
+    public function updated($propertyName)
+    {
+        // Validate only the property that changed
+        $this->validateOnly($propertyName);
     }
 
 

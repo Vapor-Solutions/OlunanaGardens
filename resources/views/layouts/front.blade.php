@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
     <link rel="stylesheet" href="/css/plugins.css?{{ time() }}" />
     <link rel="stylesheet" href="/css/style.css?{{ time() }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     @vite(['resources/sass/front.scss'])
     @livewireStyles

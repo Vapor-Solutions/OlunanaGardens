@@ -9,6 +9,18 @@ class Testimonial extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'client_id',
+        'content',
+        'rating',
+        'approved',
+    ];
+
+    protected $casts = [
+        'approved' => 'boolean',
+        'rating' => 'integer',
+    ];
+
     public function client()
     {
         return $this->belongsTo(Client::class);
