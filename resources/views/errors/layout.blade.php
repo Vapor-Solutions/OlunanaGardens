@@ -245,7 +245,7 @@
             <div class="error-code">@yield('code')</div>
             <div class="error-title">@yield('title')</div>
             <div class="error-subtitle">@yield('subtitle', 'Something went wrong')</div>
-            <div class="error-subtitle">@yield('exception', 'error!!')</div>
+            <div class="error-subtitle">@yield('exception')</div>
 
         </div>
 

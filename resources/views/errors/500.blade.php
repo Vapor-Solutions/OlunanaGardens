@@ -5,3 +5,4 @@
 @section('illustration', '⚙️')
 @section('subtitle', 'Something went wrong on our end')
 @section('message', 'We encountered an unexpected error on our server. Our team has been notified and we\'re working on a fix. Please try again later or contact us for assistance.')
+@section('exception', isset($exception) ? $exception->getMessage() : '')
