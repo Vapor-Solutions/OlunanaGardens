@@ -19,14 +19,16 @@ class SendBookingRequestEmailJob implements ShouldQueue
      * Create a new job instance.
      */
     public $bookingRequest;
+    public $client;
 
     public $tries = 3;
 
     public $retryAfter = 60;
 
-    public function __construct($bookingRequest)
+    public function __construct($bookingRequest, $client)
     {
         $this->bookingRequest = $bookingRequest;
+        $this->client = $client;
     }
 
     /**
@@ -34,7 +36,7 @@ class SendBookingRequestEmailJob implements ShouldQueue
      */
     public function handle(): void
     {
-        Mail::to($this->bookingRequest->client->email)->send(new BookingRequestTicket($this->bookingRequest));
+        Mail::to($this->client->email)->send(new BookingRequestTicket($this->bookingRequest));
         Mail::to(env('COMPANY_EMAIL'))->send(new BookingRequest($this->bookingRequest));
     }
 }

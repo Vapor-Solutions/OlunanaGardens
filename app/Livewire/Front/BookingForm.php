@@ -92,7 +92,7 @@ class BookingForm extends Component
 
         // Send to Booking Requests
         $this->bookingRequest->save();
-        SendBookingRequestEmailJob::dispatch($this->bookingRequest);
+        SendBookingRequestEmailJob::dispatch($this->bookingRequest,$this->client);
 
         // $this->reset();
 

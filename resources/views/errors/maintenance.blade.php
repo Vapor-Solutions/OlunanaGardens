@@ -1,5 +1,7 @@
-@extends('errors::minimal')
+@extends('errors::layout')
 
-@section('title', __('Maintenance Mode'))
+@section('title', 'Maintenance Mode')
 @section('code', '503')
-@section('message', __($exception->getMessage() ?: 'The Site is currently on Maintenance'))
+@section('illustration', '🔧')
+@section('subtitle', 'We\'re performing maintenance')
+@section('message', 'We\'re currently performing scheduled maintenance to improve our service. We expect to be back online shortly. Thank you for your patience!')
