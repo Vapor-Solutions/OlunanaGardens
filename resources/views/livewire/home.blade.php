@@ -83,11 +83,17 @@
                                     href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                             </div>
                         </div>
-                        <p><i class="ti-check"></i><small>Call us.</small></p>
                     </div>
                     <!-- Booking From -->
                     {{-- <x-front.booking-form></x-front.booking-form> --}}
                     <div class="col-md-5">
+                        <div class="card-header bg-gradient pb-4 pt-4">
+                            <h3 class="text-black! mb-1 d-flex align-items-center">
+                                <i data-feather="calendar" class="me-2" style="width: 24px; height: 24px;"></i>
+                                <span>Book Now</span>
+                            </h3>
+                            <p class="text-white-50 mb-0 ms-5 small">Check availability & request booking</p>
+                        </div>
                         @livewire('front.booking-form')
                     </div>
                 </div>
