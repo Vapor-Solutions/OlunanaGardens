@@ -63,8 +63,21 @@ class SeoTest extends TestCase
 
     public function test_old_urls_redirect_permanently_to_the_new_ones(): void
     {
-        $this->get('/gallery-section')->assertStatus(301)->assertRedirect('/gallery');
-        $this->get('/blog-posts')->assertStatus(301)->assertRedirect('/blog');
+        $this->get('/gallery-section')->assertStatus(301)->assertRedirect('/photo-gallery');
+        $this->get('/blog-posts')->assertOk();
+    }
+
+    public function test_page_urls_do_not_clash_with_folders_in_public(): void
+    {
+        // The web server serves a real folder before Laravel runs, which made /gallery return 403
+        // because public/gallery holds uploaded images.
+        foreach (self::PAGES as $name) {
+            $path = trim(route($name, [], false), '/');
+            if ($path === '') {
+                continue;
+            }
+            $this->assertFalse(is_dir(public_path($path)), "/$path clashes with a folder in public/ and would never reach Laravel");
+        }
     }
 
     public function test_blog_post_urls_resolve_by_slug_and_the_numeric_duplicate_redirects(): void

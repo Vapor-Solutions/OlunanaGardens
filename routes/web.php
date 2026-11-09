@@ -29,9 +29,12 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/', Livewire\Home::class)->name('home');
     Route::get('/about', Livewire\About::class)->name('about');
     // Route::get('/garden-sections', Livewire\GardenSections::class)->name('garden-sections');
-    Route::get('/gallery', Livewire\Gallery::class)->name('gallery');
+    // public/gallery is a real folder of uploaded images, and the web server serves a real folder before
+    // Laravel sees the request, so the page cannot live at /gallery (it returned 403). Keep page URLs
+    // clear of folder names in public/. SeoTest checks this.
+    Route::get('/photo-gallery', Livewire\Gallery::class)->name('gallery');
     Route::get('/restaurant', Livewire\Restaurant::class)->name('restaurant');
-    Route::get('/blog', Livewire\Blog::class)->name('blog');
+    Route::get('/blog-posts', Livewire\Blog::class)->name('blog');
     Route::get('/faq', Livewire\Faq::class)->name('faq');
     Route::get('/blog/{slug}', Livewire\BlogPost::class)->name('blog-post');
     Route::get('/contact-us', Livewire\ContactUs::class)->name('contact-us');
@@ -39,8 +42,7 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
     // Old URLs stay alive as permanent redirects so existing links and search results carry over.
-    Route::redirect('/gallery-section', '/gallery', 301);
-    Route::redirect('/blog-posts', '/blog', 301);
+    Route::redirect('/gallery-section', '/photo-gallery', 301);
     Route::get('/blog-post/{post}', function (string $post) {
         // The old listing linked some posts by numeric id (/blog-post/2) and others by slug.
         $found = Post::where('slug', $post)->first()

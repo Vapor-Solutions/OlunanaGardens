@@ -5,7 +5,7 @@
     <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
 </li>
 <li class='nav-item'>
-    <a class="nav-link {{ Request::is('gallery*') ? 'active' : '' }}" href='{{ route('gallery') }}'>
+    <a class="nav-link {{ Request::is('photo-gallery*') ? 'active' : '' }}" href='{{ route('gallery') }}'>
         Gallery
     </a>
 </li>
