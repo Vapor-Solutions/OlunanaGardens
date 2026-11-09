@@ -19,8 +19,8 @@ return [
     // Social preview image, relative to /public.
     'default_image' => 'img/slider/1.jpg',
 
-    'title_default' => 'Olunana Gardens | Wedding & Event Venue, Koma Rock',
-    'description_default' => 'Olunana Gardens is a garden venue at Koma Rock for weddings, corporate events and celebrations, with a restaurant on site. Check availability and book online.',
+    'title_default' => 'Olunana Gardens | Wedding & Event Venue, Koma',
+    'description_default' => 'Olunana Gardens is a garden venue in Koma for weddings, corporate events and celebrations, with a restaurant on site. Check availability and book online.',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,18 +34,18 @@ return [
     'pages' => [
 
         'home' => [
-            'title' => 'Olunana Gardens | Wedding & Event Venue, Koma Rock',
-            'description' => 'Olunana Gardens is a garden venue at Koma Rock for weddings, corporate events and celebrations, with a restaurant on site. Check availability and book online.',
+            'title' => 'Olunana Gardens | Wedding & Event Venue, Koma',
+            'description' => 'Olunana Gardens is a garden venue in Koma for weddings, corporate events and celebrations, with a restaurant on site. Check availability and book online.',
         ],
 
         'about' => [
             'title' => 'About Olunana Gardens | Garden Venue & Restaurant',
-            'description' => 'Get to know Olunana Gardens: landscaped gardens and event spaces at Koma Rock, made for weddings, retreats and special occasions, with a restaurant on site.',
+            'description' => 'Get to know Olunana Gardens: landscaped gardens and event spaces in Koma, made for weddings, retreats and special occasions, with a restaurant on site.',
         ],
 
         'gallery' => [
             'title' => 'Photo Gallery | Olunana Gardens Events & Gardens',
-            'description' => 'Browse photos of Olunana Gardens, from the gardens to event setups for each type of celebration, and picture your own event at our Koma Rock venue.',
+            'description' => 'Browse photos of Olunana Gardens, from the gardens to event setups for each type of celebration, and picture your own event at our Koma venue.',
         ],
 
         'restaurant' => [
@@ -55,7 +55,7 @@ return [
 
         'blog' => [
             'title' => 'Blog & News | Olunana Gardens',
-            'description' => 'News, stories and updates from Olunana Gardens, the garden events venue and restaurant at Koma Rock.',
+            'description' => 'News, stories and updates from Olunana Gardens, the garden events venue and restaurant in Koma.',
         ],
 
         'faq' => [
