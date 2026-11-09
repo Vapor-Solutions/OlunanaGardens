@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
-                    <h5>Images & Videos</h5>
+                    <p class="eyebrow">Images & Videos</p>
                     <h1>Our Gallery</h1>
                 </div>
             </div>
@@ -32,7 +32,8 @@
                             <a href="{{ asset($photo->image_path) }}" title="" target="_blank" class="img-zoom">
                                 <div class="gallery-box">
                                     <div class="gallery-img "> <img src="{{ asset($photo->image_path) }}"
-                                            class="img-fluid mx-auto d-block" alt="work-img"> </div>
+                                            class="img-fluid mx-auto d-block" loading="lazy" decoding="async"
+                                            alt="{{ $photo->title ?: $type->title . ' at Olunana Gardens' }}"> </div>
                                 </div>
                             </a>
                         </div>
@@ -43,7 +44,7 @@
         </div>
     </section>
     <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg?{{ time() }}"
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{ \App\Support\Assets::v('img/slider/2.jpg') }}"
             data-overlay-dark="2">
             <div class="container">
                 <div class="row">
@@ -59,7 +60,6 @@
                                     href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                             </div>
                         </div>
-                        <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>
                     </div>
                     <!-- Booking From -->
                     {{-- <x-front.booking-form></x-front.booking-form> --}}

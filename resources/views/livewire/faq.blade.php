@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
-                    <h5>F.A.Qs</h5>
+                    <p class="eyebrow">F.A.Qs</p>
                     <h1>Frequently Asked Questions</h1>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                                 </li>
                             @endforeach
                         @else
-                            <h1 class="text-center">No FAQs set yet</h1>
+                            <h2 class="text-center">No FAQs set yet</h2>
                         @endif
 
                     </ul>
@@ -39,7 +39,7 @@
     </section>
 
     <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg?{{ time() }}"
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{ \App\Support\Assets::v('img/slider/2.jpg') }}"
             data-overlay-dark="2">
             <div class="container">
                 <div class="row">

@@ -1,11 +1,11 @@
 <div>
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
-        data-background="img/banners/blog.jpg?{{ time() }}" wire:ignore>
+        data-background="{{ \App\Support\Assets::v('img/banners/blog.jpg') }}" wire:ignore>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
-                    <h5>Hotel Blog</h5>
-                    <h1>Our News</h1>
+                    <p class="eyebrow">Olunana Gardens</p>
+                    <h1>Our Blog</h1>
                 </div>
             </div>
         </div>
@@ -19,9 +19,9 @@
 
                 <div wire:key='post-{{ $post->id }}' class="col-md-4 mb-30">
                     <div class="item">
-                        <div class="position-re o-hidden"> <img class="img-fluid" width="900" height="1200" src="{{ asset($post->blog_photo_url) }}" alt="">
+                        <div class="position-re o-hidden"> <img class="img-fluid" width="900" height="1200" src="{{ asset($post->blog_photo_url) }}" alt="{{ $post->title }}" loading="lazy">
                             <div class="date">
-                                <a href="{{ route('blog-post', $post->id) }}">
+                                <a href="{{ route('blog-post', $post->slug) }}">
                                     <span>{{ Carbon\Carbon::parse($post->created_at)->format('M') }}</span>
                                     <i>{{ Carbon\Carbon::parse($post->created_at)->format('d') }}</i> </a>
                             </div>
@@ -42,12 +42,12 @@
             </div>
         </div>
         @else
-        <h1 class="text-center text-muted">No Posts Yet</h1>
+        <h2 class="text-center text-muted">No Posts Yet</h2>
         @endif
     </section>
 
     <section class="testimonials" wire:ignore>
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg?{{ time() }}"
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{ \App\Support\Assets::v('img/slider/2.jpg') }}"
             data-overlay-dark="2">
             <div class="container">
                 <div class="row">
@@ -55,8 +55,7 @@
                     <div class="col-md-7 mb-30 mt-30">
                         <p><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i
                                 class="star-rating"></i><i class="star-rating"></i></p>
-                        <h5>Each of our guest rooms feature a private bath, wi-fi, cable television and include full
-                            breakfast.</h5>
+                        <h5>Embrace Tranquility and Luxury Amidst Nature's Splendor at Olunana Gardens</h5>
                         <div class="reservations mb-30">
                             <div class="icon color-1"><span class="flaticon-call"></span></div>
                             <div class="text">
@@ -64,7 +63,6 @@
                                     href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                             </div>
                         </div>
-                        <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>
                     </div>
                     <!-- Booking From -->
                     {{-- <x-front.booking-form></x-front.booking-form> --}}

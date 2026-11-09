@@ -14,9 +14,9 @@
 
                         @foreach ($posts as $post)
                         <div wire:key='post-{{ $post->id }}' class="item">
-                            <div class="position-re o-hidden"> <img src="{{ $post->blog_photo_url }}" alt="">
+                            <div class="position-re o-hidden"> <img src="{{ $post->blog_photo_url }}" alt="{{ $post->title }}" loading="lazy">
                                 <div class="date">
-                                    <a href="{{ route('blog-post', $post->id) }}">
+                                    <a href="{{ route('blog-post', $post->slug) }}">
                                         <span>{{ Carbon\Carbon::parse($post->created_at)->format('M') }}</span>
                                         <i>{{ Carbon\Carbon::parse($post->created_at)->format('d') }}</i> </a>
                                 </div>
@@ -31,7 +31,7 @@
                     </div>
                     @else
                     <div class="card bg-transparent border-0">
-                        <h1 class="text-center text-white">No Posts Made Yet</h1>
+                        <h2 class="text-center text-white">No Posts Made Yet</h2>
                     </div>
                     @endif
                 </div>

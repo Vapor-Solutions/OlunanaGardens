@@ -5492,3 +5492,49 @@ select {
         text-align: center;
     }
 }
+
+/* Heading semantics: the small lines above page titles are paragraphs, styled exactly like the old h5/h4. */
+.banner-header .eyebrow {
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    line-height: 1.25em;
+    margin: 0 0 10px 0;
+}
+.banner-header .eyebrow a {
+    color: #95343f;
+}
+.kenburns-inner .caption .hero-eyebrow {
+    font-family: 'Barlow Condensed', serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.25em;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #fff;
+    margin: 20px 0;
+}
+.kenburns-inner .caption h1.hero-title {
+    position: relative;
+    margin-bottom: 20px;
+    font-family: 'Gilda Display', serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    line-height: 1.35em;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+@media screen and (max-width: 767px) {
+    .kenburns-inner .caption .hero-eyebrow {
+        font-size: 12px;
+    }
+    .kenburns-inner .caption h1.hero-title {
+        font-size: 30px;
+        margin-bottom: 15px;
+        letter-spacing: 5px;
+        line-height: 1.35em;
+    }
+}

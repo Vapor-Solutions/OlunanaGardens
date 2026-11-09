@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Olunana Gardens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    @include('partials.seo')
     <link rel="shortcut icon" href="/img/favicon.png" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" href="/css/plugins.css?{{ time() }}" />
-    <link rel="stylesheet" href="/css/style.css?{{ time() }}" />
+    <link rel="stylesheet" href="{{ \App\Support\Assets::v('css/plugins.css') }}" />
+    <link rel="stylesheet" href="{{ \App\Support\Assets::v('css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     @vite(['resources/sass/front.scss'])
@@ -45,7 +45,7 @@
         <div class="container">
             <!-- Logo -->
             <div class="logo-wrapper">
-                <a class="logo" href="{{ route('home') }}"> <img src="{{ asset('img/logo.png') }}" class="logo-img" alt="">
+                <a class="logo" href="{{ route('home') }}"> <img src="{{ asset('img/logo.png') }}" class="logo-img" alt="Olunana Gardens logo">
                 </a>
                 <!-- <a class="logo" href="index.html"> <h2>THE CAPPA <span>Luxury Hotel</span></h2> </a> -->
             </div>
@@ -90,7 +90,7 @@
     <script src="/js/smooth-scroll.min.js"></script>
     <script src="/js/vegas.slider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/custom.js?{{ rand(1, 670) }}"></script>
+    <script src="{{ \App\Support\Assets::v('js/custom.js') }}"></script>
     @livewireScripts
     @stack('scripts')
     <!-- Vegas Background Slideshow (vegas.slider kenburns) -->
@@ -98,11 +98,11 @@
         $(document).ready(function() {
             $('#kenburnsSliderContainer').vegas({
                 slides: [{
-                    src: "img/slider/1.jpg"
+                    src: "/img/slider/1.jpg"
                 }, {
-                    src: "img/slider/2.jpg"
+                    src: "/img/slider/2.jpg"
                 }, {
-                    src: "img/slider/3.jpg"
+                    src: "/img/slider/3.jpg"
                 }],
                 overlay: true,
                 transition: 'fade2',

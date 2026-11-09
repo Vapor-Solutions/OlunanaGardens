@@ -1,2 +1,9 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /user/
+
+Sitemap: https://olunanagardens.com/sitemap.xml

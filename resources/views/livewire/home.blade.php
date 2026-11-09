@@ -11,8 +11,8 @@
                                     <i class="star-rating"></i>
                                     <i class="star-rating"></i>
                                 </span>
-                                <h4>Welcome to OluNana Gardens</h4>
-                                <h3>BLOOMING EVENTS IN NATURE'S EMBRACE</h3>
+                                <p class="hero-eyebrow">Welcome to OluNana Gardens</p>
+                                <h1 class="hero-title">BLOOMING EVENTS IN NATURE'S EMBRACE</h1>
                                 <div class="butn-light mt-30 mb-30"> <a href="{{ route('restaurant') }}"><span>Our
                                             Restaurant</span></a> </div>
                             </div>
@@ -55,9 +55,9 @@
                     <img src="olunana/img/19.jpg" alt="" class="mt-90 mb-30">
                 </div> --}}
                 <div class="col col-md-6 animate-box" data-animate-effect="fadeInUp">
-                    <img src="olunana/img/6.jpg" class="my-3 rounded shadow-sm" alt="">
+                    <img src="olunana/img/6.jpg" class="my-3 rounded shadow-sm" alt="Rose garden bed and the event pavilion on the lawn at Olunana Gardens">
 
-                    <img src="olunana/img/11.jpg" class="my-3 rounded shadow-sm" alt="">
+                    <img src="olunana/img/11.jpg" class="my-3 rounded shadow-sm" alt="Manicured lawn with a hanging egg chair and the pavilion at Olunana Gardens" loading="lazy">
                     {{-- <img src="olunana/img/9.jpg" class="my-3" alt=""> --}}
                 </div>
             </div>
@@ -67,7 +67,7 @@
     @livewire('front.blog')
 
     <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg?{{ time() }}"
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="{{ \App\Support\Assets::v('img/slider/2.jpg') }}"
             data-overlay-dark="2">
             <div class="container">
                 <div class="row">

@@ -5,7 +5,7 @@
     <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
 </li>
 <li class='nav-item'>
-    <a class="nav-link {{ Request::is('gallery-section') ? 'active' : '' }}" href='{{ route('gallery') }}'>
+    <a class="nav-link {{ Request::is('gallery*') ? 'active' : '' }}" href='{{ route('gallery') }}'>
         Gallery
     </a>
 </li>
@@ -13,7 +13,7 @@
     <a class="nav-link {{ Request::is('restaurant') ? 'active' : '' }}" href="{{ route('restaurant') }}">Restaurant</a>
 </li>
 <li class='nav-item'>
-    <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="{{ route('blog') }}">Our Blog</a>
+    <a class="nav-link {{ Request::is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">Our Blog</a>
 </li>
 <li class='nav-item'>
     <a class="nav-link {{ Request::is('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>

@@ -1,9 +1,11 @@
 <?php
 
 use App\Livewire;
+use App\Http\Controllers\SitemapController;
 use App\Livewire\Admin;
 use App\Models\MenuCategory;
 use App\Models\MenuItem;
+use App\Models\Post;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 
@@ -27,12 +29,27 @@ if (env('MAINTENANCE_MODE')) {
     Route::get('/', Livewire\Home::class)->name('home');
     Route::get('/about', Livewire\About::class)->name('about');
     // Route::get('/garden-sections', Livewire\GardenSections::class)->name('garden-sections');
-    Route::get('/gallery-section', Livewire\Gallery::class)->name('gallery');
+    Route::get('/gallery', Livewire\Gallery::class)->name('gallery');
     Route::get('/restaurant', Livewire\Restaurant::class)->name('restaurant');
-    Route::get('/blog-posts', Livewire\Blog::class)->name('blog');
+    Route::get('/blog', Livewire\Blog::class)->name('blog');
     Route::get('/faq', Livewire\Faq::class)->name('faq');
-    Route::get('/blog-post/{slug}', Livewire\BlogPost::class)->name('blog-post');
+    Route::get('/blog/{slug}', Livewire\BlogPost::class)->name('blog-post');
     Route::get('/contact-us', Livewire\ContactUs::class)->name('contact-us');
+
+    Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+
+    // Old URLs stay alive as permanent redirects so existing links and search results carry over.
+    Route::redirect('/gallery-section', '/gallery', 301);
+    Route::redirect('/blog-posts', '/blog', 301);
+    Route::get('/blog-post/{post}', function (string $post) {
+        // The old listing linked some posts by numeric id (/blog-post/2) and others by slug.
+        $found = Post::where('slug', $post)->first()
+            ?? (ctype_digit($post) ? Post::find($post) : null);
+
+        abort_if(! $found || ! $found->slug, 404);
+
+        return redirect()->route('blog-post', $found->slug, 301);
+    });
 
     Route::get('/olunana-menu', function () {
         $pdf = Pdf::loadView('doc.menu', [

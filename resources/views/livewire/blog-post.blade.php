@@ -6,11 +6,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
-                    <h5><a href="news.html">Blog</a> / Post Page</h5>
+                    <p class="eyebrow"><a href="{{ route('blog') }}">Blog</a></p>
                     <h1>{{ $post->title }}</h1>
                     <div class="post">
-                        <div class="author"> <img src="{{ $post->author->profile_photo_url }}" alt=""
-                                class="avatar"> <span>{{ $post->author->name }}</span> </div>
+                        <div class="author"> <img src="{{ $post->author?->profile_photo_url }}" alt=""
+                                class="avatar"> <span>{{ $post->author?->name }}</span> </div>
                         <div class="date-comment"> <i class="ti-calendar"></i>
                             {{ Carbon\Carbon::parse($post->created_at)->format('jS M, Y') }}
                         </div>
@@ -37,7 +37,7 @@
                                 <ul class="recent">
                                     @foreach (App\Models\Post::orderBy('created_at', 'DESC')->take(4)->get() as $item)
                                     <li>
-                                        <div class="thum"> <img src="{{ $item->blog_photo_path }}" alt="">
+                                        <div class="thum"> <img src="{{ $item->blog_photo_path }}" alt="{{ $item->title }}" loading="lazy">
                                         </div>
                                         <a href="{{ route('blog-post', $item->slug) }}">{{ $item->title }}</a>
                                     </li>
